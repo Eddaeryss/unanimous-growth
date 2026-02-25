@@ -248,6 +248,7 @@
         position: relative;
         z-index: 2;
         width: 100%;
+        box-sizing: border-box; /* ESTA ES LA LÍNEA MÁGICA QUE ARREGLÓ EL BUG EN MÓVIL */
     }
 
     /* ANIMACIONES REVEAL */
@@ -292,7 +293,6 @@
     }
     .navbar.scrolled .menu-toggle .bar { background-color: var(--color-black); }
     
-    /* Animación del icono de menú a "X" */
     .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -302,6 +302,7 @@
         display: flex; align-items: center; justify-content: space-between;
         padding: 80px 4rem 10vh 4rem; 
         max-width: 1400px; margin: 0 auto;
+        box-sizing: border-box;
     }
     .hero-content { flex: 1.1; padding-right: 2rem; }
     .hero-content h1 { font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: 1.1; font-weight: 600; margin-bottom: 2vh; }
@@ -364,48 +365,42 @@
        ========================================= */
     @media (max-width: 900px) {
         
-        /* 1. Navbar y Menú Hamburguesa */
         .navbar { padding: 0 1.5rem; }
         .menu-toggle { display: flex; }
         
         .nav-links {
-            position: fixed; /* Fixed para cubrir la pantalla */
-            top: 0; left: -100%; /* Oculto fuera de la pantalla por la izquierda */
+            position: fixed; 
+            top: 0; left: -100%; 
             width: 100%; height: 100vh;
             background-color: var(--color-black);
             flex-direction: column;
             justify-content: center; align-items: center;
             transition: left 0.4s ease;
-            z-index: 1001; /* Queda por debajo del header pero por encima de todo lo demás */
+            z-index: 1001; 
         }
-        .nav-links.active { left: 0; } /* Animación al entrar */
+        .nav-links.active { left: 0; } 
         
-        /* Forzamos el color claro en las letras del menú móvil sin importar el scroll */
         .nav-links a { color: var(--color-cream); font-size: 1.8rem; margin: 15px 0; }
         .navbar.scrolled .menu-toggle .bar { background-color: var(--color-black); }
-        .navbar.scrolled .menu-toggle.active .bar { background-color: var(--color-cream); } /* Si está abierto, las rayitas deben ser blancas */
+        .navbar.scrolled .menu-toggle.active .bar { background-color: var(--color-cream); } 
 
-        /* 2. Soltar las alturas para evitar superposición */
         .fullscreen-section {
             height: auto;
             min-height: 100vh;
-            padding-bottom: 120px; /* Mucho espacio inferior para el botón de scroll */
+            padding-bottom: 120px; 
         }
         
-        /* 3. Hero Section Móvil */
         .hero-section { flex-direction: column; padding-top: 120px; text-align: center; }
         .hero-content { padding-right: 0; margin-bottom: 4vh; }
         .hero-content h1 { font-size: 3rem; }
         .hero-image { width: 100%; }
         
-        /* 4. Limpieza visual */
-        .desktop-only { display: none; } /* Ocultamos estrellas para no saturar */
+        .desktop-only { display: none; } 
         
-        /* 5. Ajustes de Layout */
-        .content-wrapper { padding: 0 1.5rem; }
+        /* Ajuste clave aquí, mantenemos box-sizing y reducimos el padding lateral para celular */
+        .content-wrapper { padding: 0 1.5rem; box-sizing: border-box; }
         .services-grid { grid-template-columns: 1fr; gap: 3rem; }
         
-        /* Evitamos que el Whatsapp tape contenido */
         .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
     }
 </style>
