@@ -36,17 +36,25 @@
     </nav>
 
     <header id="inicio" class="fullscreen-section hero-section">
-        <div class="hero-content reveal">
+        
+        <div class="mesh-background">
+            <div class="mesh-orb orb-1"></div>
+            <div class="mesh-orb orb-2"></div>
+            <div class="mesh-orb orb-3"></div>
+        </div>
+
+        <div class="hero-content reveal relative-layer">
             <h1>Crezcamos <span class="text-script">unánimes</span><br>estrategias para<br>expandir tu negocio.</h1>
             <p class="hero-subtitle">Soluciones digitales, para negocios,<br>en un mundo tecnológico.</p>
         </div>
-        <div class="hero-image reveal" style="transition-delay: 0.2s;">
+        
+        <div class="hero-image reveal relative-layer" style="transition-delay: 0.2s;">
             <div class="image-premium-wrapper">
                 <img src="/graficca.jpg" alt="Estrategia digital y gráficas">
             </div>
         </div>
         
-        <a href="#unanimidad" class="scroll-down-btn" aria-label="Bajar a Visión">
+        <a href="#unanimidad" class="scroll-down-btn relative-layer" aria-label="Bajar a Visión">
             <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>
     </header>
@@ -154,7 +162,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Animaciones de Scroll
             const reveals = document.querySelectorAll('.reveal');
             const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -167,7 +174,6 @@
 
             reveals.forEach(reveal => revealObserver.observe(reveal));
 
-            // Lógica Navbar
             const navbar = document.getElementById('navbar');
             const heroSection = document.getElementById('inicio');
             
@@ -179,7 +185,6 @@
                 }
             });
 
-            // Lógica Menú Móvil
             const menuToggle = document.getElementById('mobile-menu');
             const navLinks = document.getElementById('nav-links');
             const navItems = document.querySelectorAll('.nav-item');
@@ -189,7 +194,6 @@
                 menuToggle.classList.toggle('active');
             });
 
-            // Cerrar menú al hacer clic en un enlace (Móvil)
             navItems.forEach(item => {
                 item.addEventListener('click', () => {
                     if (navLinks.classList.contains('active')) {
@@ -248,7 +252,7 @@
         position: relative;
         z-index: 2;
         width: 100%;
-        box-sizing: border-box; /* ESTA ES LA LÍNEA MÁGICA QUE ARREGLÓ EL BUG EN MÓVIL */
+        box-sizing: border-box;
     }
 
     /* ANIMACIONES REVEAL */
@@ -277,27 +281,71 @@
     .nav-links a { font-family: var(--font-serif); font-size: 1.1rem; transition: opacity 0.3s ease; }
     .nav-links a:hover { opacity: 0.6; }
 
-    /* Menú Hamburguesa Oculto en PC */
-    .menu-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 6px;
-        cursor: pointer;
-        z-index: 1002;
-    }
-    .menu-toggle .bar {
-        width: 30px;
-        height: 2px;
-        background-color: var(--color-cream);
-        transition: all 0.3s ease;
-    }
+    .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1002; }
+    .menu-toggle .bar { width: 30px; height: 2px; background-color: var(--color-cream); transition: all 0.3s ease; }
     .navbar.scrolled .menu-toggle .bar { background-color: var(--color-black); }
     
     .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* --- SECCIONES --- */
+
+    /* --- SECCIONES & MESH GRADIENT --- */
+
+    /* Importante para el Mesh: Forzar que el texto e imagen del hero pasen por delante */
+    .relative-layer {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Fondo animado GPU-Accelerated */
+    .mesh-background {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 0;
+        overflow: hidden;
+        background-color: var(--color-black);
+        pointer-events: none; /* Evita que bloquee los clicks del usuario */
+    }
+
+    .mesh-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.6;
+        animation: moveOrb 20s infinite alternate ease-in-out;
+        will-change: transform; /* Optimización estricta para que el navegador no se trabe */
+    }
+
+    .orb-1 {
+        width: 50vw; height: 50vw;
+        background: rgba(250, 249, 245, 0.08); /* Crema casi invisible */
+        top: -10%; left: -10%;
+        animation-duration: 25s;
+    }
+
+    .orb-2 {
+        width: 45vw; height: 45vw;
+        background: rgba(80, 80, 80, 0.15); /* Gris muy sutil para dar volumen */
+        bottom: -20%; right: -10%;
+        animation-duration: 22s;
+        animation-delay: -5s;
+    }
+
+    .orb-3 {
+        width: 35vw; height: 35vw;
+        background: rgba(250, 249, 245, 0.05); /* Crema casi invisible */
+        top: 40%; left: 30%;
+        animation-duration: 28s;
+        animation-delay: -10s;
+    }
+
+    @keyframes moveOrb {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(10vw, 15vh) scale(1.1); }
+        100% { transform: translate(-10vw, -10vh) scale(0.9); }
+    }
+
     .hero-section {
         display: flex; align-items: center; justify-content: space-between;
         padding: 80px 4rem 10vh 4rem; 
@@ -361,7 +409,7 @@
 
 
     /* =========================================
-       MEDIA QUERIES (MAGIA PARA MÓVILES)
+       MEDIA QUERIES
        ========================================= */
     @media (max-width: 900px) {
         
@@ -397,7 +445,6 @@
         
         .desktop-only { display: none; } 
         
-        /* Ajuste clave aquí, mantenemos box-sizing y reducimos el padding lateral para celular */
         .content-wrapper { padding: 0 1.5rem; box-sizing: border-box; }
         .services-grid { grid-template-columns: 1fr; gap: 3rem; }
         
