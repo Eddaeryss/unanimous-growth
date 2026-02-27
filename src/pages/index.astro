@@ -16,7 +16,7 @@
 
     <nav id="navbar" class="navbar">
         <div class="logo-container">
-            <a href="#inicio">
+            <a href="#inicio" class="logo-link">
                 <img src="/logg2.jpg" alt="Unanimous Growth" class="nav-logo logo-dark-bg">
                 <img src="/logo-crema.jpg" alt="Unanimous Growth" class="nav-logo logo-light-bg">
             </a>
@@ -32,25 +32,21 @@
             <li><a href="#inicio" class="nav-item">Inicio</a></li>
             <li><a href="#unanimidad" class="nav-item">Visión</a></li>
             <li><a href="#nosotros" class="nav-item">Nosotros</a></li>
-            <li><a href="#servicios" class="nav-item">Servicios</a></li>
+            <li><a href="/servicios" class="nav-item">Servicios</a></li>
             <li><a href="#contacto" class="nav-item">Contacto</a></li>
         </ul>
     </nav>
 
     <header id="inicio" class="fullscreen-section hero-section">
         
-        <div class="mesh-background">
-            <div class="mesh-orb orb-1"></div>
-            <div class="mesh-orb orb-2"></div>
-            <div class="mesh-orb orb-3"></div>
-        </div>
+        <div id="tsparticles" class="particles-bg"></div>
 
-        <div class="hero-content reveal relative-layer">
+        <div class="hero-content gsap-hero relative-layer">
             <h1>Crezcamos <span class="text-script">unánimes</span><br>estrategias para<br>expandir tu negocio.</h1>
             <p class="hero-subtitle">Soluciones digitales, para negocios,<br>en un mundo tecnológico.</p>
         </div>
         
-        <div class="hero-image reveal relative-layer" style="transition-delay: 0.2s;">
+        <div class="hero-image gsap-hero relative-layer">
             <div class="image-premium-wrapper">
                 <img src="/graficca.jpg" alt="Estrategia digital y gráficas">
             </div>
@@ -67,12 +63,12 @@
         <svg class="star desktop-only" style="bottom: 25%; left: 5%; transform: rotate(-10deg);" viewBox="0 0 100 100" width="30"><path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" fill="#000"/></svg>
 
         <div class="content-wrapper text-center compact-layout">
-            <div class="reveal">
+            <div class="gsap-section">
                 <h2 class="heading-mixed">Crecemos contigo en <span class="text-script-large">unanimidad</span></h2>
                 <p class="subtitle-large">Creamos páginas web, automatizaciones y estrategias de marketing diseñadas para aumentar tus ventas y optimizar tus procesos.</p>
             </div>
             
-            <div class="huge-logo reveal" style="transition-delay: 0.1s;">
+            <div class="huge-logo gsap-section">
                 <img src="/logo-crema.jpg" alt="Unanimous Growth Logo Gigante">
             </div>
         </div>
@@ -86,7 +82,7 @@
         <svg class="star desktop-only" style="top: 20%; left: 10%; transform: rotate(10deg);" viewBox="0 0 100 100" width="40"><path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" fill="#000"/></svg>
         <svg class="star desktop-only" style="bottom: 20%; right: 10%; transform: rotate(-15deg);" viewBox="0 0 100 100" width="55"><path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" fill="#000"/></svg>
 
-        <div class="content-wrapper text-center reveal">
+        <div class="content-wrapper text-center gsap-section">
             <h2 class="title-serif-huge" style="margin-bottom: 2vh;">Sobre Nosotros</h2>
             <p class="body-large">
                 <strong>Unanimous Growth</strong> nace del crecimiento compartido: como <strong>pareja</strong>, como <strong>socios</strong> y como <strong>empresa</strong>. Creemos que el verdadero avance ocurre en <strong>unanimidad</strong>, por eso ayudamos a empresas a crecer con <strong>estrategia, tecnología y visión</strong>. Ofrecemos soluciones digitales integrales que van más allá de crear páginas web: desarrollamos <strong>herramientas a medida, automatizaciones con inteligencia artificial, gestión y estrategia de marketing digital, branding y campañas publicitarias</strong>.
@@ -101,16 +97,15 @@
         </a>
     </section>
 
-    <section id="servicios" class="fullscreen-section cream-section align-center" style="padding-bottom: 60px;">
+    <section id="servicios" class="cream-section align-center" style="min-height: 100vh; padding-bottom: 80px;">
         <svg class="star desktop-only" style="top: 10%; left: 8%;" viewBox="0 0 100 100" width="40"><path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" fill="#000"/></svg>
-        <svg class="star desktop-only" style="top: 50%; right: 5%;" viewBox="0 0 100 100" width="30"><path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" fill="#000"/></svg>
-
-        <div class="content-wrapper text-center reveal">
-            <h2 class="title-serif-huge" style="margin-bottom: 4vh;">SERVICIOS</h2>
+        
+        <div class="content-wrapper text-center">
+            <h2 class="title-serif-huge gsap-section" style="margin-bottom: 4vh;">SERVICIOS</h2>
             
-            <div class="services-grid">
+            <div class="services-grid" id="stagger-container">
                 
-                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <div class="service-card gsap-stagger">
                     <a href="/servicios#desarrollo" class="service-link">
                         <div class="icon-container">
                             <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -126,7 +121,7 @@
                     </a>
                 </div>
 
-                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <div class="service-card gsap-stagger">
                     <a href="/servicios#ia" class="service-link">
                         <div class="icon-container">
                             <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -144,7 +139,7 @@
                     </a>
                 </div>
 
-                <div class="service-card reveal" style="transition-delay: 0.3s;">
+                <div class="service-card gsap-stagger">
                     <a href="/servicios#marketing" class="service-link">
                         <div class="icon-container">
                             <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -159,7 +154,7 @@
                     </a>
                 </div>
 
-                <div class="service-card reveal" style="transition-delay: 0.4s;">
+                <div class="service-card gsap-stagger">
                     <a href="/servicios#ads" class="service-link">
                         <div class="icon-container">
                             <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -173,7 +168,7 @@
                     </a>
                 </div>
 
-                <div class="service-card reveal" style="transition-delay: 0.5s;">
+                <div class="service-card gsap-stagger">
                     <a href="/servicios#branding" class="service-link">
                         <div class="icon-container">
                             <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -184,7 +179,7 @@
                     </a>
                 </div>
 
-                <div class="service-card reveal" style="transition-delay: 0.6s;">
+                <div class="service-card gsap-stagger">
                     <a href="/servicios#paquetes" class="service-link">
                         <div class="icon-container">
                             <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -200,15 +195,15 @@
             </div>
         </div>
 
-        <a href="#inicio" class="scroll-down-btn dark-btn" aria-label="Subir al inicio">
+        <a href="#inicio" class="scroll-down-btn dark-btn" aria-label="Subir al inicio" style="position: relative; margin-top: 20px;">
             <svg style="transform: rotate(180deg);" viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>
     </section>
 
     <footer id="contacto" class="footer-section">
-        <div class="container footer-content">
+        <div class="content-wrapper footer-content">
             <div class="footer-col brand-col">
-                <img src="/logo-crema.jpg" alt="Unanimous Growth" class="footer-logo">
+                <img src="/logo-crema.jpg" alt="Unanimous Growth" style="width: 200px; max-width: 100%; height: auto; mix-blend-mode: screen; margin-bottom: 1rem; display: block;">
                 <p class="footer-tagline">Crecemos juntos, con propósito y dirección.</p>
             </div>
             
@@ -216,7 +211,7 @@
                 <h4>Contacto</h4>
                 <p>📍 Saltillo, Coahuila, México</p>
                 <p>📞 +52 844 910 2095</p>
-                <p>✉️ unanimesorg@gmail.com</p>
+                <p>✉️ hola@unanimousgrowth.com</p>
             </div>
             
             <div class="footer-col links-col">
@@ -224,7 +219,7 @@
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="/servicios">Servicios</a></li>
                 </ul>
             </div>
         </div>
@@ -238,31 +233,78 @@
         <svg viewBox="0 0 32 32" width="34" height="34" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.002 2.05A13.91 13.91 0 0 0 2.096 15.96c0 2.45.635 4.84 1.84 6.95L2 29.91l7.16-1.875a13.92 13.92 0 0 0 6.842 1.785h.005A13.912 13.912 0 0 0 29.912 15.96 13.913 13.913 0 0 0 16.002 2.05zm0 23.366a11.536 11.536 0 0 1-5.875-1.6l-.42-.25-4.364 1.144 1.164-4.25-.274-.436A11.532 11.532 0 0 1 4.453 15.96a11.554 11.554 0 0 1 11.55-11.554 11.554 11.554 0 0 1 11.553 11.555 11.554 11.554 0 0 1-11.554 11.455zm6.336-8.663c-.347-.174-2.05-1.013-2.368-1.13-.318-.115-.55-.173-.78.174-.23.346-.897 1.128-1.098 1.36-.2.23-.404.26-.75.086-.347-.173-1.464-.54-2.79-1.724-1.03-1.03-1.725-2.305-1.927-2.652-.202-.347-.022-.535.152-.708.156-.155.347-.404.52-.606.174-.203.232-.347.347-.578.116-.23.058-.433-.028-.606-.087-.173-.78-1.88-1.07-2.574-.28-.675-.568-.583-.78-.594-.2-.01-.432-.012-.663-.012a1.27 1.27 0 0 0-.925.433c-.318.347-1.214 1.186-1.214 2.89s1.243 3.352 1.416 3.583c.174.23 2.44 3.73 5.91 5.23 2.835 1.226 3.468 1.13 4.103 1.07.636-.057 2.05-.838 2.34-1.648.29-.81.29-1.503.203-1.648-.087-.145-.318-.23-.665-.405z"/></svg>
     </a>
 
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
+            // 1. Efecto IA Nodos y Conexiones
+            tsParticles.load("tsparticles", {
+                fullScreen: { enable: false },
+                particles: {
+                    number: { value: 50 },
+                    color: { value: "#FAF9F5" },
+                    links: { enable: true, color: "#FAF9F5", distance: 150, opacity: 0.2, width: 1 },
+                    move: { enable: true, speed: 0.8 },
+                    size: { value: 2 },
+                    opacity: { value: 0.3 }
+                }
+            });
+
+            // 2. GSAP y ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            // ANIMACIÓN 1: Hero (Aparece en cuanto entras a la página, en cascada)
+            gsap.fromTo(".gsap-hero", 
+                { y: 50, opacity: 0 }, 
+                { y: 0, opacity: 1, duration: 1.2, stagger: 0.2, ease: "power3.out", clearProps: "all" }
+            );
+
+            // ANIMACIÓN 2: Secciones normales al hacer Scroll
+            const scrollSections = document.querySelectorAll('.gsap-section');
+            scrollSections.forEach((section) => {
+                gsap.fromTo(section, 
+                    { y: 50, opacity: 0 },
+                    {
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 85%", 
+                            toggleActions: "play none none reverse"
+                        },
+                        y: 0, opacity: 1, duration: 1, ease: "power3.out"
                     }
-                });
-            }, { root: null, threshold: 0.15 });
+                );
+            });
 
-            reveals.forEach(reveal => revealObserver.observe(reveal));
+            // ANIMACIÓN 3: El efecto CASCADA (Stagger) para las tarjetas de servicios
+            gsap.fromTo(".gsap-stagger", 
+                { y: 50, opacity: 0 },
+                {
+                    scrollTrigger: {
+                        trigger: "#stagger-container", // Se activa cuando tocas el contenedor de servicios
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.8, 
+                    stagger: 0.15, // MAGIA: Diferencia de 0.15s entre cada tarjeta
+                    ease: "power3.out"
+                }
+            );
 
+            // Navbar Scroll
             const navbar = document.getElementById('navbar');
-            const heroSection = document.getElementById('inicio');
-            
             window.addEventListener('scroll', () => {
-                if (window.scrollY > (heroSection.offsetHeight - 80)) {
+                if (window.scrollY > 80) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
             });
 
+            // Menú Móvil
             const menuToggle = document.getElementById('mobile-menu');
             const navLinks = document.getElementById('nav-links');
             const navItems = document.querySelectorAll('.nav-item');
@@ -271,7 +313,6 @@
                 navLinks.classList.toggle('active');
                 menuToggle.classList.toggle('active');
             });
-
             navItems.forEach(item => {
                 item.addEventListener('click', () => {
                     if (navLinks.classList.contains('active')) {
@@ -282,7 +323,6 @@
             });
         });
     </script>
-
 </body>
 </html>
 
@@ -294,134 +334,85 @@
         --font-script: 'Great Vibes', cursive;
         --font-sans: 'Inter', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-        margin: 0; padding: 0;
-        font-family: var(--font-serif);
-        background-color: var(--color-black);
-        color: var(--color-cream);
-        overflow-x: hidden;
-    }
+    body { margin: 0; padding: 0; font-family: var(--font-serif); background-color: var(--color-black); color: var(--color-cream); overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; }
     p { font-family: var(--font-sans); }
     a { text-decoration: none; color: inherit; }
+</style>
+
+<style>
     .text-center { text-align: center; }
 
     /* ESTRUCTURA DE PANTALLAS */
-    .fullscreen-section {
-        min-height: 100vh;
-        width: 100%;
-        position: relative;
-        box-sizing: border-box;
-        overflow: hidden; 
-    }
-    .align-center {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-top: 80px; 
-    }
-    .content-wrapper {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        box-sizing: border-box;
-    }
+    .fullscreen-section { height: 100vh; width: 100%; position: relative; box-sizing: border-box; overflow: hidden; }
+    .align-center { display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 80px; }
+    .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2; width: 100%; box-sizing: border-box; }
 
-    /* ANIMACIONES REVEAL */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+    /* NOTA IMPORTANTE: LA CLASE REVEAL YA NO LLEVA OPACITY NI TRANSFORM AQUÍ, GSAP LO HACE */
+    /* Lo quitamos para evitar conflictos CSS vs JS */
 
-    /* --- NAVEGACIÓN Y LOGO --- */
-    .navbar {
-        position: fixed; top: 0; width: 100%; height: 80px;
-        background-color: var(--color-black); 
-        color: var(--color-cream);
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 0 4rem; box-sizing: border-box; z-index: 1000;
-        transition: background-color 0.4s ease, color 0.4s ease;
-    }
-    /* FIX: Contenedor estricto para que el logo no cuelgue */
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; width: 100%; height: 80px; background-color: var(--color-black); color: var(--color-cream); display: flex; justify-content: space-between; align-items: center; padding: 0 4rem; box-sizing: border-box; z-index: 1000; transition: background-color 0.4s ease, color 0.4s ease; }
     .logo-container { position: relative; height: 50px; width: 180px; z-index: 1002; display: flex; align-items: center; }
     .logo-link { position: relative; display: block; width: 100%; height: 100%; }
     .nav-logo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; object-position: left center; transition: opacity 0.4s ease; }
+    .logo-dark-bg { opacity: 1; mix-blend-mode: screen; }
     .logo-light-bg { opacity: 0; mix-blend-mode: multiply; }
-
     .navbar.scrolled { background-color: var(--color-cream); color: var(--color-black); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
     .navbar.scrolled .logo-dark-bg { opacity: 0; }
     .navbar.scrolled .logo-light-bg { opacity: 1; }
-
     .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
     .nav-links a { font-family: var(--font-serif); font-size: 1.1rem; transition: opacity 0.3s ease; }
     .nav-links a:hover { opacity: 0.6; }
-
+    
     .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1002; }
     .menu-toggle .bar { width: 30px; height: 2px; background-color: var(--color-cream); transition: all 0.3s ease; }
     .navbar.scrolled .menu-toggle .bar { background-color: var(--color-black); }
-    
     .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* --- MESH GRADIENT --- */
+    /* HERO CON IA NODOS */
     .relative-layer { position: relative; z-index: 2; }
-    .mesh-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; background-color: var(--color-black); pointer-events: none; }
-    .mesh-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: moveOrb 20s infinite alternate ease-in-out; will-change: transform; }
-    .orb-1 { width: 40vw; height: 40vw; background: rgba(250, 249, 245, 0.3); top: -10%; left: -10%; animation-duration: 25s; }
-    .orb-2 { width: 45vw; height: 45vw; background: rgba(120, 120, 120, 0.4); bottom: -20%; right: -10%; animation-duration: 22s; animation-delay: -5s; }
-    .orb-3 { width: 35vw; height: 35vw; background: rgba(250, 249, 245, 0.15); top: 40%; left: 30%; animation-duration: 28s; animation-delay: -10s; }
-    @keyframes moveOrb { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(10vw, 15vh) scale(1.1); } 100% { transform: translate(-10vw, -10vh) scale(0.9); } }
-
-    /* --- SECCIONES PRINCIPALES --- */
-    .hero-section {
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 80px 4rem 10vh 4rem; 
-        max-width: 1400px; margin: 0 auto; box-sizing: border-box;
-    }
+    .particles-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    
+    .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 80px 4rem 10vh 4rem; max-width: 1400px; margin: 0 auto; box-sizing: border-box; }
     .hero-content { flex: 1.1; padding-right: 2rem; }
     .hero-content h1 { font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: 1.1; font-weight: 600; margin-bottom: 2vh; }
     .text-script { font-family: var(--font-script); font-size: 1.3em; font-weight: 400; padding: 0 5px;}
     .hero-subtitle { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.5; font-weight: 400; color: #EFEFEF; }
-    
     .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
     .image-premium-wrapper { position: relative; width: 100%; display: flex; justify-content: center; }
     .image-premium-wrapper img { max-width: 100%; max-height: 45vh; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); mask-image: linear-gradient(to bottom, black 70%, transparent 100%); object-fit: cover; }
 
+    /* SECCIONES TEXTO */
     .cream-section { background-color: var(--color-cream); color: var(--color-black); }
-
     .compact-layout { display: flex; flex-direction: column; gap: 4vh; }
     .heading-mixed { font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 600; margin-bottom: 1vh; }
     .text-script-large { font-family: var(--font-script); font-size: 1.6em; font-weight: 400; margin-left: 10px;}
     .subtitle-large { font-family: var(--font-serif); font-size: clamp(1.2rem, 1.5vw, 1.4rem); line-height: 1.5; max-width: 900px; margin: 0 auto; font-weight: 400; }
-    
     .huge-logo { width: 100%; display: flex; justify-content: center; }
     .huge-logo img { width: 100%; max-width: 650px; max-height: 35vh; margin-top: 0; object-fit: contain; mix-blend-mode: multiply; }
-
     .title-serif-huge { font-size: clamp(2.5rem, 4vw, 3.5rem); }
     .body-large { font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; max-width: 900px; margin: 0 auto; font-weight: 400; }
     .body-large strong { font-weight: 700; }
 
-    /* ESTILOS DE LOS ENLACES DE SERVICIOS */
+    /* GRID SERVICIOS */
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3rem; max-width: 1100px; margin: 0 auto 3vh auto; }
-    .service-card { transition: transform 0.3s ease; }
-    .service-card:hover { transform: translateY(-5px); }
     
-    .service-link { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; text-decoration: none; color: inherit; }
+    .service-link { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; text-decoration: none; color: inherit; transition: transform 0.3s ease; }
+    .service-link:hover { transform: translateY(-5px); }
+    
     .icon-container { margin-bottom: 1vh; display:flex; justify-content:center; align-items:center; }
     .icon-container svg { width: 55px; height: 55px; } 
     .service-link h3 { font-family: var(--font-serif); font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.4; transition: color 0.3s ease; }
     .service-link:hover h3 { color: #555; }
 
     /* FOOTER */
-    .footer-section { background-color: var(--color-black); color: var(--color-cream); padding: 4rem 2rem 1.5rem 2rem; border-top: 1px solid rgba(250, 249, 245, 0.1); }
-    .footer-content { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 3rem; }
-    .footer-col { flex: 1; }
-    .footer-logo { width: 180px; margin-bottom: 1rem; mix-blend-mode: screen; }
+    .footer-section { background-color: var(--color-black); color: var(--color-cream); padding: 4rem 2rem 1.5rem 2rem; border-top: 1px solid rgba(250, 249, 245, 0.1); width: 100%; box-sizing: border-box;}
+    .footer-content { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem; }
+    .footer-col { flex: 1; min-width: 250px;}
     .footer-tagline { font-size: 1rem; font-style: italic; opacity: 0.8; }
     .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
     .footer-col p, .footer-col ul { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.8; opacity: 0.85; margin-bottom: 0.5rem; }
@@ -430,18 +421,12 @@
     .links-col a:hover { color: #EFEFEF; opacity: 1; }
     .footer-bottom { text-align: center; border-top: 1px solid rgba(250, 249, 245, 0.1); padding-top: 1.5rem; font-size: 0.85rem; opacity: 0.6; font-family: var(--font-sans); }
 
-    /* BOTONES GLOBALES */
+    /* BOTONES */
     .scroll-down-btn { position: absolute; bottom: 3vh; left: 50%; transform: translateX(-50%); color: var(--color-cream); animation: bounce 2s infinite; z-index: 50; display: flex; justify-content: center; align-items: center; cursor: pointer; }
     .scroll-down-btn.dark-btn { color: var(--color-black); }
-
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-        40% { transform: translateX(-50%) translateY(-15px); }
-        60% { transform: translateX(-50%) translateY(-7px); }
-    }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-15px); } 60% { transform: translateX(-50%) translateY(-7px); } }
 
     .star { position: absolute; z-index: 1; opacity: 0.9; }
-    
     .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.3s ease; }
     .whatsapp-float:hover { transform: scale(1.1); }
 
@@ -463,12 +448,9 @@
         .hero-image { width: 100%; }
         
         .desktop-only { display: none; } 
-        
         .content-wrapper { padding: 0 1.5rem; box-sizing: border-box; }
         .services-grid { grid-template-columns: 1fr; gap: 3rem; }
-        
-        .footer-content { flex-direction: column; text-align: center; align-items: center; gap: 3rem; }
-        
+        .footer-content { flex-direction: column; text-align: left; }
         .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
     }
 </style>
