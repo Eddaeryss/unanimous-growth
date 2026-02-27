@@ -1,5 +1,5 @@
 ---
-// index.astro
+// src/pages/index.astro
 ---
 
 <html lang="es">
@@ -16,8 +16,10 @@
 
     <nav id="navbar" class="navbar">
         <div class="logo-container">
-            <img src="/logg2.jpg" alt="Unanimous Growth" class="nav-logo logo-dark-bg">
-            <img src="/logo-crema.jpg" alt="Unanimous Growth" class="nav-logo logo-light-bg">
+            <a href="#inicio">
+                <img src="/logg2.jpg" alt="Unanimous Growth" class="nav-logo logo-dark-bg">
+                <img src="/logo-crema.jpg" alt="Unanimous Growth" class="nav-logo logo-light-bg">
+            </a>
         </div>
         
         <div class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
@@ -99,55 +101,102 @@
         </a>
     </section>
 
-    <section id="servicios" class="fullscreen-section cream-section align-center">
-        <svg class="star desktop-only" style="top: 30%; left: 8%;" viewBox="0 0 100 100" width="40"><path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" fill="#000"/></svg>
+    <section id="servicios" class="fullscreen-section cream-section align-center" style="padding-bottom: 60px;">
+        <svg class="star desktop-only" style="top: 10%; left: 8%;" viewBox="0 0 100 100" width="40"><path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" fill="#000"/></svg>
+        <svg class="star desktop-only" style="top: 50%; right: 5%;" viewBox="0 0 100 100" width="30"><path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" fill="#000"/></svg>
 
         <div class="content-wrapper text-center reveal">
-            <h2 class="title-serif-huge" style="margin-bottom: 3vh;">SERVICIOS</h2>
+            <h2 class="title-serif-huge" style="margin-bottom: 4vh;">SERVICIOS</h2>
             
             <div class="services-grid">
+                
                 <div class="service-card reveal" style="transition-delay: 0.1s;">
-                    <div class="icon-container">
-                        <svg viewBox="0 0 24 24" width="70" height="70" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="4" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="2" y1="14" x2="22" y2="14"></line>
-                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                            <line x1="12" y1="18" x2="12" y2="21"></line>
-                            <circle cx="16" cy="8" r="2"></circle>
-                            <circle cx="8" cy="10" r="1.5"></circle>
-                        </svg>
-                    </div>
-                    <h3>Desarrollo web profesional</h3>
+                    <a href="/servicios#desarrollo" class="service-link">
+                        <div class="icon-container">
+                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="2" y1="14" x2="22" y2="14"></line>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="18" x2="12" y2="21"></line>
+                                <circle cx="16" cy="8" r="2"></circle>
+                                <circle cx="8" cy="10" r="1.5"></circle>
+                            </svg>
+                        </div>
+                        <h3>Desarrollo web profesional</h3>
+                    </a>
                 </div>
 
                 <div class="service-card reveal" style="transition-delay: 0.2s;">
-                    <div class="icon-container">
-                        <svg viewBox="0 0 24 24" width="70" height="70" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="5" y="8" width="14" height="12" rx="3" ry="3"></rect>
-                            <line x1="12" y1="8" x2="12" y2="4"></line>
-                            <line x1="9" y1="4" x2="15" y2="4"></line>
-                            <circle cx="9" cy="13" r="1.5" fill="currentColor"></circle>
-                            <circle cx="15" cy="13" r="1.5" fill="currentColor"></circle>
-                            <path d="M8 17h8"></path>
-                            <line x1="5" y1="12" x2="2" y2="12"></line>
-                            <line x1="19" y1="12" x2="22" y2="12"></line>
-                        </svg>
-                    </div>
-                    <h3>Automatización e<br>Inteligencia Artificial</h3>
+                    <a href="/servicios#ia" class="service-link">
+                        <div class="icon-container">
+                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="8" width="14" height="12" rx="3" ry="3"></rect>
+                                <line x1="12" y1="8" x2="12" y2="4"></line>
+                                <line x1="9" y1="4" x2="15" y2="4"></line>
+                                <circle cx="9" cy="13" r="1.5" fill="currentColor"></circle>
+                                <circle cx="15" cy="13" r="1.5" fill="currentColor"></circle>
+                                <path d="M8 17h8"></path>
+                                <line x1="5" y1="12" x2="2" y2="12"></line>
+                                <line x1="19" y1="12" x2="22" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3>Automatización e<br>Inteligencia Artificial</h3>
+                    </a>
                 </div>
 
                 <div class="service-card reveal" style="transition-delay: 0.3s;">
-                    <div class="icon-container">
-                        <svg viewBox="0 0 24 24" width="70" height="70" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                            <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
-                            <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
-                            <circle cx="20" cy="4" r="3"></circle>
-                            <circle cx="20" cy="4" r="1"></circle>
-                        </svg>
-                    </div>
-                    <h3>Marketing Digital Estratégico</h3>
+                    <a href="/servicios#marketing" class="service-link">
+                        <div class="icon-container">
+                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                                <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
+                                <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
+                                <circle cx="20" cy="4" r="3"></circle>
+                                <circle cx="20" cy="4" r="1"></circle>
+                            </svg>
+                        </div>
+                        <h3>Marketing Digital Estratégico</h3>
+                    </a>
                 </div>
+
+                <div class="service-card reveal" style="transition-delay: 0.4s;">
+                    <a href="/servicios#ads" class="service-link">
+                        <div class="icon-container">
+                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <path d="M3 9h18"></path>
+                                <path d="M9 21V9"></path>
+                                <polygon points="14,12 18,18 16,18 16,21 14,18 12,18"></polygon>
+                            </svg>
+                        </div>
+                        <h3>Publicidad Digital (Ads)</h3>
+                    </a>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay: 0.5s;">
+                    <a href="/servicios#branding" class="service-link">
+                        <div class="icon-container">
+                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                            </svg>
+                        </div>
+                        <h3>Branding e Identidad de Marca</h3>
+                    </a>
+                </div>
+
+                <div class="service-card reveal" style="transition-delay: 0.6s;">
+                    <a href="/servicios#paquetes" class="service-link">
+                        <div class="icon-container">
+                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3>Paquetes Integrales</h3>
+                    </a>
+                </div>
+
             </div>
         </div>
 
@@ -155,6 +204,35 @@
             <svg style="transform: rotate(180deg);" viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>
     </section>
+
+    <footer id="contacto" class="footer-section">
+        <div class="container footer-content">
+            <div class="footer-col brand-col">
+                <img src="/logo-crema.jpg" alt="Unanimous Growth" class="footer-logo">
+                <p class="footer-tagline">Crecemos juntos, con propósito y dirección.</p>
+            </div>
+            
+            <div class="footer-col info-col">
+                <h4>Contacto</h4>
+                <p>📍 Saltillo, Coahuila, México</p>
+                <p>📞 +52 844 910 2095</p>
+                <p>✉️ unanimesorg@gmail.com</p>
+            </div>
+            
+            <div class="footer-col links-col">
+                <h4>Menú</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Unanimous Growth. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20iniciar%20un%20proyecto." target="_blank" class="whatsapp-float">
         <svg viewBox="0 0 32 32" width="34" height="34" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.002 2.05A13.91 13.91 0 0 0 2.096 15.96c0 2.45.635 4.84 1.84 6.95L2 29.91l7.16-1.875a13.92 13.92 0 0 0 6.842 1.785h.005A13.912 13.912 0 0 0 29.912 15.96 13.913 13.913 0 0 0 16.002 2.05zm0 23.366a11.536 11.536 0 0 1-5.875-1.6l-.42-.25-4.364 1.144 1.164-4.25-.274-.436A11.532 11.532 0 0 1 4.453 15.96a11.554 11.554 0 0 1 11.55-11.554 11.554 11.554 0 0 1 11.553 11.555 11.554 11.554 0 0 1-11.554 11.455zm6.336-8.663c-.347-.174-2.05-1.013-2.368-1.13-.318-.115-.55-.173-.78.174-.23.346-.897 1.128-1.098 1.36-.2.23-.404.26-.75.086-.347-.173-1.464-.54-2.79-1.724-1.03-1.03-1.725-2.305-1.927-2.652-.202-.347-.022-.535.152-.708.156-.155.347-.404.52-.606.174-.203.232-.347.347-.578.116-.23.058-.433-.028-.606-.087-.173-.78-1.88-1.07-2.574-.28-.675-.568-.583-.78-.594-.2-.01-.432-.012-.663-.012a1.27 1.27 0 0 0-.925.433c-.318.347-1.214 1.186-1.214 2.89s1.243 3.352 1.416 3.583c.174.23 2.44 3.73 5.91 5.23 2.835 1.226 3.468 1.13 4.103 1.07.636-.057 2.05-.838 2.34-1.648.29-.81.29-1.503.203-1.648-.087-.145-.318-.23-.665-.405z"/></svg>
@@ -225,14 +303,14 @@
         color: var(--color-cream);
         overflow-x: hidden;
     }
-    h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; margin: 0; }
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; }
     p { font-family: var(--font-sans); }
     a { text-decoration: none; color: inherit; }
     .text-center { text-align: center; }
 
     /* ESTRUCTURA DE PANTALLAS */
     .fullscreen-section {
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
         position: relative;
         box-sizing: border-box;
@@ -268,9 +346,10 @@
         padding: 0 4rem; box-sizing: border-box; z-index: 1000;
         transition: background-color 0.4s ease, color 0.4s ease;
     }
-    .logo-container { position: relative; height: 70px; width: 200px; display: flex; align-items: center; z-index: 1002;}
-    .nav-logo { position: absolute; height: 100%; width: auto; object-fit: contain; transition: opacity 0.4s ease; }
-    .logo-dark-bg { opacity: 1; mix-blend-mode: screen; }
+    /* FIX: Contenedor estricto para que el logo no cuelgue */
+    .logo-container { position: relative; height: 50px; width: 180px; z-index: 1002; display: flex; align-items: center; }
+    .logo-link { position: relative; display: block; width: 100%; height: 100%; }
+    .nav-logo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; object-position: left center; transition: opacity 0.4s ease; }
     .logo-light-bg { opacity: 0; mix-blend-mode: multiply; }
 
     .navbar.scrolled { background-color: var(--color-cream); color: var(--color-black); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
@@ -289,68 +368,20 @@
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
+    /* --- MESH GRADIENT --- */
+    .relative-layer { position: relative; z-index: 2; }
+    .mesh-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; background-color: var(--color-black); pointer-events: none; }
+    .mesh-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: moveOrb 20s infinite alternate ease-in-out; will-change: transform; }
+    .orb-1 { width: 40vw; height: 40vw; background: rgba(250, 249, 245, 0.3); top: -10%; left: -10%; animation-duration: 25s; }
+    .orb-2 { width: 45vw; height: 45vw; background: rgba(120, 120, 120, 0.4); bottom: -20%; right: -10%; animation-duration: 22s; animation-delay: -5s; }
+    .orb-3 { width: 35vw; height: 35vw; background: rgba(250, 249, 245, 0.15); top: 40%; left: 30%; animation-duration: 28s; animation-delay: -10s; }
+    @keyframes moveOrb { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(10vw, 15vh) scale(1.1); } 100% { transform: translate(-10vw, -10vh) scale(0.9); } }
 
-    /* --- SECCIONES & MESH GRADIENT --- */
-
-    /* Importante para el Mesh: Forzar que el texto e imagen del hero pasen por delante */
-    .relative-layer {
-        position: relative;
-        z-index: 2;
-    }
-
-    /* Fondo animado GPU-Accelerated */
-    .mesh-background {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        z-index: 0;
-        overflow: hidden;
-        background-color: var(--color-black);
-        pointer-events: none; /* Evita que bloquee los clicks del usuario */
-    }
-
-    .mesh-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(120px);
-        opacity: 0.6;
-        animation: moveOrb 20s infinite alternate ease-in-out;
-        will-change: transform; /* Optimización estricta para que el navegador no se trabe */
-    }
-
-    .orb-1 {
-        width: 50vw; height: 50vw;
-        background: rgba(250, 249, 245, 0.08); /* Crema casi invisible */
-        top: -10%; left: -10%;
-        animation-duration: 25s;
-    }
-
-    .orb-2 {
-        width: 45vw; height: 45vw;
-        background: rgba(80, 80, 80, 0.15); /* Gris muy sutil para dar volumen */
-        bottom: -20%; right: -10%;
-        animation-duration: 22s;
-        animation-delay: -5s;
-    }
-
-    .orb-3 {
-        width: 35vw; height: 35vw;
-        background: rgba(250, 249, 245, 0.05); /* Crema casi invisible */
-        top: 40%; left: 30%;
-        animation-duration: 28s;
-        animation-delay: -10s;
-    }
-
-    @keyframes moveOrb {
-        0% { transform: translate(0, 0) scale(1); }
-        50% { transform: translate(10vw, 15vh) scale(1.1); }
-        100% { transform: translate(-10vw, -10vh) scale(0.9); }
-    }
-
+    /* --- SECCIONES PRINCIPALES --- */
     .hero-section {
         display: flex; align-items: center; justify-content: space-between;
         padding: 80px 4rem 10vh 4rem; 
-        max-width: 1400px; margin: 0 auto;
-        box-sizing: border-box;
+        max-width: 1400px; margin: 0 auto; box-sizing: border-box;
     }
     .hero-content { flex: 1.1; padding-right: 2rem; }
     .hero-content h1 { font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: 1.1; font-weight: 600; margin-bottom: 2vh; }
@@ -359,12 +390,7 @@
     
     .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
     .image-premium-wrapper { position: relative; width: 100%; display: flex; justify-content: center; }
-    .image-premium-wrapper img {
-        max-width: 100%; max-height: 45vh; border-radius: 20px; 
-        box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
-        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 70%, transparent 100%); object-fit: cover;
-    }
+    .image-premium-wrapper img { max-width: 100%; max-height: 45vh; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); mask-image: linear-gradient(to bottom, black 70%, transparent 100%); object-fit: cover; }
 
     .cream-section { background-color: var(--color-cream); color: var(--color-black); }
 
@@ -380,16 +406,32 @@
     .body-large { font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; max-width: 900px; margin: 0 auto; font-weight: 400; }
     .body-large strong { font-weight: 700; }
 
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
-    .service-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    /* ESTILOS DE LOS ENLACES DE SERVICIOS */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3rem; max-width: 1100px; margin: 0 auto 3vh auto; }
+    .service-card { transition: transform 0.3s ease; }
+    .service-card:hover { transform: translateY(-5px); }
+    
+    .service-link { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; text-decoration: none; color: inherit; }
     .icon-container { margin-bottom: 1vh; display:flex; justify-content:center; align-items:center; }
-    .service-card h3 { font-family: var(--font-serif); font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.4; }
+    .icon-container svg { width: 55px; height: 55px; } 
+    .service-link h3 { font-family: var(--font-serif); font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.4; transition: color 0.3s ease; }
+    .service-link:hover h3 { color: #555; }
 
-    .scroll-down-btn {
-        position: absolute; bottom: 3vh; left: 50%; transform: translateX(-50%);
-        color: var(--color-cream); animation: bounce 2s infinite; z-index: 50; 
-        display: flex; justify-content: center; align-items: center; cursor: pointer;
-    }
+    /* FOOTER */
+    .footer-section { background-color: var(--color-black); color: var(--color-cream); padding: 4rem 2rem 1.5rem 2rem; border-top: 1px solid rgba(250, 249, 245, 0.1); }
+    .footer-content { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 3rem; }
+    .footer-col { flex: 1; }
+    .footer-logo { width: 180px; margin-bottom: 1rem; mix-blend-mode: screen; }
+    .footer-tagline { font-size: 1rem; font-style: italic; opacity: 0.8; }
+    .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col p, .footer-col ul { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.8; opacity: 0.85; margin-bottom: 0.5rem; }
+    .links-col ul { list-style: none; padding: 0; }
+    .links-col a { transition: color 0.3s ease; }
+    .links-col a:hover { color: #EFEFEF; opacity: 1; }
+    .footer-bottom { text-align: center; border-top: 1px solid rgba(250, 249, 245, 0.1); padding-top: 1.5rem; font-size: 0.85rem; opacity: 0.6; font-family: var(--font-sans); }
+
+    /* BOTONES GLOBALES */
+    .scroll-down-btn { position: absolute; bottom: 3vh; left: 50%; transform: translateX(-50%); color: var(--color-cream); animation: bounce 2s infinite; z-index: 50; display: flex; justify-content: center; align-items: center; cursor: pointer; }
     .scroll-down-btn.dark-btn { color: var(--color-black); }
 
     @keyframes bounce {
@@ -400,43 +442,20 @@
 
     .star { position: absolute; z-index: 1; opacity: 0.9; }
     
-    .whatsapp-float {
-        position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white;
-        width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.3s ease;
-    }
+    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.3s ease; }
     .whatsapp-float:hover { transform: scale(1.1); }
 
-
-    /* =========================================
-       MEDIA QUERIES
-       ========================================= */
+    /* MEDIA QUERIES */
     @media (max-width: 900px) {
-        
         .navbar { padding: 0 1.5rem; }
         .menu-toggle { display: flex; }
-        
-        .nav-links {
-            position: fixed; 
-            top: 0; left: -100%; 
-            width: 100%; height: 100vh;
-            background-color: var(--color-black);
-            flex-direction: column;
-            justify-content: center; align-items: center;
-            transition: left 0.4s ease;
-            z-index: 1001; 
-        }
+        .nav-links { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background-color: var(--color-black); flex-direction: column; justify-content: center; align-items: center; transition: left 0.4s ease; z-index: 1001; }
         .nav-links.active { left: 0; } 
-        
         .nav-links a { color: var(--color-cream); font-size: 1.8rem; margin: 15px 0; }
         .navbar.scrolled .menu-toggle .bar { background-color: var(--color-black); }
         .navbar.scrolled .menu-toggle.active .bar { background-color: var(--color-cream); } 
 
-        .fullscreen-section {
-            height: auto;
-            min-height: 100vh;
-            padding-bottom: 120px; 
-        }
+        .fullscreen-section { height: auto; min-height: 100vh; padding-bottom: 120px; }
         
         .hero-section { flex-direction: column; padding-top: 120px; text-align: center; }
         .hero-content { padding-right: 0; margin-bottom: 4vh; }
@@ -447,6 +466,8 @@
         
         .content-wrapper { padding: 0 1.5rem; box-sizing: border-box; }
         .services-grid { grid-template-columns: 1fr; gap: 3rem; }
+        
+        .footer-content { flex-direction: column; text-align: center; align-items: center; gap: 3rem; }
         
         .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
     }
