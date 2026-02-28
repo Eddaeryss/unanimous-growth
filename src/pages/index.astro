@@ -1,5 +1,12 @@
 ---
 // src/pages/index.astro
+import { Image } from 'astro:assets';
+import imgDesarrollo from '../assets/icon-desarrollo.jpeg';
+import imgIa from '../assets/icon-ia.jpeg';
+import imgMarketing from '../assets/icon-marketing.jpeg';
+import imgAds from '../assets/icon-ads.jpeg';
+import imgBranding from '../assets/icon-branding.jpeg';
+import imgPaquetes from '../assets/icon-paquetes.jpeg';
 ---
 
 <html lang="es">
@@ -108,14 +115,7 @@
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#desarrollo" class="service-link">
                         <div class="icon-container">
-                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="4" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="2" y1="14" x2="22" y2="14"></line>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="18" x2="12" y2="21"></line>
-                                <circle cx="16" cy="8" r="2"></circle>
-                                <circle cx="8" cy="10" r="1.5"></circle>
-                            </svg>
+                            <Image src={imgDesarrollo} alt="Desarrollo Web" class="grid-icon" />
                         </div>
                         <h3>Desarrollo web profesional</h3>
                     </a>
@@ -124,16 +124,7 @@
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#ia" class="service-link">
                         <div class="icon-container">
-                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="5" y="8" width="14" height="12" rx="3" ry="3"></rect>
-                                <line x1="12" y1="8" x2="12" y2="4"></line>
-                                <line x1="9" y1="4" x2="15" y2="4"></line>
-                                <circle cx="9" cy="13" r="1.5" fill="currentColor"></circle>
-                                <circle cx="15" cy="13" r="1.5" fill="currentColor"></circle>
-                                <path d="M8 17h8"></path>
-                                <line x1="5" y1="12" x2="2" y2="12"></line>
-                                <line x1="19" y1="12" x2="22" y2="12"></line>
-                            </svg>
+                            <Image src={imgIa} alt="Inteligencia Artificial" class="grid-icon" />
                         </div>
                         <h3>Automatización e<br>Inteligencia Artificial</h3>
                     </a>
@@ -142,13 +133,7 @@
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#marketing" class="service-link">
                         <div class="icon-container">
-                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                                <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
-                                <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
-                                <circle cx="20" cy="4" r="3"></circle>
-                                <circle cx="20" cy="4" r="1"></circle>
-                            </svg>
+                            <Image src={imgMarketing} alt="Marketing Digital" class="grid-icon" />
                         </div>
                         <h3>Marketing Digital Estratégico</h3>
                     </a>
@@ -157,12 +142,7 @@
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#ads" class="service-link">
                         <div class="icon-container">
-                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <path d="M3 9h18"></path>
-                                <path d="M9 21V9"></path>
-                                <polygon points="14,12 18,18 16,18 16,21 14,18 12,18"></polygon>
-                            </svg>
+                            <Image src={imgAds} alt="Publicidad Digital" class="grid-icon" />
                         </div>
                         <h3>Publicidad Digital (Ads)</h3>
                     </a>
@@ -171,9 +151,7 @@
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#branding" class="service-link">
                         <div class="icon-container">
-                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
-                            </svg>
+                            <Image src={imgBranding} alt="Branding e Identidad" class="grid-icon" />
                         </div>
                         <h3>Branding e Identidad de Marca</h3>
                     </a>
@@ -182,11 +160,7 @@
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#paquetes" class="service-link">
                         <div class="icon-container">
-                            <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
+                            <Image src={imgPaquetes} alt="Paquetes Integrales" class="grid-icon" />
                         </div>
                         <h3>Paquetes Integrales</h3>
                     </a>
@@ -211,7 +185,7 @@
                 <h4>Contacto</h4>
                 <p>📍 Saltillo, Coahuila, México</p>
                 <p>📞 +52 844 910 2095</p>
-                <p>✉️ unanimousgrowt@gmail.com</p>
+                <p>✉️ hola@unanimousgrowth.com</p>
             </div>
             
             <div class="footer-col links-col">
@@ -239,7 +213,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Efecto IA Nodos y Conexiones
             tsParticles.load("tsparticles", {
                 fullScreen: { enable: false },
                 particles: {
@@ -252,16 +225,13 @@
                 }
             });
 
-            // 2. GSAP y ScrollTrigger
             gsap.registerPlugin(ScrollTrigger);
 
-            // ANIMACIÓN 1: Hero (Aparece en cuanto entras a la página, en cascada)
             gsap.fromTo(".gsap-hero", 
                 { y: 50, opacity: 0 }, 
                 { y: 0, opacity: 1, duration: 1.2, stagger: 0.2, ease: "power3.out", clearProps: "all" }
             );
 
-            // ANIMACIÓN 2: Secciones normales al hacer Scroll
             const scrollSections = document.querySelectorAll('.gsap-section');
             scrollSections.forEach((section) => {
                 gsap.fromTo(section, 
@@ -277,24 +247,22 @@
                 );
             });
 
-            // ANIMACIÓN 3: El efecto CASCADA (Stagger) para las tarjetas de servicios
             gsap.fromTo(".gsap-stagger", 
                 { y: 50, opacity: 0 },
                 {
                     scrollTrigger: {
-                        trigger: "#stagger-container", // Se activa cuando tocas el contenedor de servicios
+                        trigger: "#stagger-container", 
                         start: "top 80%",
                         toggleActions: "play none none reverse"
                     },
                     y: 0, 
                     opacity: 1, 
                     duration: 0.8, 
-                    stagger: 0.15, // MAGIA: Diferencia de 0.15s entre cada tarjeta
+                    stagger: 0.15,
                     ease: "power3.out"
                 }
             );
 
-            // Navbar Scroll
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 80) {
@@ -304,7 +272,6 @@
                 }
             });
 
-            // Menú Móvil
             const menuToggle = document.getElementById('mobile-menu');
             const navLinks = document.getElementById('nav-links');
             const navItems = document.querySelectorAll('.nav-item');
@@ -349,9 +316,6 @@
     .align-center { display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 80px; }
     .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2; width: 100%; box-sizing: border-box; }
 
-    /* NOTA IMPORTANTE: LA CLASE REVEAL YA NO LLEVA OPACITY NI TRANSFORM AQUÍ, GSAP LO HACE */
-    /* Lo quitamos para evitar conflictos CSS vs JS */
-
     /* NAVBAR */
     .navbar { position: fixed; top: 0; width: 100%; height: 80px; background-color: var(--color-black); color: var(--color-cream); display: flex; justify-content: space-between; align-items: center; padding: 0 4rem; box-sizing: border-box; z-index: 1000; transition: background-color 0.4s ease, color 0.4s ease; }
     .logo-container { position: relative; height: 50px; width: 180px; z-index: 1002; display: flex; align-items: center; }
@@ -373,7 +337,7 @@
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* HERO CON IA NODOS */
+    /* HERO */
     .relative-layer { position: relative; z-index: 2; }
     .particles-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
     
@@ -400,12 +364,14 @@
 
     /* GRID SERVICIOS */
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3rem; max-width: 1100px; margin: 0 auto 3vh auto; }
-    
-    .service-link { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; text-decoration: none; color: inherit; transition: transform 0.3s ease; }
-    .service-link:hover { transform: translateY(-5px); }
-    
+    .service-card { transition: transform 0.3s ease; }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-link { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; text-decoration: none; color: inherit; }
     .icon-container { margin-bottom: 1vh; display:flex; justify-content:center; align-items:center; }
-    .icon-container svg { width: 55px; height: 55px; } 
+    
+   /* Clase exclusiva para las imágenes del componente Astro */
+    .grid-icon { width: 90px; height: 90px; object-fit: contain; } /* Antes estaba en 55px */ 
+    
     .service-link h3 { font-family: var(--font-serif); font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.4; transition: color 0.3s ease; }
     .service-link:hover h3 { color: #555; }
 
@@ -437,9 +403,7 @@
         .nav-links { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background-color: var(--color-black); flex-direction: column; justify-content: center; align-items: center; transition: left 0.4s ease; z-index: 1001; }
         .nav-links.active { left: 0; } 
         .nav-links a { color: var(--color-cream); font-size: 1.8rem; margin: 15px 0; }
-        .navbar.scrolled .menu-toggle .bar { background-color: var(--color-black); }
-        .navbar.scrolled .menu-toggle.active .bar { background-color: var(--color-cream); } 
-
+        
         .fullscreen-section { height: auto; min-height: 100vh; padding-bottom: 120px; }
         
         .hero-section { flex-direction: column; padding-top: 120px; text-align: center; }
@@ -450,6 +414,7 @@
         .desktop-only { display: none; } 
         .content-wrapper { padding: 0 1.5rem; box-sizing: border-box; }
         .services-grid { grid-template-columns: 1fr; gap: 3rem; }
+        
         .footer-content { flex-direction: column; text-align: left; }
         .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
     }
