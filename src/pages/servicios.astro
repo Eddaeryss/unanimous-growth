@@ -1,6 +1,7 @@
 ---
 // src/pages/servicios.astro
 import { Image } from 'astro:assets';
+import Header from '../components/Header.astro';
 import imgDesarrollo from '../assets/icon-desarrollo.jpeg';
 import imgIa from '../assets/icon-ia.jpeg';
 import imgMarketing from '../assets/icon-marketing.jpeg';
@@ -13,38 +14,19 @@ import imgBranding from '../assets/icon-branding.jpeg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios | Unanimous Growth</title>
-    
+    <!-- Dark bg painted immediately so browser never flashes white -->
+    <style>html{background-color:#0D0D12}</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav id="navbar" class="navbar">
-        <div class="logo-container">
-            <a href="/" class="logo-link">
-                <img src="/logg2.jpg" alt="Unanimous Growth" class="nav-logo logo-dark-bg">
-                <img src="/logo-crema.jpg" alt="Unanimous Growth" class="nav-logo logo-light-bg">
-            </a>
-        </div>
-        
-        <div class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/#inicio" class="nav-item">Inicio</a></li>
-            <li><a href="/#unanimidad" class="nav-item">Visión</a></li>
-            <li><a href="/#nosotros" class="nav-item">Nosotros</a></li>
-            <li><a href="/#servicios" class="nav-item">Servicios</a></li>
-            <li><a href="#contacto" class="nav-item">Contacto</a></li>
-        </ul>
-    </nav>
+    <Header initialTheme="dark" logoHref="/" />
 
     <header id="inicio-servicios" class="fullscreen-section hero-section dark-section">
         <div class="mesh-background">
+            <canvas id="tech-canvas"></canvas>
             <div class="mesh-orb orb-1"></div>
             <div class="mesh-orb orb-2"></div>
             <div class="mesh-orb orb-3"></div>
@@ -67,10 +49,11 @@ import imgBranding from '../assets/icon-branding.jpeg';
                 <h2>Desarrollo web profesional</h2>
                 <p>Vamos más allá de crear páginas web. Construimos herramientas a la medida, optimizadas para la conversión y diseñadas para reflejar la identidad premium de tu negocio. Cada sitio es una máquina de ventas que trabaja 24/7.</p>
                 <ul class="feature-list">
-                    <li>✓ Sitios web corporativos</li>
-                    <li>✓ Tiendas en línea (E-commerce)</li>
-                    <li>✓ Landing pages para conversión</li>
-                    <li>✓ Optimización de velocidad y SEO técnico</li>
+                    <li><span class="feat-name">✓ Landing page (una página)</span><span class="feat-price">$2,000–$2,500</span></li>
+                    <li><span class="feat-name">✓ Sitio web corporativo</span><span class="feat-price">$3,500–$4,500</span></li>
+                    <li><span class="feat-name">✓ Tienda en línea (E-commerce)</span><span class="feat-price">$8,000–$12,000</span></li>
+                    <li><span class="feat-name">✓ Optimización de velocidad y SEO</span><span class="feat-price">$1,500–$2,500</span></li>
+                    <li class="feat-note">ℹ️ Hosting, dominio &amp; mantenimiento trimestral +$1,000 · Ajustes desde $700 (pago único)</li>
                 </ul>
             </div>
             <div class="icon-block animate-right icon-floating">
@@ -89,10 +72,10 @@ import imgBranding from '../assets/icon-branding.jpeg';
                 <h2>Automatización e Inteligencia Artificial</h2>
                 <p>Eliminamos los cuellos de botella operativos integrando IA en tus procesos diarios. Reducimos el trabajo manual para que tu equipo se concentre en cerrar tratos y escalar la empresa.</p>
                 <ul class="feature-list">
-                    <li>✓ Chatbots inteligentes para atención al cliente</li>
-                    <li>✓ Automatización de flujos de trabajo (CRM, Correos)</li>
-                    <li>✓ Asistentes virtuales para ventas</li>
-                    <li>✓ Optimización de procesos internos</li>
+                    <li><span class="feat-name">✓ Chatbot WhatsApp 24/7</span><span class="feat-price">$3,000 + $400/mes</span></li>
+                    <li><span class="feat-name">✓ Asistente / Cerrador Inteligente CRM</span><span class="feat-price">$11,000 + $1,000/mes</span></li>
+                    <li><span class="feat-name">✓ Recepcionista Telefónica IA 24/7</span><span class="feat-price">$15,000 + $4,000/mes</span></li>
+                    <li class="feat-note">ℹ️ Recepcionista incluye 500 min/mes · Minuto extra a $4 MXN</li>
                 </ul>
             </div>
             <div class="icon-block animate-left icon-floating" style="animation-delay: 1s;">
@@ -111,10 +94,10 @@ import imgBranding from '../assets/icon-branding.jpeg';
                 <h2>Marketing Digital Estratégico</h2>
                 <p>No publicamos por publicar. Desarrollamos planes de contenido y gestión estratégica enfocados en posicionar tu marca, crear autoridad en tu nicho y atraer a tu cliente ideal.</p>
                 <ul class="feature-list">
-                    <li>✓ Gestión de redes sociales (Social Media Management)</li>
-                    <li>✓ Estrategia de contenido de alto valor</li>
-                    <li>✓ Email marketing y retención</li>
-                    <li>✓ Análisis de métricas y crecimiento</li>
+                    <li><span class="feat-name">✓ Gestión de redes sociales</span><span class="feat-price">$3,500–$8,000/mes</span></li>
+                    <li><span class="feat-name">✓ Estrategia de contenido</span><span class="feat-price">$2,000–$5,000 único</span></li>
+                    <li><span class="feat-name">✓ Email marketing &amp; retención</span><span class="feat-price">Setup $2,500–$6,000</span></li>
+                    <li><span class="feat-name">✓ Análisis de métricas y crecimiento</span><span class="feat-price">$1,000–$3,000/mes</span></li>
                 </ul>
             </div>
             <div class="icon-block animate-right icon-floating" style="animation-delay: 0.5s;">
@@ -133,10 +116,10 @@ import imgBranding from '../assets/icon-branding.jpeg';
                 <h2>Publicidad Digital (Ads)</h2>
                 <p>Campañas publicitarias altamente segmentadas y optimizadas para el retorno de inversión (ROI). Hacemos que cada peso invertido se traduzca en prospectos calificados listos para comprar.</p>
                 <ul class="feature-list">
-                    <li>✓ Campañas en Meta Ads (Facebook/Instagram)</li>
-                    <li>✓ Google Ads (Búsqueda y Display)</li>
-                    <li>✓ Retargeting para recuperación de carritos</li>
-                    <li>✓ Embudos de venta automatizados</li>
+                    <li><span class="feat-name">✓ Campañas Meta Ads (gestión)</span><span class="feat-price">$4,000–$6,000/mes</span></li>
+                    <li><span class="feat-name">✓ Google Ads (búsqueda y display)</span><span class="feat-price">Setup $2,500–$5,000</span></li>
+                    <li><span class="feat-name">✓ Retargeting recuperación de carritos</span><span class="feat-price">$1,500–$4,000</span></li>
+                    <li><span class="feat-name">✓ Embudos de venta automatizados</span><span class="feat-price">$5,000–$15,000</span></li>
                 </ul>
             </div>
             <div class="icon-block animate-left icon-floating" style="animation-delay: 1.5s;">
@@ -155,10 +138,11 @@ import imgBranding from '../assets/icon-branding.jpeg';
                 <h2>Branding e Identidad de Marca</h2>
                 <p>Una marca sólida genera confianza inmediata. Diseñamos identidades visuales que transmiten tu filosofía corporativa y te diferencian drásticamente de tu competencia.</p>
                 <ul class="feature-list">
-                    <li>✓ Diseño de logotipo e imagotipo</li>
-                    <li>✓ Creación de Manual de Identidad Corporativa</li>
-                    <li>✓ Paleta de color y jerarquía tipográfica</li>
-                    <li>✓ Papelería y aplicaciones digitales</li>
+                    <li><span class="feat-name">✓ Branding Corporativo Básico</span><span class="feat-price">$3,000–$5,000</span></li>
+                    <li><span class="feat-name">✓ Logotipo e imagotipo</span><span class="feat-price">$3,000–$10,000</span></li>
+                    <li><span class="feat-name">✓ Manual de Identidad Corporativa</span><span class="feat-price">$3,000–$8,000</span></li>
+                    <li><span class="feat-name">✓ Paleta de color y tipografía</span><span class="feat-price">$1,500–$3,000</span></li>
+                    <li><span class="feat-name">✓ Papelería y aplicaciones digitales</span><span class="feat-price">$1,500–$5,000</span></li>
                 </ul>
             </div>
             <div class="icon-block animate-right icon-floating" style="animation-delay: 0.8s;">
@@ -176,66 +160,99 @@ import imgBranding from '../assets/icon-branding.jpeg';
             <h2 class="title-serif-huge" style="margin-bottom: 2vh;">Paquetes Integrales</h2>
             <p style="max-width: 800px; margin: 0 auto 5vh auto; font-size: 1.2rem; color: #EFEFEF;">Desliza para descubrir nuestras soluciones diseñadas para generar impacto real y rentabilidad. Elige la etapa en la que se encuentra tu negocio.</p>
             
-            <div class="packages-scroll-wrapper">
-                <div class="packages-grid">
-                    
-                    <div class="package-card animate-up" style="transition-delay: 0.1s;">
+            <!-- Swipe indicator: only visible on mobile/tablet -->
+            <div class="pkg-swipe-hint" aria-hidden="true">
+                <svg viewBox="0 0 40 18" width="40" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="2" y1="9" x2="38" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <polyline points="30,2 38,9 30,16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Desliza</span>
+                <svg viewBox="0 0 40 18" width="40" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scaleX(-1);">
+                    <line x1="2" y1="9" x2="38" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <polyline points="30,2 38,9 30,16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <div class="packages-scroll-wrapper" id="pkg-scroll-wrapper">
+                <div class="packages-grid" id="pkg-grid">
+
+                    <!-- 1ro: Piloto Automático (Estrella) -->
+                    <div class="package-card highlighted pkg-animate" style="transition-delay: 0.1s;">
+                        <div class="badge badge-star">Servicio Estrella</div>
+                        <h3>Piloto Automático</h3>
+                        <div class="price-tag">Instalación $4,900 <span>MXN</span></div>
+                        <div class="price-sub">+ mensualidad desde $600 MXN</div>
+                        <p class="package-desc">Tu negocio responde y genera oportunidades 24/7 de forma automática, convirtiendo cada mensaje, incluso fuera de horario, en una oportunidad de venta.</p>
+                        <ul class="package-features text-left">
+                            <li>✓ Página Web Completa</li>
+                            <li>✓ Sistema de Atención 24/7 (WhatsApp)</li>
+                            <li>✓ Automatización inteligente</li>
+                        </ul>
+                        <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Piloto%20Autom%C3%A1tico." target="_blank" class="btn-primary mt-4">Cotizar Paquete</a>
+                    </div>
+
+                    <!-- 2do: Unanimous Enterprise (Diamond) -->
+                    <div class="package-card pkg-animate diamond-card" style="transition-delay: 0.3s;">
+                        <div class="badge badge-diamond">Diamond 💎</div>
+                        <h3 style="color: #fff;">Unanimous Enterprise</h3>
+                        <div class="price-tag">$25,000 – $35,000 <span>MXN</span></div>
+                        <div class="price-sub">Mantenimiento 2 meses incluido · 3er mes $3,500/mes</div>
+                        <p class="package-desc">Evoluciona tu empresa con una transformación digital moderna y de alta gama, implementando automatización inteligente 24/7 que optimiza procesos, potencia ventas y eleva tu operación a nivel profesional.</p>
+                        <ul class="package-features text-left">
+                            <li>✓ Branding Corporativo de Alta Gama</li>
+                            <li>✓ Web Avanzada &amp; SEO Estratégico</li>
+                            <li>✓ Recepcionista Telefónica IA 24/7</li>
+                            <li>✓ Cerrador Inteligente WhatsApp &amp; CRM</li>
+                        </ul>
+                        <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Unanimous%20Enterprise%20(Diamond)." target="_blank" class="btn-primary btn-diamond mt-4">Cotizar Paquete</a>
+                    </div>
+
+                    <!-- 3ro: The Growth (Gold) -->
+                    <div class="package-card pkg-animate" style="transition-delay: 0.5s;">
+                        <div class="badge badge-normal">Gold</div>
+                        <h3>The Growth</h3>
+                        <div class="price-tag">$7,500 – $11,500 <span>MXN / mes</span></div>
+                        <div class="price-sub">&nbsp;</div>
+                        <p class="package-desc">Diseñado para empresas con flujo constante que buscan acelerar sus ventas y consolidar su posición en el mercado.</p>
+                        <ul class="package-features text-left">
+                            <li>✓ Campañas en Meta Ads</li>
+                            <li>✓ Manejo de Redes Sociales</li>
+                            <li>✓ Automatización total de ventas</li>
+                            <li>✓ Branding</li>
+                        </ul>
+                        <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20The%20Growth." target="_blank" class="btn-primary mt-4">Cotizar Paquete</a>
+                    </div>
+
+                    <!-- 4to: Paquete Presencia -->
+                    <div class="package-card pkg-animate" style="transition-delay: 0.7s;">
                         <div class="badge badge-normal">El Gancho</div>
                         <h3>Paquete Presencia</h3>
-                        <div class="price-tag">$3,500 – $4,500 <span>MXN</span></div>
-                        <div class="price-sub">&nbsp;</div>
-                        <p class="package-desc">Ideal para negocios tradicionales dando el salto digital. Una tarjeta de presentación rápida, moderna y profesional.</p>
+                        <div class="price-tag">$2,500 – $3,500 <span>MXN</span></div>
+                        <div class="price-sub">+ mensualidad desde $400 MXN</div>
+                        <p class="package-desc">Haz que tu negocio arranque en internet de forma profesional y segura. Ideal para establecer una presencia clara y estratégica, lista para convertir visitantes en clientes.</p>
                         <ul class="package-features text-left">
-                            <li>✓ Landing page profesional</li>
-                            <li>✓ Dominio personalizado</li>
+                            <li>✓ Landing page profesional (una sola página)</li>
+                            <li>✓ Dominio personalizado (.com.mx, etc.)</li>
                             <li>✓ Hosting incluido</li>
                             <li>✓ Botón directo a WhatsApp</li>
                         </ul>
                         <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Presencia." target="_blank" class="btn-primary mt-4">Cotizar Paquete</a>
                     </div>
 
-                    <div class="package-card animate-up diamond-card" style="transition-delay: 0.3s;">
-                        <div class="badge badge-diamond">Diamond 💎</div>
-                        <h3 style="color: #fff;">Unanimous Enterprise</h3>
-                        <div class="price-tag">$25,000 – $35,000 <span>MXN</span></div>
-                        <div class="price-sub">Pago único (+ Mantenimiento 3er mes)</div>
-                        <p class="package-desc">Transformación total a empresa de clase mundial. Automatización 24/7 de élite (equivale a una nómina de $500k anuales).</p>
+                    <!-- 5to: Ecosistema Personalizado (nuevo) -->
+                    <div class="package-card pkg-animate" style="transition-delay: 0.9s;">
+                        <div class="badge badge-normal">A Tu Medida</div>
+                        <h3>Ecosistema Personalizado</h3>
+                        <div class="price-tag">Cotización a medida</div>
+                        <div class="price-sub">Adaptable a tu presupuesto</div>
+                        <p class="package-desc">Construimos una arquitectura digital milimétrica para las metas únicas de tu empresa. Tú eliges qué necesitas, nosotros armamos la máquina.</p>
                         <ul class="package-features text-left">
-                            <li>✓ Branding Corporativo de Alta Gama</li>
-                            <li>✓ Web Avanzada & SEO Estratégico</li>
-                            <li>✓ Recepcionista Telefónica IA 24/7</li>
-                            <li>✓ Cerrador Inteligente WhatsApp & CRM</li>
+                            <li>✓ Auditoría y diagnóstico inicial</li>
+                            <li>✓ Soluciones 100% flexibles</li>
+                            <li>✓ Escalable a tu propio ritmo</li>
+                            <li>✓ Integración de servicios a elección</li>
                         </ul>
-                        <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Unanimous%20Enterprise%20(Diamond)." target="_blank" class="btn-primary btn-diamond mt-4">Cotizar Paquete</a>
-                    </div>
-
-                    <div class="package-card animate-up" style="transition-delay: 0.5s;">
-                        <div class="badge badge-normal">Gold</div>
-                        <h3>Growth Machine</h3>
-                        <div class="price-tag">$8,000 – $12,000 <span>MXN / mes</span></div>
-                        <div class="price-sub">&nbsp;</div>
-                        <p class="package-desc">Para empresas con flujo de caja que quieren inyectarle gasolina a sus ventas y volverse líderes de su sector.</p>
-                        <ul class="package-features text-left">
-                            <li>✓ Gestión de Google Ads</li>
-                            <li>✓ Campañas en Meta Ads</li>
-                            <li>✓ Manejo de Redes Sociales</li>
-                            <li>✓ Automatización total de ventas</li>
-                        </ul>
-                        <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Growth%20Machine." target="_blank" class="btn-primary mt-4">Cotizar Paquete</a>
-                    </div>
-
-                    <div class="package-card highlighted animate-up" style="transition-delay: 0.7s;">
-                        <div class="badge badge-star">Servicio Estrella</div>
-                        <h3>Piloto Automático</h3>
-                        <div class="price-tag">Instalación $2,500 <span>MXN</span></div>
-                        <div class="price-sub">+ mensualidad desde $600 MXN</div>
-                        <p class="package-desc">Delega la atención al cliente de madrugada y fines de semana. Tu negocio cerrando ventas 24/7 sin pagar un sueldo.</p>
-                        <ul class="package-features text-left">
-                            <li>✓ Página Web Completa</li>
-                            <li>✓ Sistema de Atención 24/7 (WhatsApp)</li>
-                            <li>✓ Configuración de flujos e IA</li>
-                        </ul>
-                        <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Piloto%20Automático." target="_blank" class="btn-primary mt-4">Cotizar Paquete</a>
+                        <a href="https://wa.me/528449102095?text=Hola,%20quiero%20cotizar%20un%20Ecosistema%20Personalizado." target="_blank" class="btn-primary mt-4">Cotizar Proyecto</a>
                     </div>
 
                 </div>
@@ -282,8 +299,69 @@ import imgBranding from '../assets/icon-branding.jpeg';
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            /* ── Canvas: red de partículas Tech/IA ── */
+            const canvas = document.getElementById('tech-canvas') as HTMLCanvasElement;
+            if (canvas) {
+                const ctx = canvas.getContext('2d')!;
+                let W = canvas.width = canvas.offsetWidth;
+                let H = canvas.height = canvas.offsetHeight;
+
+                const PARTICLE_COUNT = Math.min(55, Math.floor(W / 20));
+                const MAX_DIST = 140;
+                const particles: { x: number; y: number; vx: number; vy: number; r: number }[] = [];
+
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    particles.push({
+                        x: Math.random() * W, y: Math.random() * H,
+                        vx: (Math.random() - 0.5) * 0.35,
+                        vy: (Math.random() - 0.5) * 0.35,
+                        r: Math.random() * 1.5 + 0.5,
+                    });
+                }
+
+                function draw() {
+                    ctx.clearRect(0, 0, W, H);
+                    // dots
+                    for (const p of particles) {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(160,140,255,0.55)';
+                        ctx.fill();
+                        // move
+                        p.x += p.vx; p.y += p.vy;
+                        if (p.x < 0 || p.x > W) p.vx *= -1;
+                        if (p.y < 0 || p.y > H) p.vy *= -1;
+                    }
+                    // connections
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < MAX_DIST) {
+                                const alpha = (1 - dist / MAX_DIST) * 0.18;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(120,100,240,${alpha})`;
+                                ctx.lineWidth = 0.8;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(draw);
+                }
+                draw();
+
+                window.addEventListener('resize', () => {
+                    W = canvas.width = canvas.offsetWidth;
+                    H = canvas.height = canvas.offsetHeight;
+                }, { passive: true });
+            }
+
+            /* ── Observer principal: service sections ── */
             const animElements = document.querySelectorAll('.animate-up, .animate-left, .animate-right');
-            
             const animObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -291,38 +369,57 @@ import imgBranding from '../assets/icon-branding.jpeg';
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { root: null, threshold: 0.2 });
-
+            }, { root: null, threshold: 0.12 });
             animElements.forEach(el => animObserver.observe(el));
 
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 80) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
+            /* ── Observer de paquetes: dispara TODOS simultáneamente ── */
+            const pkgWrapper = document.querySelector('.packages-scroll-wrapper');
+            if (pkgWrapper) {
+                const pkgObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            pkgWrapper.classList.add('pkg-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { root: null, threshold: 0.08 });
+                pkgObserver.observe(pkgWrapper);
+            }
+
+            /* ── CENTER-ACTIVE: glow the centered card on touch devices ── */
+            const pkgScrollWrapper = document.getElementById('pkg-scroll-wrapper') as HTMLElement | null;
+            if (pkgScrollWrapper && window.matchMedia('(hover: none)').matches) {
+                const cards = Array.from(pkgScrollWrapper.querySelectorAll<HTMLElement>('.package-card'));
+
+                function activateCenterCard() {
+                    const wrapperRect = pkgScrollWrapper!.getBoundingClientRect();
+                    const wrapperCenterX = wrapperRect.left + wrapperRect.width / 2;
+
+                    let closestCard: HTMLElement | null = null;
+                    let closestDist = Infinity;
+
+                    cards.forEach(card => {
+                        const rect = card.getBoundingClientRect();
+                        const cardCenterX = rect.left + rect.width / 2;
+                        const dist = Math.abs(cardCenterX - wrapperCenterX);
+                        if (dist < closestDist) {
+                            closestDist = dist;
+                            closestCard = card;
+                        }
+                    });
+
+                    cards.forEach(card => card.classList.remove('is-active'));
+                    if (closestCard) (closestCard as HTMLElement).classList.add('is-active');
                 }
-            });
 
-            const menuToggle = document.getElementById('mobile-menu');
-            const navLinks = document.getElementById('nav-links');
-            const navItems = document.querySelectorAll('.nav-item');
+                pkgScrollWrapper.addEventListener('scroll', activateCenterCard, { passive: true });
+                window.addEventListener('resize', activateCenterCard, { passive: true });
+                activateCenterCard(); // activate first card on load
+            }
 
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            });
-
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                    }
-                });
-            });
         });
     </script>
+
 </body>
 </html>
 
@@ -335,7 +432,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
         --font-sans: 'Inter', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { margin: 0; padding: 0; font-family: var(--font-serif); background-color: var(--color-black); color: var(--color-cream); overflow-x: hidden; }
+    body { margin: 0; padding: 0; font-family: var(--font-serif); background-color: #0D0D12; color: var(--color-cream); overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; }
     p { font-family: var(--font-sans); }
     a { text-decoration: none; color: inherit; }
@@ -343,207 +440,386 @@ import imgBranding from '../assets/icon-branding.jpeg';
 
 <style>
     .text-center { text-align: center; }
-    .text-left { text-align: left; }
-    .mt-4 { margin-top: 1.5rem; }
+    .text-left   { text-align: left; }
+    .mt-4        { margin-top: 1.5rem; }
 
     /* ESTRUCTURA GENERAL */
-    .fullscreen-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; padding: 80px 0; box-sizing: border-box; overflow: hidden; }
-    .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2; width: 100%; box-sizing: border-box; }
-    
-    /* Animación hacia arriba */
-    .animate-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-    .animate-up.active { opacity: 1; transform: translateY(0); }
+    .fullscreen-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 80px 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-    /* Animación desde la Izquierda */
-    .animate-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .animate-left.active { opacity: 1; transform: translateX(0); }
+    /* ── Animaciones GPU-accelerated ── */
+    .animate-up {
+        will-change: transform, opacity;
+        opacity: 0;
+        transform: translateY(40px) translateZ(0);
+        transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+    }
+    .animate-up.active { opacity: 1; transform: translateY(0) translateZ(0); }
 
-    /* Animación desde la Derecha */
-    .animate-right { opacity: 0; transform: translateX(60px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .animate-right.active { opacity: 1; transform: translateX(0); }
+    .animate-left {
+        will-change: transform, opacity;
+        opacity: 0;
+        transform: translateX(-60px) translateZ(0);
+        transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .animate-left.active { opacity: 1; transform: translateX(0) translateZ(0); }
 
-    /* Animación Cascada para las Listas */
-    .feature-list li { opacity: 0; transform: translateX(-20px); transition: all 0.5s ease forwards; }
-    .active .feature-list li:nth-child(1) { transition-delay: 0.3s; opacity: 1; transform: translateX(0); }
-    .active .feature-list li:nth-child(2) { transition-delay: 0.5s; opacity: 1; transform: translateX(0); }
-    .active .feature-list li:nth-child(3) { transition-delay: 0.7s; opacity: 1; transform: translateX(0); }
-    .active .feature-list li:nth-child(4) { transition-delay: 0.9s; opacity: 1; transform: translateX(0); }
+    .animate-right {
+        will-change: transform, opacity;
+        opacity: 0;
+        transform: translateX(60px) translateZ(0);
+        transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .animate-right.active { opacity: 1; transform: translateX(0) translateZ(0); }
 
-    /* Levitación Infinita */
-    .icon-floating { animation: floatIcon 6s ease-in-out infinite; }
-    @keyframes floatIcon { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+    /* Cascade lista: solo cuando su padre .text-block está activo */
+    .feature-list li {
+        opacity: 0;
+        transform: translateX(-18px) translateZ(0);
+        transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .active .feature-list li:nth-child(1) { transition-delay: 0.22s; opacity: 1; transform: translateX(0) translateZ(0); }
+    .active .feature-list li:nth-child(2) { transition-delay: 0.37s; opacity: 1; transform: translateX(0) translateZ(0); }
+    .active .feature-list li:nth-child(3) { transition-delay: 0.52s; opacity: 1; transform: translateX(0) translateZ(0); }
+    .active .feature-list li:nth-child(4) { transition-delay: 0.67s; opacity: 1; transform: translateX(0) translateZ(0); }
 
-    /* NAVBAR */
-    .navbar { position: fixed; top: 0; width: 100%; height: 80px; background-color: var(--color-black); color: var(--color-cream); display: flex; justify-content: space-between; align-items: center; padding: 0 4rem; box-sizing: border-box; z-index: 1000; transition: background-color 0.4s ease, color 0.4s ease; }
-    .logo-container { position: relative; height: 50px; width: 180px; z-index: 1002; display: flex; align-items: center; }
-    .logo-link { position: relative; display: block; width: 100%; height: 100%; }
-    .nav-logo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; object-position: left center; transition: opacity 0.4s ease; }
-    .logo-dark-bg { opacity: 1; mix-blend-mode: screen; }
-    .logo-light-bg { opacity: 0; mix-blend-mode: multiply; }
-    .navbar.scrolled { background-color: var(--color-cream); color: var(--color-black); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-    .navbar.scrolled .logo-dark-bg { opacity: 0; }
-    .navbar.scrolled .logo-light-bg { opacity: 1; }
-    .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
-    .nav-links a { font-family: var(--font-serif); font-size: 1.1rem; transition: opacity 0.3s ease; }
-    .nav-links a:hover { opacity: 0.6; }
-    .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1002; }
-    .menu-toggle .bar { width: 30px; height: 2px; background-color: var(--color-cream); transition: all 0.3s ease; }
-    .navbar.scrolled .menu-toggle .bar { background-color: var(--color-black); }
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    /* Levitación infinita GPU */
+    .icon-floating {
+        animation: floatIcon 6s ease-in-out infinite;
+        will-change: transform;
+    }
+    @keyframes floatIcon {
+        0%   { transform: translateY(0px)    translateZ(0); }
+        50%  { transform: translateY(-15px)  translateZ(0); }
+        100% { transform: translateY(0px)    translateZ(0); }
+    }
+
+    /* Paquetes: aparición simultánea — SIN delay secuencial */
+    .pkg-animate {
+        will-change: transform, opacity;
+        opacity: 0;
+        transform: translateY(28px) translateZ(0);
+        transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+    }
+    .pkg-visible .pkg-animate {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+        /* TODAS las tarjetas aparecen a la vez — sin nth-child delay */
+    }
 
     /* HERO */
     .hero-section { justify-content: center; }
     .title-serif-huge { font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 2vh; }
     .hero-subtitle { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.2rem, 2vw, 1.5rem); color: #EFEFEF; }
 
-    /* MESH BACKGROUND PARA EL HERO */
+    /* Canvas de partículas Tech (fondo hero) */
     .relative-layer { position: relative; z-index: 2; }
-    .mesh-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; background-color: var(--color-black); pointer-events: none; }
-    .mesh-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: moveOrb 20s infinite alternate ease-in-out; will-change: transform; }
-    .orb-1 { width: 40vw; height: 40vw; background: rgba(250, 249, 245, 0.3); top: -10%; left: -10%; animation-duration: 25s; }
-    .orb-2 { width: 45vw; height: 45vw; background: rgba(120, 120, 120, 0.4); bottom: -20%; right: -10%; animation-duration: 22s; animation-delay: -5s; }
-    .orb-3 { width: 35vw; height: 35vw; background: rgba(250, 249, 245, 0.15); top: 40%; left: 30%; animation-duration: 28s; animation-delay: -10s; }
-    @keyframes moveOrb { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(10vw, 15vh) scale(1.1); } 100% { transform: translate(-10vw, -10vh) scale(0.9); } }
+    .mesh-background {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 0; overflow: hidden;
+        background-color: #0D0D12;
+        pointer-events: none;
+    }
+    /* El canvas ocupa todo el hero */
+    #tech-canvas {
+        position: absolute; top: 0; left: 0;
+        width: 100%; height: 100%;
+        display: block;
+    }
+    /* Orbs de color sobre el canvas */
+    .mesh-orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.3; will-change: transform; animation: moveOrb 22s infinite alternate ease-in-out; }
+    .orb-1 { width: 42vw; height: 42vw; background: rgba(90, 60, 200, 0.45);  top: -10%; left: -10%; animation-duration: 26s; }
+    .orb-2 { width: 48vw; height: 48vw; background: rgba(30, 100, 220, 0.35);  bottom: -20%; right: -10%; animation-duration: 22s; animation-delay: -5s; }
+    .orb-3 { width: 36vw; height: 36vw; background: rgba(120,  60, 200, 0.22); top: 40%;  left: 30%; animation-duration: 30s; animation-delay: -12s; }
+    @keyframes moveOrb {
+        0%   { transform: translate(0, 0)       scale(1);    }
+        50%  { transform: translate(8vw, 12vh)  scale(1.08); }
+        100% { transform: translate(-8vw, -8vh) scale(0.92); }
+    }
 
-    /* SECCIONES ALTERNADAS BASE */
+    /* SECCIONES */
     .cream-section { background-color: var(--color-cream); color: var(--color-black); }
-    .dark-section { background-color: var(--color-black); color: var(--color-cream); }
-    
+
+    /* Dark section: gris muy oscuro premium + grid tech sutil */
+    .dark-section {
+        background-color: #0D0D12;
+        background-image:
+            radial-gradient(ellipse 55% 60% at 15% 50%, rgba(70, 45, 180, 0.07) 0%, transparent 65%),
+            radial-gradient(ellipse 40% 50% at 85% 40%, rgba(20, 90, 200, 0.05) 0%, transparent 60%),
+            linear-gradient(rgba(255,255,255,0.016) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.016) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        color: var(--color-cream);
+    }
+
     .split-layout { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
     .split-layout.reverse { flex-direction: row-reverse; }
     .text-block { flex: 1.2; }
     .text-block h2 { font-size: clamp(2.2rem, 3vw, 3rem); margin-bottom: 1.5rem; }
-    .text-block p { font-size: clamp(1.1rem, 1.5vw, 1.2rem); line-height: 1.6; margin-bottom: 2rem; opacity: 0.9; }
-    .feature-list { list-style: none; padding: 0; font-family: var(--font-sans); font-size: 1.1rem; line-height: 2; opacity: 0.8; }
-    .icon-block { flex: 0.8; display: flex; justify-content: center; opacity: 0.8; }
-    
-   /* CAMBIO CLAVE AQUÍ PARA LAS IMÁGENES GRANDES DE ARA */
-    .service-img { width: 220px; height: 220px; object-fit: contain; } /* Antes estaba en 140px */
+    .text-block p  { font-size: clamp(1.1rem, 1.5vw, 1.2rem); line-height: 1.6; margin-bottom: 2rem; opacity: 0.9; }
+    .feature-list  { list-style: none; padding: 0; font-family: var(--font-sans); font-size: 1.1rem; line-height: 2; opacity: 0.8; }
+    /* Two-column price row inside feature list */
+    .feature-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .feat-name  { flex: 1; }
+    .feat-price { font-weight: 600; white-space: nowrap; font-size: 0.95em; opacity: 0.85; }
+    /* Info note — full width, small, italic */
+    .feat-note  { display: block !important; font-size: 0.82rem; opacity: 0.55; font-style: italic; margin-top: 0.4rem; line-height: 1.4; }
+    .icon-block    { flex: 0.8; display: flex; justify-content: center; opacity: 0.8; }
 
-    /* -------------------------------------------
-       PAQUETES (CARRUSEL HORIZONTAL)
-       ------------------------------------------- */
-    
+    .service-img { width: 220px; height: 220px; object-fit: contain; }
+
+    /* ── PAQUETES (carrusel horizontal) ── */
     .packages-scroll-wrapper {
         width: 100%;
         overflow-x: auto;
         padding-bottom: 2rem;
         scrollbar-width: thin;
-        scrollbar-color: rgba(250, 249, 245, 0.3) transparent;
+        scrollbar-color: rgba(250,249,245,0.3) transparent;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
     }
-    
-    .packages-scroll-wrapper::-webkit-scrollbar { height: 8px; }
-    .packages-scroll-wrapper::-webkit-scrollbar-track { background: transparent; }
-    .packages-scroll-wrapper::-webkit-scrollbar-thumb { background-color: rgba(250, 249, 245, 0.3); border-radius: 10px; }
+    .packages-scroll-wrapper::-webkit-scrollbar        { height: 8px; }
+    .packages-scroll-wrapper::-webkit-scrollbar-track  { background: transparent; }
+    .packages-scroll-wrapper::-webkit-scrollbar-thumb  { background-color: rgba(250,249,245,0.3); border-radius: 10px; }
 
-    .packages-grid { 
-        display: flex; 
-        gap: 2.5rem; 
-        margin-top: 3rem; 
-        width: max-content; 
-        padding: 1rem 5px;
+    .packages-grid {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 3rem;
+        width: max-content;
+        padding: 2rem 5px 1rem 5px;  /* top:2rem gives room for the badge (top:-15px) */
     }
 
-    .package-card { 
-        width: 340px; 
-        background-color: rgba(250, 249, 245, 0.03); 
-        border: 1px solid rgba(250, 249, 245, 0.1); 
-        padding: 3rem 2rem; 
-        border-radius: 12px; 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-        position: relative; 
-        transition: transform 0.3s ease; 
-        flex-shrink: 0; 
+    .package-card {
+        width: 340px;
+        background-color: rgba(250,249,245,0.03);
+        border: 1px solid rgba(250,249,245,0.1);
+        padding: 3rem 2rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        /* NO overflow:hidden — badge is position:absolute top:-15px and would get clipped */
+        transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                    background-color 0.35s ease,
+                    border-color 0.35s ease;
+        flex-shrink: 0;
+        will-change: transform;
     }
-    
-    .package-card:hover { transform: translateY(-10px); background-color: rgba(250, 249, 245, 0.06); }
-    
-    .package-card.highlighted { background-color: var(--color-cream); color: var(--color-black); border-color: var(--color-cream); transform: scale(1.03); }
-    .package-card.highlighted:hover { transform: scale(1.03) translateY(-5px); }
 
-    .diamond-card { border-color: #B9F2FF; background: linear-gradient(180deg, rgba(20, 25, 30, 1) 0%, var(--color-black) 100%); }
-    .diamond-card:hover { border-color: #E0F7FA; background-color: rgba(20, 25, 30, 0.8); }
-    
+    /* ── GPU glow: animate opacity of a ::after ring (no layout/paint cost) ──
+       The ring is always rendered but transparent at rest.
+       On hover, only opacity changes → compositor-only, smooth 60fps.      */
+    .package-card::after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 14px;
+        pointer-events: none;
+        z-index: -1;
+        background: transparent;
+        box-shadow:
+            0 0 0 1px rgba(110, 70, 255, 0.55),
+            0 0 28px 6px rgba(80, 50, 220, 0.35),
+            0 12px 40px rgba(60, 30, 180, 0.25);
+        opacity: 0;
+        will-change: opacity;
+        transition: opacity 0.2s ease;
+    }
+    .package-card:hover::after { opacity: 1; }
+
+    /* Touch-device center glow: same as :hover but triggered by JS .is-active */
+    .package-card.is-active::after { opacity: 1; }
+    .package-card.is-active {
+        background-color: rgba(250,249,245,0.06);
+    }
+
+    /* Scroll-snap: makes swipe stop cleanly at each card center on touch */
+    .packages-scroll-wrapper { scroll-snap-type: x mandatory; }
+    .package-card            { scroll-snap-align: center; }
+
+    /* ── Swipe hint: hidden on desktop, visible on mobile/tablet ── */
+    .pkg-swipe-hint {
+        display: none; /* hidden by default (desktop) */
+    }
+    @media (max-width: 900px) {
+        .pkg-swipe-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: rgba(250,249,245,0.45);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: swipeHintPulse 2.2s ease-in-out infinite;
+        }
+    }
+    @keyframes swipeHintPulse {
+        0%, 100% { opacity: 0.45; transform: translateX(0);    }
+        40%       { opacity: 0.85; transform: translateX(5px);  }
+        60%       { opacity: 0.85; transform: translateX(-5px); }
+    }
+
+    /* All cards: lift on hover (including highlighted) */
+    .package-card:hover {
+        transform: translateY(-10px) translateZ(0);
+        background-color: rgba(250,249,245,0.06);
+    }
+
+    /* Highlighted (Piloto Automático) — identical to normal cards now */
+    .package-card.highlighted {
+        border-color: rgba(250,249,245,0.3);
+    }
+
+    /* Diamond card — cyan glow ring via ::after override */
+    .diamond-card {
+        border-color: #B9F2FF;
+        background: linear-gradient(180deg, rgba(20,25,30,1) 0%, #0D0D12 100%);
+    }
+    .diamond-card::after {
+        box-shadow:
+            0 0 0 1px rgba(100, 220, 255, 0.6),
+            0 0 28px 6px rgba(0, 170, 255, 0.3),
+            0 12px 40px rgba(0, 130, 200, 0.2);
+    }
+    .diamond-card:hover { border-color: #E0F7FA; }
+
     .badge { position: absolute; top: -15px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: bold; padding: 6px 20px; border-radius: 20px; letter-spacing: 1px; text-transform: uppercase; }
-    .badge-normal { background: var(--color-cream); color: var(--color-black); }
-    .badge-star { background: var(--color-black); color: var(--color-cream); border: 2px solid var(--color-cream); }
-    .badge-diamond { background: linear-gradient(135deg, #E0F7FA, #90CAF9); color: var(--color-black); border: none; box-shadow: 0 0 15px rgba(185, 242, 255, 0.4); }
+    .badge-normal  { background: var(--color-cream); color: var(--color-black); }
+    .badge-star    { background: var(--color-black); color: var(--color-cream); border: 2px solid var(--color-cream); }
+    .badge-diamond { background: linear-gradient(135deg, #E0F7FA, #90CAF9); color: var(--color-black); box-shadow: 0 0 15px rgba(185,242,255,0.4); }
 
     .package-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-    
-    .price-tag { font-family: var(--font-sans); font-size: 1.8rem; font-weight: bold; margin-bottom: 0.2rem; color: var(--color-cream); }
-    .package-card.highlighted .price-tag { color: var(--color-black); }
+    .price-tag  { font-family: var(--font-sans); font-size: 1.8rem; font-weight: bold; margin-bottom: 0.2rem; color: var(--color-cream); }
     .price-tag span { font-size: 1rem; font-weight: normal; opacity: 0.7; }
-    
-    .price-sub { font-family: var(--font-sans); font-size: 0.9rem; opacity: 0.8; margin-bottom: 1.5rem; min-height: 20px;}
-    .package-card.highlighted .price-sub { color: var(--color-black); font-weight: 600; }
+    .price-sub  { font-family: var(--font-sans); font-size: 0.9rem; opacity: 0.8; margin-bottom: 1.5rem; min-height: 20px; }
+    .package-desc { font-size: 0.88rem; line-height: 1.55; opacity: 0.8; margin-bottom: 0; flex-grow: 1; }
 
-    .package-desc { font-size: 0.95rem; opacity: 0.8; margin-bottom: 2rem; min-height: 70px; }
-    .package-card.highlighted .package-desc { color: #333; opacity: 1; }
-    
-    .package-features { width: 100%; list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1; border-top: 1px solid rgba(250, 249, 245, 0.1); padding-top: 1.5rem;}
-    .package-card.highlighted .package-features { border-top-color: rgba(0,0,0,0.1); }
-    
-    .package-features li { padding: 8px 0; border-bottom: 1px solid rgba(250, 249, 245, 0.05); font-family: var(--font-sans); font-size: 0.95rem; opacity: 0.9; }
-    .package-card.highlighted .package-features li { border-bottom-color: rgba(0,0,0,0.05); color: #222; opacity: 1; }
-    
-    .btn-primary { display: inline-block; padding: 12px 30px; background-color: transparent; border: 1px solid var(--color-cream); color: var(--color-cream); font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 50px; transition: all 0.3s ease; width: 100%; box-sizing: border-box; }
+    .package-features { width: 100%; list-style: none; padding: 0; margin-top: 2rem; margin-bottom: 2rem; border-top: 1px solid rgba(250,249,245,0.1); padding-top: 1.5rem; }
+    .package-features li { padding: 8px 0; border-bottom: 1px solid rgba(250,249,245,0.05); font-family: var(--font-sans); font-size: 0.95rem; opacity: 0.9; }
+
+    .btn-primary { display: inline-block; padding: 12px 30px; background-color: transparent; border: 1px solid var(--color-cream); color: var(--color-cream); font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 50px; transition: all 0.3s ease; width: 100%; box-sizing: border-box; text-align: center; }
     .btn-primary:hover { background-color: var(--color-cream); color: var(--color-black); }
-    
-    .package-card.highlighted .btn-primary { background-color: var(--color-black); color: var(--color-cream); border: none; }
-    .package-card.highlighted .btn-primary:hover { background-color: #333; }
-
     .btn-diamond { border-color: #B9F2FF; color: #B9F2FF; }
-    .btn-diamond:hover { background-color: #B9F2FF; color: var(--color-black); box-shadow: 0 0 15px rgba(185, 242, 255, 0.3); }
+    .btn-diamond:hover { background-color: #B9F2FF; color: var(--color-black); box-shadow: 0 0 15px rgba(185,242,255,0.3); }
 
     /* BOTONES SCROLL */
     .scroll-down-btn { position: absolute; bottom: 4vh; left: 50%; transform: translateX(-50%); color: var(--color-cream); animation: bounce 2s infinite; z-index: 50; display: flex; justify-content: center; align-items: center; cursor: pointer; }
     .scroll-down-btn.dark-btn { color: var(--color-black); }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
     /* FOOTER */
-    .footer-section { background-color: var(--color-black); color: var(--color-cream); padding: 4rem 2rem 1.5rem 2rem; border-top: 1px solid rgba(250, 249, 245, 0.1); width: 100%; box-sizing: border-box; }
-    .footer-content { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem; }
-    .footer-col { flex: 1; min-width: 250px; }
-    .footer-tagline { font-size: 1rem; font-style: italic; opacity: 0.8; }
-    .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+    .footer-section  { background-color: #0D0D12; color: var(--color-cream); padding: 4rem 2rem 1.5rem 2rem; border-top: 1px solid rgba(250,249,245,0.1); width: 100%; box-sizing: border-box; }
+    .footer-content  { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem; }
+    .footer-col      { flex: 1; min-width: 250px; }
+    .footer-tagline  { font-size: 1rem; font-style: italic; opacity: 0.8; }
+    .footer-col h4   { font-size: 1.2rem; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
     .footer-col p, .footer-col ul { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.8; opacity: 0.85; margin-bottom: 0.5rem; }
-    .links-col ul { list-style: none; padding: 0; }
-    .links-col a { transition: color 0.3s ease; }
+    .links-col ul    { list-style: none; padding: 0; }
+    .links-col a     { transition: color 0.3s ease; }
     .links-col a:hover { color: #EFEFEF; opacity: 1; }
-    .footer-bottom { text-align: center; border-top: 1px solid rgba(250, 249, 245, 0.1); padding-top: 1.5rem; font-size: 0.85rem; opacity: 0.6; font-family: var(--font-sans); }
+    .footer-bottom   { text-align: center; border-top: 1px solid rgba(250,249,245,0.1); padding-top: 1.5rem; font-size: 0.85rem; opacity: 0.6; font-family: var(--font-sans); }
 
-    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform transform 0.3s ease; }
+    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.3s ease; }
     .whatsapp-float:hover { transform: scale(1.1); }
 
-    /* RESPONSIVE MÓVIL */
-    @media (max-width: 900px) {
-        .navbar { padding: 0 1.5rem; }
-        .menu-toggle { display: flex; }
-        .nav-links { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background-color: var(--color-black); flex-direction: column; justify-content: center; align-items: center; transition: left 0.4s ease; z-index: 1001; }
-        .nav-links.active { left: 0; } 
-        .nav-links a { color: var(--color-cream); font-size: 1.8rem; margin: 15px 0; }
-        
-        .fullscreen-section { height: auto; min-height: auto; padding: 120px 0; }
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+       1024px  = iPad Pro / landscape tablet
+        900px  = Mobile / portrait tablet
+        480px  = Small phones
+       ───────────────────────────────────────────── */
 
-        .split-layout, .split-layout.reverse { flex-direction: column; text-align: center; gap: 2rem; }
-        
-        .animate-left, .animate-right { transform: translateY(40px); }
-        .animate-left.active, .animate-right.active { transform: translateY(0); }
+    /* ── TABLET: iPad Pro / landscape (≤ 1024px) ── */
+    @media (max-width: 1024px) {
+        .split-layout { gap: 2.5rem; }
+        .text-block h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+        .content-wrapper { padding: 0 2.5rem; }
+        .title-serif-huge { font-size: clamp(2.4rem, 4vw, 3.6rem); }
+        /* Package cards — slightly narrower to fit 2 on a tablet */
+        .package-card { width: 300px; }
+    }
+
+    /* ── MOBILE / PORTRAIT TABLET (≤ 900px) ── */
+    @media (max-width: 900px) {
+        /* Sections */
+        .fullscreen-section { height: auto; min-height: auto; padding: 100px 0 80px; }
+        .content-wrapper { padding: 0 1.5rem; }
+
+        /* Hero */
+        .hero-section.split-layout { flex-direction: column; text-align: center; gap: 2rem; }
+        .title-serif-huge { font-size: clamp(2rem, 7vw, 3rem); }
+        .hero-subtitle { font-size: 1rem; }
+
+        /* Split sections stack vertically */
+        .split-layout,
+        .split-layout.reverse { flex-direction: column; text-align: center; gap: 2rem; }
+        .text-block { text-align: left; }
+
+        /* Lateral animations degrade to vertical on mobile */
+        .animate-left,
+        .animate-right { transform: translateY(40px) translateZ(0); }
+        .animate-left.active,
+        .animate-right.active { transform: translateY(0) translateZ(0); }
 
         .feature-list { display: inline-block; text-align: left; }
-        
-        /* AJUSTE PARA IMÁGENES EN MÓVIL */
-        .service-img { width: 100px; height: 100px; }
-        
-        .package-card { width: 280px; padding: 2.5rem 1.5rem; }
-        
-        .footer-content { flex-direction: column; text-align: left; }
+        .service-img  { width: 100px; height: 100px; }
+        .icon-block   { order: -1; }   /* image goes above text in column layout */
+
+        /* Package section: allow vertical-ish scrolling on mobile */
+        .packages-scroll-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1.5rem;
+        }
+        .packages-grid { padding: 1rem 1.5rem; gap: 1.5rem; }
+        .package-card  { width: 280px; padding: 2.5rem 1.5rem; }
+
+        /* Footer */
+        .footer-content { flex-direction: column; gap: 2rem; }
+        .footer-col     { min-width: unset; }
         .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+    }
+
+    /* ── SMALL PHONES (≤ 480px) ── */
+    @media (max-width: 480px) {
+        .fullscreen-section { padding: 90px 0 60px; }
+        .content-wrapper    { padding: 0 1rem; }
+        .title-serif-huge   { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+        .text-block h2      { font-size: 1.5rem; }
+        .text-block p       { font-size: 0.95rem; }
+        .feature-list       { font-size: 0.95rem; }
+
+        /* Package cards fill the screen width on tiny phones */
+        .packages-grid { gap: 1rem; }
+        .package-card  { width: calc(100vw - 3rem); max-width: 320px; padding: 2rem 1.2rem; }
+
+        /* Footer */
+        .footer-col h4  { font-size: 1rem; }
+        .footer-col p, .footer-col ul { font-size: 0.85rem; }
     }
 </style>

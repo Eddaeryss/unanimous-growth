@@ -1,0 +1,273 @@
+---
+/**
+ * Header.astro — Smart Dynamic Header for Unanimous Growth
+ */
+export interface Props {
+    initialTheme?: 'dark' | 'light';
+    logoHref?: string;
+    links?: { label: string; href: string }[];
+}
+
+const {
+    initialTheme = 'dark',
+    logoHref = '/',
+    links,
+} = Astro.props;
+
+const isHome = Astro.url.pathname === '/';
+
+const navLinks = links ?? [
+    { label: 'Inicio',    href: isHome ? '#inicio'     : '/#inicio'     },
+    { label: 'Visión',    href: isHome ? '#unanimidad' : '/#unanimidad' },
+    { label: 'Nosotros',  href: isHome ? '#nosotros'   : '/#nosotros'   },
+    { label: 'Servicios', href: isHome ? '/servicios'  : '/#servicios'  },
+    { label: 'Contacto',  href: isHome ? '#contacto'   : '/#contacto'   },
+];
+
+const themeAttr = initialTheme;
+---
+
+<nav id="navbar" class="ug-navbar" data-initial-theme={themeAttr}>
+    <div class="ug-logo-wrap">
+        <a href={logoHref} class="ug-logo-link" aria-label="Unanimous Growth — Inicio">
+            <img src="/logg2.jpg" alt="Unanimous Growth" class="ug-logo ug-logo-dark-bg" width="180" height="50" draggable="false">
+            <img src="/logo-crema.jpg" alt="Unanimous Growth" class="ug-logo ug-logo-light-bg" width="180" height="50" draggable="false">
+        </a>
+    </div>
+
+    <button class="ug-menu-toggle" id="ug-mobile-menu" aria-label="Abrir menú" aria-expanded="false">
+        <span class="ug-bar"></span>
+        <span class="ug-bar"></span>
+        <span class="ug-bar"></span>
+    </button>
+
+    <ul class="ug-nav-links" id="ug-nav-links" role="list">
+        {navLinks.map(link => (
+            <li>
+                <a href={link.href} class="ug-nav-item">{link.label}</a>
+            </li>
+        ))}
+    </ul>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar   = document.getElementById('navbar') as HTMLElement;
+        const toggle   = document.getElementById('ug-mobile-menu') as HTMLButtonElement;
+        const navLinks = document.getElementById('ug-nav-links') as HTMLUListElement;
+        const items    = document.querySelectorAll('.ug-nav-item');
+
+        if (!navbar || !toggle || !navLinks) return;
+
+        const initialTheme = navbar.dataset.initialTheme as 'dark' | 'light';
+        navbar.classList.add(`theme-${initialTheme}`);
+
+        const lightSections = document.querySelectorAll('.cream-section');
+
+        function updateNavbarState() {
+            const scrolled = window.scrollY > 50;
+            navbar.classList.toggle('ug-scrolled', scrolled);
+
+            if (scrolled) {
+                let overLight = false;
+                lightSections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 80 && rect.bottom >= 0) overLight = true;
+                });
+                navbar.classList.toggle('ug-over-light', overLight);
+            } else {
+                navbar.classList.remove('ug-over-light');
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbarState, { passive: true });
+        updateNavbarState(); 
+
+        toggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            toggle.classList.toggle('is-open', isOpen);
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+                toggle.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    });
+</script>
+
+<style>
+    :root {
+        --ug-cream:   #FAF9F5;
+        --ug-black:   #000000;
+        --ug-dark-bg: #0D0D12;
+        --ug-h:       80px;
+        --ug-font-serif: 'Playfair Display', serif;
+        --ug-transition: 0.35s ease;
+    }
+
+    .ug-navbar {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: var(--ug-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4rem;
+        box-sizing: border-box;
+        z-index: 1000;
+        background-color: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        transition:
+            background-color var(--ug-transition),
+            backdrop-filter   var(--ug-transition),
+            box-shadow        var(--ug-transition),
+            color             var(--ug-transition);
+    }
+
+    .ug-navbar.theme-dark { color: var(--ug-cream); }
+    .ug-navbar.theme-dark .ug-logo-dark-bg  { opacity: 1; }
+    .ug-navbar.theme-dark .ug-logo-light-bg { opacity: 0; }
+    .ug-navbar.theme-dark .ug-nav-item      { color: var(--ug-cream); }
+    .ug-navbar.theme-dark .ug-bar           { background-color: var(--ug-cream); }
+
+    .ug-navbar.theme-light { color: var(--ug-black); }
+    .ug-navbar.theme-light .ug-logo-dark-bg  { opacity: 0; }
+    .ug-navbar.theme-light .ug-logo-light-bg { opacity: 1; }
+    .ug-navbar.theme-light .ug-nav-item      { color: var(--ug-black); }
+    .ug-navbar.theme-light .ug-bar           { background-color: var(--ug-black); }
+
+    .ug-navbar.ug-scrolled:not(.ug-over-light) {
+        background-color: rgba(13, 13, 18, 0.85);
+        backdrop-filter:  blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        box-shadow: 0 1px 0 rgba(255,255,255,0.06),
+                    0 8px 32px rgba(0,0,0,0.45);
+        color: var(--ug-cream);
+    }
+    .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-logo-dark-bg  { opacity: 1; }
+    .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-logo-light-bg { opacity: 0; }
+    .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-nav-item      { color: var(--ug-cream); }
+    .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-bar           { background-color: var(--ug-cream); }
+
+    .ug-navbar.ug-scrolled.ug-over-light {
+        background-color: rgba(250, 249, 245, 0.90);
+        backdrop-filter:  blur(20px) saturate(140%);
+        -webkit-backdrop-filter: blur(20px) saturate(140%);
+        box-shadow: 0 1px 0 rgba(0,0,0,0.06),
+                    0 8px 28px rgba(0,0,0,0.10);
+        color: var(--ug-black);
+    }
+    .ug-navbar.ug-scrolled.ug-over-light .ug-logo-dark-bg  { opacity: 0; }
+    .ug-navbar.ug-scrolled.ug-over-light .ug-logo-light-bg { opacity: 1; }
+    .ug-navbar.ug-scrolled.ug-over-light .ug-nav-item      { color: var(--ug-black); }
+    .ug-navbar.ug-scrolled.ug-over-light .ug-bar           { background-color: var(--ug-black); }
+
+    .ug-logo-wrap {
+        position: relative;
+        height: 50px;
+        width: 180px;
+        z-index: 1002;
+        flex-shrink: 0;
+    }
+
+    .ug-logo-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    .ug-logo-link:focus,
+    .ug-logo-link:active { outline: none; }
+    
+    .ug-logo {
+        position: absolute;
+        top: 0; left: 0;
+        width: 180px;
+        height: 50px;
+        object-fit: contain;
+        object-position: left center;
+        transition: opacity var(--ug-transition);
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .ug-logo-dark-bg  { opacity: 1; }
+    .ug-logo-light-bg { opacity: 0; }
+
+    .ug-nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+    .ug-nav-item {
+        font-family: var(--ug-font-serif);
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: opacity 0.25s ease, color var(--ug-transition);
+    }
+    .ug-nav-item:hover { opacity: 0.6; }
+
+    .ug-menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+        z-index: 1002;
+    }
+    .ug-bar {
+        display: block;
+        width: 30px;
+        height: 2px;
+        border-radius: 2px;
+        transition: background-color var(--ug-transition),
+                    transform 0.3s ease,
+                    opacity  0.3s ease;
+    }
+    
+    .ug-menu-toggle.is-open .ug-bar:nth-child(1) { transform: translateY(8px) rotate(45deg);  }
+    .ug-menu-toggle.is-open .ug-bar:nth-child(2) { opacity: 0;                                 }
+    .ug-menu-toggle.is-open .ug-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    @media (max-width: 900px) {
+        .ug-navbar { padding: 0 1.5rem; }
+        .ug-menu-toggle { display: flex; }
+
+        .ug-nav-links {
+            position: fixed;
+            top: 0; left: -100%;
+            width: 100%; height: 100vh;
+            background-color: var(--ug-dark-bg);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            transition: left 0.4s ease;
+            z-index: 1001;
+        }
+        .ug-nav-links.is-open { left: 0; }
+
+        .ug-nav-item {
+            color: var(--ug-cream) !important;
+            font-size: 1.8rem;
+            padding: 0.8rem 0;
+            display: block;
+        }
+    }
+</style>

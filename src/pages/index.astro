@@ -1,12 +1,6 @@
 ---
 // src/pages/index.astro
-import { Image } from 'astro:assets';
-import imgDesarrollo from '../assets/icon-desarrollo.jpeg';
-import imgIa from '../assets/icon-ia.jpeg';
-import imgMarketing from '../assets/icon-marketing.jpeg';
-import imgAds from '../assets/icon-ads.jpeg';
-import imgBranding from '../assets/icon-branding.jpeg';
-import imgPaquetes from '../assets/icon-paquetes.jpeg';
+import Header from '../components/Header.astro';
 ---
 
 <html lang="es">
@@ -14,39 +8,24 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unanimous Growth | Crecemos juntos</title>
-    
+    <!-- Dark bg painted immediately so browser never flashes white -->
+    <style>html{background-color:#0D0D12}</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav id="navbar" class="navbar">
-        <div class="logo-container">
-            <a href="#inicio" class="logo-link">
-                <img src="/logg2.jpg" alt="Unanimous Growth" class="nav-logo logo-dark-bg">
-                <img src="/logo-crema.jpg" alt="Unanimous Growth" class="nav-logo logo-light-bg">
-            </a>
-        </div>
-        
-        <div class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+    <Header initialTheme="dark" logoHref="/" />
 
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#inicio" class="nav-item">Inicio</a></li>
-            <li><a href="#unanimidad" class="nav-item">Visión</a></li>
-            <li><a href="#nosotros" class="nav-item">Nosotros</a></li>
-            <li><a href="/servicios" class="nav-item">Servicios</a></li>
-            <li><a href="#contacto" class="nav-item">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <header id="inicio" class="fullscreen-section hero-section">
+    <header id="inicio" class="fullscreen-section hero-section dark-section">
         
-        <div id="tsparticles" class="particles-bg"></div>
+        <div class="mesh-background">
+            <canvas id="tech-canvas"></canvas>
+            <div class="mesh-orb orb-1"></div>
+            <div class="mesh-orb orb-2"></div>
+            <div class="mesh-orb orb-3"></div>
+        </div>
 
         <div class="hero-content gsap-hero relative-layer">
             <h1>Crezcamos <span class="text-script">unánimes</span><br>estrategias para<br>expandir tu negocio.</h1>
@@ -111,56 +90,165 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
             <h2 class="title-serif-huge gsap-section" style="margin-bottom: 4vh;">SERVICIOS</h2>
             
             <div class="services-grid" id="stagger-container">
-                
+
+                <!-- Desarrollo Web -->
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#desarrollo" class="service-link">
                         <div class="icon-container">
-                            <Image src={imgDesarrollo} alt="Desarrollo Web" class="grid-icon" />
+                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <!-- Monitor frame -->
+                                <rect x="8" y="14" width="74" height="48" rx="5"/>
+                                <!-- Top bar -->
+                                <line x1="8" y1="25" x2="82" y2="25"/>
+                                <!-- Dots -->
+                                <circle cx="17" cy="19.5" r="2" fill="currentColor" stroke="none"/>
+                                <circle cx="24" cy="19.5" r="2" fill="currentColor" stroke="none"/>
+                                <circle cx="31" cy="19.5" r="2" fill="currentColor" stroke="none"/>
+                                <!-- Code brackets -->
+                                <polyline points="31,38 22,46 31,54"/>
+                                <polyline points="59,38 68,46 59,54"/>
+                                <!-- Slash -->
+                                <line x1="43" y1="35" x2="47" y2="57"/>
+                                <!-- Stand -->
+                                <line x1="45" y1="62" x2="45" y2="74"/>
+                                <line x1="30" y1="74" x2="60" y2="74"/>
+                            </svg>
                         </div>
                         <h3>Desarrollo web profesional</h3>
                     </a>
                 </div>
 
+                <!-- IA / Automatización -->
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#ia" class="service-link">
                         <div class="icon-container">
-                            <Image src={imgIa} alt="Inteligencia Artificial" class="grid-icon" />
+                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <!-- Robot head -->
+                                <rect x="22" y="26" width="46" height="38" rx="8"/>
+                                <!-- Antenna -->
+                                <line x1="45" y1="26" x2="45" y2="15"/>
+                                <circle cx="45" cy="12" r="4"/>
+                                <!-- Eyes (screen) -->
+                                <rect x="29" y="36" width="12" height="9" rx="2"/>
+                                <rect x="49" y="36" width="12" height="9" rx="2"/>
+                                <!-- Eye glow dot -->
+                                <circle cx="35" cy="40.5" r="2" fill="currentColor" stroke="none"/>
+                                <circle cx="55" cy="40.5" r="2" fill="currentColor" stroke="none"/>
+                                <!-- Mouth / data line -->
+                                <line x1="31" y1="55" x2="59" y2="55"/>
+                                <line x1="37" y1="55" x2="37" y2="58"/>
+                                <line x1="45" y1="55" x2="45" y2="58"/>
+                                <line x1="53" y1="55" x2="53" y2="58"/>
+                                <!-- Side connectors -->
+                                <line x1="22" y1="42" x2="13" y2="42"/>
+                                <circle cx="10" cy="42" r="3"/>
+                                <line x1="68" y1="42" x2="77" y2="42"/>
+                                <circle cx="80" cy="42" r="3"/>
+                                <!-- Legs -->
+                                <line x1="33" y1="64" x2="28" y2="76"/>
+                                <line x1="57" y1="64" x2="62" y2="76"/>
+                            </svg>
                         </div>
                         <h3>Automatización e<br>Inteligencia Artificial</h3>
                     </a>
                 </div>
 
+                <!-- Marketing Digital -->
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#marketing" class="service-link">
                         <div class="icon-container">
-                            <Image src={imgMarketing} alt="Marketing Digital" class="grid-icon" />
+                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <!-- Y axis -->
+                                <line x1="16" y1="12" x2="16" y2="72"/>
+                                <!-- X axis -->
+                                <line x1="16" y1="72" x2="80" y2="72"/>
+                                <!-- Axis arrows -->
+                                <polyline points="12,18 16,12 20,18"/>
+                                <polyline points="74,68 80,72 74,76"/>
+                                <!-- Bars -->
+                                <rect x="24" y="52" width="12" height="20" rx="2" fill="currentColor" fill-opacity="0.15"/>
+                                <rect x="42" y="38" width="12" height="34" rx="2" fill="currentColor" fill-opacity="0.15"/>
+                                <rect x="60" y="22" width="12" height="50" rx="2" fill="currentColor" fill-opacity="0.15"/>
+                                <!-- Bar outlines -->
+                                <rect x="24" y="52" width="12" height="20" rx="2"/>
+                                <rect x="42" y="38" width="12" height="34" rx="2"/>
+                                <rect x="60" y="22" width="12" height="50" rx="2"/>
+                                <!-- Trend line -->
+                                <polyline points="30,52 48,38 66,22"/>
+                                <polyline points="60,18 66,22 62,28"/>
+                            </svg>
                         </div>
                         <h3>Marketing Digital Estratégico</h3>
                     </a>
                 </div>
 
+                <!-- Publicidad Digital (Ads) -->
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#ads" class="service-link">
                         <div class="icon-container">
-                            <Image src={imgAds} alt="Publicidad Digital" class="grid-icon" />
+                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <!-- Megaphone body -->
+                                <path d="M22,32 L22,58 L34,58 L62,70 L62,20 L34,32 Z"/>
+                                <!-- Mouth piece detail -->
+                                <line x1="22" y1="32" x2="22" y2="58"/>
+                                <!-- Sound waves -->
+                                <path d="M68,34 Q76,45 68,56" stroke-width="2"/>
+                                <path d="M72,28 Q84,45 72,62" stroke-width="1.5" stroke-opacity="0.6"/>
+                                <!-- Handle -->
+                                <line x1="28" y1="58" x2="28" y2="74"/>
+                                <line x1="22" y1="74" x2="34" y2="74"/>
+                                <!-- Target dot -->
+                                <circle cx="16" cy="45" r="4"/>
+                            </svg>
                         </div>
                         <h3>Publicidad Digital (Ads)</h3>
                     </a>
                 </div>
 
+                <!-- Branding -->
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#branding" class="service-link">
                         <div class="icon-container">
-                            <Image src={imgBranding} alt="Branding e Identidad" class="grid-icon" />
+                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <!-- Diamond gem -->
+                                <polygon points="45,14 70,34 45,76 20,34"/>
+                                <!-- Gem facets -->
+                                <polyline points="20,34 45,48 70,34"/>
+                                <line x1="30" y1="22" x2="45" y2="48"/>
+                                <line x1="60" y1="22" x2="45" y2="48"/>
+                                <line x1="20" y1="34" x2="30" y2="22"/>
+                                <line x1="70" y1="34" x2="60" y2="22"/>
+                                <line x1="30" y1="22" x2="60" y2="22"/>
+                                <!-- Shine -->
+                                <line x1="45" y1="8" x2="45" y2="12"/>
+                                <line x1="56" y1="10" x2="54" y2="13"/>
+                                <line x1="34" y1="10" x2="36" y2="13"/>
+                            </svg>
                         </div>
                         <h3>Branding e Identidad de Marca</h3>
                     </a>
                 </div>
 
+                <!-- Paquetes Integrales -->
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#paquetes" class="service-link">
                         <div class="icon-container">
-                            <Image src={imgPaquetes} alt="Paquetes Integrales" class="grid-icon" />
+                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <!-- Bottom layer -->
+                                <rect x="12" y="56" width="66" height="22" rx="4"/>
+                                <!-- Middle layer -->
+                                <rect x="18" y="38" width="54" height="20" rx="4"/>
+                                <!-- Top layer -->
+                                <rect x="24" y="22" width="42" height="18" rx="4"/>
+                                <!-- Ribbon vertical -->
+                                <line x1="45" y1="22" x2="45" y2="78"/>
+                                <!-- Ribbon horizontal top -->
+                                <line x1="24" y1="31" x2="66" y2="31"/>
+                                <!-- Ribbon horizontal mid -->
+                                <line x1="18" y1="48" x2="72" y2="48"/>
+                                <!-- Ribbon horizontal bot -->
+                                <line x1="12" y1="67" x2="78" y2="67"/>
+                            </svg>
                         </div>
                         <h3>Paquetes Integrales</h3>
                     </a>
@@ -207,23 +295,68 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
         <svg viewBox="0 0 32 32" width="34" height="34" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.002 2.05A13.91 13.91 0 0 0 2.096 15.96c0 2.45.635 4.84 1.84 6.95L2 29.91l7.16-1.875a13.92 13.92 0 0 0 6.842 1.785h.005A13.912 13.912 0 0 0 29.912 15.96 13.913 13.913 0 0 0 16.002 2.05zm0 23.366a11.536 11.536 0 0 1-5.875-1.6l-.42-.25-4.364 1.144 1.164-4.25-.274-.436A11.532 11.532 0 0 1 4.453 15.96a11.554 11.554 0 0 1 11.55-11.554 11.554 11.554 0 0 1 11.553 11.555 11.554 11.554 0 0 1-11.554 11.455zm6.336-8.663c-.347-.174-2.05-1.013-2.368-1.13-.318-.115-.55-.173-.78.174-.23.346-.897 1.128-1.098 1.36-.2.23-.404.26-.75.086-.347-.173-1.464-.54-2.79-1.724-1.03-1.03-1.725-2.305-1.927-2.652-.202-.347-.022-.535.152-.708.156-.155.347-.404.52-.606.174-.203.232-.347.347-.578.116-.23.058-.433-.028-.606-.087-.173-.78-1.88-1.07-2.574-.28-.675-.568-.583-.78-.594-.2-.01-.432-.012-.663-.012a1.27 1.27 0 0 0-.925.433c-.318.347-1.214 1.186-1.214 2.89s1.243 3.352 1.416 3.583c.174.23 2.44 3.73 5.91 5.23 2.835 1.226 3.468 1.13 4.103 1.07.636-.057 2.05-.838 2.34-1.648.29-.81.29-1.503.203-1.648-.087-.145-.318-.23-.665-.405z"/></svg>
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            tsParticles.load("tsparticles", {
-                fullScreen: { enable: false },
-                particles: {
-                    number: { value: 50 },
-                    color: { value: "#FAF9F5" },
-                    links: { enable: true, color: "#FAF9F5", distance: 150, opacity: 0.2, width: 1 },
-                    move: { enable: true, speed: 0.8 },
-                    size: { value: 2 },
-                    opacity: { value: 0.3 }
+            // ── Efecto Malla Canvas Tech (Hero) ──
+            const canvas = document.getElementById('tech-canvas') as HTMLCanvasElement;
+            if (canvas) {
+                const ctx = canvas.getContext('2d')!;
+                let W = canvas.width = canvas.offsetWidth;
+                let H = canvas.height = canvas.offsetHeight;
+
+                const PARTICLE_COUNT = Math.min(55, Math.floor(W / 20));
+                const MAX_DIST = 140;
+                const particles: { x: number; y: number; vx: number; vy: number; r: number }[] = [];
+
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    particles.push({
+                        x: Math.random() * W, y: Math.random() * H,
+                        vx: (Math.random() - 0.5) * 0.35,
+                        vy: (Math.random() - 0.5) * 0.35,
+                        r: Math.random() * 1.5 + 0.5,
+                    });
                 }
-            });
+
+                function draw() {
+                    ctx.clearRect(0, 0, W, H);
+                    // dots
+                    for (const p of particles) {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(160,140,255,0.55)';
+                        ctx.fill();
+                        // move
+                        p.x += p.vx; p.y += p.vy;
+                        if (p.x < 0 || p.x > W) p.vx *= -1;
+                        if (p.y < 0 || p.y > H) p.vy *= -1;
+                    }
+                    // lines
+                    for (let i = 0; i < PARTICLE_COUNT; i++) {
+                        for (let j = i + 1; j < PARTICLE_COUNT; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < MAX_DIST) {
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(160,140,255,${0.2 * (1 - dist / MAX_DIST)})`;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(draw);
+                }
+                draw();
+
+                window.addEventListener('resize', () => {
+                    W = canvas.width = canvas.offsetWidth;
+                    H = canvas.height = canvas.offsetHeight;
+                });
+            }
 
             gsap.registerPlugin(ScrollTrigger);
 
@@ -248,46 +381,21 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
             });
 
             gsap.fromTo(".gsap-stagger", 
-                { y: 50, opacity: 0 },
+                { y: 40, opacity: 0 },
                 {
                     scrollTrigger: {
                         trigger: "#stagger-container", 
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
+                        start: "top 92%",
+                        once: true
                     },
                     y: 0, 
                     opacity: 1, 
-                    duration: 0.8, 
-                    stagger: 0.15,
-                    ease: "power3.out"
+                    duration: 0.75, 
+                    stagger: 0.12,
+                    ease: "power3.out",
+                    clearProps: "transform"
                 }
             );
-
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 80) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-
-            const menuToggle = document.getElementById('mobile-menu');
-            const navLinks = document.getElementById('nav-links');
-            const navItems = document.querySelectorAll('.nav-item');
-
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            });
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                    }
-                });
-            });
         });
     </script>
 </body>
@@ -302,7 +410,7 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
         --font-sans: 'Inter', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { margin: 0; padding: 0; font-family: var(--font-serif); background-color: var(--color-black); color: var(--color-cream); overflow-x: hidden; }
+    body { margin: 0; padding: 0; font-family: var(--font-serif); background-color: #0D0D12; color: var(--color-cream); overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; }
     p { font-family: var(--font-sans); }
     a { text-decoration: none; color: inherit; }
@@ -316,32 +424,41 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
     .align-center { display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 80px; }
     .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2; width: 100%; box-sizing: border-box; }
 
-    /* NAVBAR */
-    .navbar { position: fixed; top: 0; width: 100%; height: 80px; background-color: var(--color-black); color: var(--color-cream); display: flex; justify-content: space-between; align-items: center; padding: 0 4rem; box-sizing: border-box; z-index: 1000; transition: background-color 0.4s ease, color 0.4s ease; }
-    .logo-container { position: relative; height: 50px; width: 180px; z-index: 1002; display: flex; align-items: center; }
-    .logo-link { position: relative; display: block; width: 100%; height: 100%; }
-    .nav-logo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; object-position: left center; transition: opacity 0.4s ease; }
-    .logo-dark-bg { opacity: 1; mix-blend-mode: screen; }
-    .logo-light-bg { opacity: 0; mix-blend-mode: multiply; }
-    .navbar.scrolled { background-color: var(--color-cream); color: var(--color-black); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-    .navbar.scrolled .logo-dark-bg { opacity: 0; }
-    .navbar.scrolled .logo-light-bg { opacity: 1; }
-    .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
-    .nav-links a { font-family: var(--font-serif); font-size: 1.1rem; transition: opacity 0.3s ease; }
-    .nav-links a:hover { opacity: 0.6; }
-    
-    .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1002; }
-    .menu-toggle .bar { width: 30px; height: 2px; background-color: var(--color-cream); transition: all 0.3s ease; }
-    .navbar.scrolled .menu-toggle .bar { background-color: var(--color-black); }
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
     /* HERO */
     .relative-layer { position: relative; z-index: 2; }
-    .particles-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    .mesh-background {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 0; overflow: hidden;
+        background-color: #0D0D12;
+    }
+    #tech-canvas { display: block; width: 100%; height: 100%; }
+    .mesh-orb {
+        position: absolute; border-radius: 50%; filter: blur(70px);
+        mix-blend-mode: screen; z-index: -1; animation: floatOrb 15s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 300px; height: 300px; background: rgba(80, 50, 200, 0.4); top: -100px; left: -100px; animation-duration: 18s; }
+    .orb-2 { width: 400px; height: 400px; background: rgba(30, 100, 255, 0.25); bottom: -150px; right: -100px; animation-duration: 22s; animation-direction: alternate-reverse; }
+    .orb-3 { width: 250px; height: 250px; background: rgba(140, 80, 255, 0.3); top: 30%; left: 50%; transform: translateX(-50%); animation-duration: 25s; }
+
+    @keyframes floatOrb {
+        0%   { transform: translate(0, 0) scale(1); }
+        50%  { transform: translate(30px, -40px) scale(1.1); }
+        100% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    #inicio {
+        background-color: #0D0D12;
+    }
     
-    .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 80px 4rem 10vh 4rem; max-width: 1400px; margin: 0 auto; box-sizing: border-box; }
+    .hero-section { 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        width: 100%; 
+        max-width: none; 
+        padding: 80px max(4rem, calc((100vw - 1400px) / 2)) 10vh max(4rem, calc((100vw - 1400px) / 2)); 
+        box-sizing: border-box; 
+    }
     .hero-content { flex: 1.1; padding-right: 2rem; }
     .hero-content h1 { font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: 1.1; font-weight: 600; margin-bottom: 2vh; }
     .text-script { font-family: var(--font-script); font-size: 1.3em; font-weight: 400; padding: 0 5px;}
@@ -364,14 +481,25 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
 
     /* GRID SERVICIOS */
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3rem; max-width: 1100px; margin: 0 auto 3vh auto; }
-    .service-card { transition: transform 0.3s ease; }
-    .service-card:hover { transform: translateY(-5px); }
+    /*
+     * NOTE: .service-card does NOT set opacity:0 in CSS.
+     * GSAP's fromTo() sets opacity:0 as inline style when it initialises,
+     * and animates to opacity:1. This means cards are always visible as
+     * a fallback if GSAP or ScrollTrigger fails to fire.
+     */
+    .service-card {
+        will-change: transform, opacity;
+        transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        border-radius: 16px;
+        padding: 1.5rem 1rem;
+    }
+    .service-card:hover {
+        transform: translateY(-8px) translateZ(0);
+        box-shadow: 0 12px 40px rgba(90, 60, 200, 0.25), 0 4px 16px rgba(0,0,0,0.12);
+    }
     .service-link { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; text-decoration: none; color: inherit; }
     .icon-container { margin-bottom: 1vh; display:flex; justify-content:center; align-items:center; }
-    
-   /* Clase exclusiva para las imágenes del componente Astro */
-    .grid-icon { width: 90px; height: 90px; object-fit: contain; } /* Antes estaba en 55px */ 
-    
+    .grid-icon { width: 90px; height: 90px; display: block; color: inherit; flex-shrink: 0; }
     .service-link h3 { font-family: var(--font-serif); font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.4; transition: color 0.3s ease; }
     .service-link:hover h3 { color: #555; }
 
@@ -396,26 +524,67 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
     .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.3s ease; }
     .whatsapp-float:hover { transform: scale(1.1); }
 
-    /* MEDIA QUERIES */
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+       1024px  = iPad Pro / landscape tablet
+        900px  = Mobile / portrait tablet
+        480px  = Small phones
+       ───────────────────────────────────────────── */
+
+    /* ── TABLET: iPad Pro / landscape (≤ 1024px) ── */
+    @media (max-width: 1024px) {
+        .hero-section     { padding: 100px 2.5rem 8vh 2.5rem; gap: 2rem; }
+        .hero-content h1  { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+        .services-grid    { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; max-width: 780px; }
+        .content-wrapper  { padding: 0 2.5rem; }
+    }
+
+    /* ── MOBILE / PORTRAIT TABLET (≤ 900px) ── */
     @media (max-width: 900px) {
-        .navbar { padding: 0 1.5rem; }
-        .menu-toggle { display: flex; }
-        .nav-links { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background-color: var(--color-black); flex-direction: column; justify-content: center; align-items: center; transition: left 0.4s ease; z-index: 1001; }
-        .nav-links.active { left: 0; } 
-        .nav-links a { color: var(--color-cream); font-size: 1.8rem; margin: 15px 0; }
-        
-        .fullscreen-section { height: auto; min-height: 100vh; padding-bottom: 120px; }
-        
-        .hero-section { flex-direction: column; padding-top: 120px; text-align: center; }
+        .fullscreen-section { height: auto; min-height: 100vh; padding-bottom: 80px; }
+
+        /* Hero stacks vertically */
+        .hero-section {
+            flex-direction: column;
+            padding: 110px 1.5rem 8vh 1.5rem;
+            text-align: center;
+        }
         .hero-content { padding-right: 0; margin-bottom: 4vh; }
-        .hero-content h1 { font-size: 3rem; }
-        .hero-image { width: 100%; }
-        
-        .desktop-only { display: none; } 
-        .content-wrapper { padding: 0 1.5rem; box-sizing: border-box; }
-        .services-grid { grid-template-columns: 1fr; gap: 3rem; }
-        
-        .footer-content { flex-direction: column; text-align: left; }
+        .hero-content h1 { font-size: clamp(2rem, 8vw, 3rem); }
+        .hero-image   { width: 100%; }
+
+        /* Services: single column */
+        .services-grid { grid-template-columns: 1fr; gap: 2rem; max-width: 480px; }
+
+        /* Text sections */
+        .content-wrapper { padding: 0 1.5rem; }
+        .body-large      { font-size: 1rem; }
+        .subtitle-large  { font-size: 1rem; }
+        .title-serif-huge { font-size: clamp(2rem, 7vw, 2.8rem); }
+        .heading-mixed    { font-size: clamp(1.6rem, 6vw, 2rem); }
+
+        /* Footer */
+        .footer-content { flex-direction: column; gap: 2rem; }
+        .footer-col     { min-width: unset; }
+
+        /* Decorations */
+        .desktop-only { display: none; }
         .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+    }
+
+    /* ── SMALL PHONES (≤ 480px) ── */
+    @media (max-width: 480px) {
+        .hero-section     { padding: 100px 1rem 6vh 1rem; }
+        .hero-content h1  { font-size: clamp(1.7rem, 9vw, 2.4rem); }
+        .hero-subtitle    { font-size: 1rem; }
+        .content-wrapper  { padding: 0 1rem; }
+        .title-serif-huge { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+        .grid-icon        { width: 70px; height: 70px; }
+        .align-center     { padding-top: 60px; }
+        .fullscreen-section { padding-bottom: 60px; }
+
+        /* Footer */
+        .footer-col h4  { font-size: 1rem; }
+        .footer-col p, .footer-col ul { font-size: 0.85rem; }
     }
 </style>
