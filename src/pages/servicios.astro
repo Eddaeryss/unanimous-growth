@@ -2,10 +2,11 @@
 // src/pages/servicios.astro
 import { Image } from 'astro:assets';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import imgDesarrollo from '../assets/icon-desarrollo.jpeg';
-import imgIa from '../assets/icon-ia.jpeg';
+import imgIa from '../assets/icon-ia-negro.png';
 import imgMarketing from '../assets/icon-marketing.jpeg';
-import imgAds from '../assets/icon-ads.jpeg';
+import imgAds from '../assets/icon-ads-negro.png';
 import imgBranding from '../assets/icon-branding.jpeg';
 ---
 
@@ -14,7 +15,6 @@ import imgBranding from '../assets/icon-branding.jpeg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios | Unanimous Growth</title>
-    <!-- Dark bg painted immediately so browser never flashes white -->
     <style>html{background-color:#0D0D12}</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,6 +55,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
                     <li><span class="feat-name">✓ Optimización de velocidad y SEO</span><span class="feat-price">$1,500–$2,500</span></li>
                     <li class="feat-note">ℹ️ Hosting, dominio &amp; mantenimiento trimestral +$1,000 · Ajustes desde $700 (pago único)</li>
                 </ul>
+                <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20cotizar%20un%20servicio%20de%20Desarrollo%20Web." target="_blank" class="btn-primary mt-4">Cotizar Servicio</a>
             </div>
             <div class="icon-block animate-right icon-floating">
                 <Image src={imgDesarrollo} alt="Desarrollo Web" class="service-img" />
@@ -77,6 +78,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
                     <li><span class="feat-name">✓ Recepcionista Telefónica IA 24/7</span><span class="feat-price">$15,000 + $4,000/mes</span></li>
                     <li class="feat-note">ℹ️ Recepcionista incluye 500 min/mes · Minuto extra a $4 MXN</li>
                 </ul>
+                <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20implementar%20Inteligencia%20Artificial%20en%20mi%20negocio." target="_blank" class="btn-primary mt-4">Cotizar Servicio</a>
             </div>
             <div class="icon-block animate-left icon-floating" style="animation-delay: 1s;">
                 <Image src={imgIa} alt="Inteligencia Artificial" class="service-img" />
@@ -99,6 +101,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
                     <li><span class="feat-name">✓ Email marketing &amp; retención</span><span class="feat-price">Setup $2,500–$6,000</span></li>
                     <li><span class="feat-name">✓ Análisis de métricas y crecimiento</span><span class="feat-price">$1,000–$3,000/mes</span></li>
                 </ul>
+                <a href="https://wa.me/528449102095?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Marketing%20Digital%20Estrat%C3%A9gico." target="_blank" class="btn-primary mt-4">Cotizar Servicio</a>
             </div>
             <div class="icon-block animate-right icon-floating" style="animation-delay: 0.5s;">
                 <Image src={imgMarketing} alt="Marketing Digital" class="service-img" />
@@ -121,6 +124,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
                     <li><span class="feat-name">✓ Retargeting recuperación de carritos</span><span class="feat-price">$1,500–$4,000</span></li>
                     <li><span class="feat-name">✓ Embudos de venta automatizados</span><span class="feat-price">$5,000–$15,000</span></li>
                 </ul>
+                <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20lanzar%20campa%C3%B1as%20de%20Publicidad%20Digital%20(Ads)." target="_blank" class="btn-primary mt-4">Cotizar Servicio</a>
             </div>
             <div class="icon-block animate-left icon-floating" style="animation-delay: 1.5s;">
                 <Image src={imgAds} alt="Publicidad Digital Ads" class="service-img" />
@@ -144,6 +148,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
                     <li><span class="feat-name">✓ Paleta de color y tipografía</span><span class="feat-price">$1,500–$3,000</span></li>
                     <li><span class="feat-name">✓ Papelería y aplicaciones digitales</span><span class="feat-price">$1,500–$5,000</span></li>
                 </ul>
+                <a href="https://wa.me/528449102095?text=Hola,%20quiero%20cotizar%20un%20servicio%20de%20Branding%20e%20Identidad%20de%20Marca." target="_blank" class="btn-primary mt-4">Cotizar Servicio</a>
             </div>
             <div class="icon-block animate-right icon-floating" style="animation-delay: 0.8s;">
                 <Image src={imgBranding} alt="Branding e Identidad" class="service-img" />
@@ -160,7 +165,6 @@ import imgBranding from '../assets/icon-branding.jpeg';
             <h2 class="title-serif-huge" style="margin-bottom: 2vh;">Paquetes Integrales</h2>
             <p style="max-width: 800px; margin: 0 auto 5vh auto; font-size: 1.2rem; color: #EFEFEF;">Desliza para descubrir nuestras soluciones diseñadas para generar impacto real y rentabilidad. Elige la etapa en la que se encuentra tu negocio.</p>
             
-            <!-- Swipe indicator: only visible on mobile/tablet -->
             <div class="pkg-swipe-hint" aria-hidden="true">
                 <svg viewBox="0 0 40 18" width="40" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <line x1="2" y1="9" x2="38" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -176,13 +180,12 @@ import imgBranding from '../assets/icon-branding.jpeg';
             <div class="packages-scroll-wrapper" id="pkg-scroll-wrapper">
                 <div class="packages-grid" id="pkg-grid">
 
-                    <!-- 1ro: Piloto Automático (Estrella) -->
                     <div class="package-card highlighted pkg-animate" style="transition-delay: 0.1s;">
                         <div class="badge badge-star">Servicio Estrella</div>
                         <h3>Piloto Automático</h3>
                         <div class="price-tag">Instalación $4,900 <span>MXN</span></div>
                         <div class="price-sub">+ mensualidad desde $600 MXN</div>
-                        <p class="package-desc">Tu negocio responde y genera oportunidades 24/7 de forma automática, convirtiendo cada mensaje, incluso fuera de horario, en una oportunidad de venta.</p>
+                        <p class="package-desc" style="margin-bottom: 0;">Tu negocio responde y genera oportunidades 24/7 de forma automática, convirtiendo cada mensaje, incluso fuera de horario, en una oportunidad de venta.</p>
                         <ul class="package-features text-left">
                             <li>✓ Página Web Completa</li>
                             <li>✓ Sistema de Atención 24/7 (WhatsApp)</li>
@@ -191,7 +194,6 @@ import imgBranding from '../assets/icon-branding.jpeg';
                         <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Piloto%20Autom%C3%A1tico." target="_blank" class="btn-primary mt-4">Cotizar Paquete</a>
                     </div>
 
-                    <!-- 2do: Unanimous Enterprise (Diamond) -->
                     <div class="package-card pkg-animate diamond-card" style="transition-delay: 0.3s;">
                         <div class="badge badge-diamond">Diamond 💎</div>
                         <h3 style="color: #fff;">Unanimous Enterprise</h3>
@@ -207,7 +209,6 @@ import imgBranding from '../assets/icon-branding.jpeg';
                         <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Unanimous%20Enterprise%20(Diamond)." target="_blank" class="btn-primary btn-diamond mt-4">Cotizar Paquete</a>
                     </div>
 
-                    <!-- 3ro: The Growth (Gold) -->
                     <div class="package-card pkg-animate" style="transition-delay: 0.5s;">
                         <div class="badge badge-normal">Gold</div>
                         <h3>The Growth</h3>
@@ -223,7 +224,6 @@ import imgBranding from '../assets/icon-branding.jpeg';
                         <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20The%20Growth." target="_blank" class="btn-primary mt-4">Cotizar Paquete</a>
                     </div>
 
-                    <!-- 4to: Paquete Presencia -->
                     <div class="package-card pkg-animate" style="transition-delay: 0.7s;">
                         <div class="badge badge-normal">El Gancho</div>
                         <h3>Paquete Presencia</h3>
@@ -239,7 +239,6 @@ import imgBranding from '../assets/icon-branding.jpeg';
                         <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20el%20Paquete%20Presencia." target="_blank" class="btn-primary mt-4">Cotizar Paquete</a>
                     </div>
 
-                    <!-- 5to: Ecosistema Personalizado (nuevo) -->
                     <div class="package-card pkg-animate" style="transition-delay: 0.9s;">
                         <div class="badge badge-normal">A Tu Medida</div>
                         <h3>Ecosistema Personalizado</h3>
@@ -264,36 +263,9 @@ import imgBranding from '../assets/icon-branding.jpeg';
         </a>
     </section>
 
-    <footer id="contacto" class="footer-section">
-        <div class="content-wrapper footer-content">
-            <div class="footer-col brand-col">
-                <img src="/logo-crema.jpg" alt="Unanimous Growth" style="width: 200px; max-width: 100%; height: auto; mix-blend-mode: screen; margin-bottom: 1rem; display: block;">
-                <p class="footer-tagline">Crecemos juntos, con propósito y dirección.</p>
-            </div>
-            
-            <div class="footer-col info-col">
-                <h4>Contacto</h4>
-                <p>📍 Saltillo, Coahuila, México</p>
-                <p>📞 +52 844 910 2095</p>
-                <p>✉️ hola@unanimousgrowth.com</p>
-            </div>
-            
-            <div class="footer-col links-col">
-                <h4>Menú</h4>
-                <ul>
-                    <li><a href="/#inicio">Inicio</a></li>
-                    <li><a href="/#nosotros">Nosotros</a></li>
-                    <li><a href="/#servicios">Servicios</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Unanimous Growth. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <Footer />
 
-    <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20iniciar%20un%20proyecto." target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/528449102095?text=Hola%20Unanimous%20Growth,%20estaba%20viendo%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20platicar%20sobre%20un%20proyecto." target="_blank" class="whatsapp-float">
         <svg viewBox="0 0 32 32" width="34" height="34" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.002 2.05A13.91 13.91 0 0 0 2.096 15.96c0 2.45.635 4.84 1.84 6.95L2 29.91l7.16-1.875a13.92 13.92 0 0 0 6.842 1.785h.005A13.912 13.912 0 0 0 29.912 15.96 13.913 13.913 0 0 0 16.002 2.05zm0 23.366a11.536 11.536 0 0 1-5.875-1.6l-.42-.25-4.364 1.144 1.164-4.25-.274-.436A11.532 11.532 0 0 1 4.453 15.96a11.554 11.554 0 0 1 11.55-11.554 11.554 11.554 0 0 1 11.553 11.555 11.554 11.554 0 0 1-11.554 11.455zm6.336-8.663c-.347-.174-2.05-1.013-2.368-1.13-.318-.115-.55-.173-.78.174-.23.346-.897 1.128-1.098 1.36-.2.23-.404.26-.75.086-.347-.173-1.464-.54-2.79-1.724-1.03-1.03-1.725-2.305-1.927-2.652-.202-.347-.022-.535.152-.708.156-.155.347-.404.52-.606.174-.203.232-.347.347-.578.116-.23.058-.433-.028-.606-.087-.173-.78-1.88-1.07-2.574-.28-.675-.568-.583-.78-.594-.2-.01-.432-.012-.663-.012a1.27 1.27 0 0 0-.925.433c-.318.347-1.214 1.186-1.214 2.89s1.243 3.352 1.416 3.583c.174.23 2.44 3.73 5.91 5.23 2.835 1.226 3.468 1.13 4.103 1.07.636-.057 2.05-.838 2.34-1.648.29-.81.29-1.503.203-1.648-.087-.145-.318-.23-.665-.405z"/></svg>
     </a>
 
@@ -430,6 +402,8 @@ import imgBranding from '../assets/icon-branding.jpeg';
         --font-serif: 'Playfair Display', serif;
         --font-script: 'Great Vibes', cursive;
         --font-sans: 'Inter', sans-serif;
+        /* Altura del header sticky — usada para scroll-margin y min-height */
+        --header-h: 80px;
     }
     html { scroll-behavior: smooth; }
     body { margin: 0; padding: 0; font-family: var(--font-serif); background-color: #0D0D12; color: var(--color-cream); overflow-x: hidden; }
@@ -445,15 +419,25 @@ import imgBranding from '../assets/icon-branding.jpeg';
 
     /* ESTRUCTURA GENERAL */
     .fullscreen-section {
-        min-height: 100vh;
+        /* Desconta exactamente la altura del header para que todo el contenido
+           quepa en un solo viewport sin scroll extra */
+        min-height: calc(100vh - var(--header-h));
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         position: relative;
-        padding: 80px 0;
+        padding: 80px 0 60px;
         box-sizing: border-box;
         overflow: hidden;
+        /* Compensa el header sticky en todas las secciones con ancla */
+        scroll-margin-top: var(--header-h);
+    }
+
+    /* ── EXCEPCIÓN: el hero siempre cubre pantalla completa ── */
+    #inicio-servicios {
+        min-height: 100dvh; /* dvh = 100% del viewport visible, incluyendo barras del navegador */
+        scroll-margin-top: 0;
     }
     .content-wrapper {
         max-width: 1200px;
@@ -611,10 +595,10 @@ import imgBranding from '../assets/icon-branding.jpeg';
     }
 
     .package-card {
-        width: 340px;
+        width: 320px; /* Tamaño reducido para mejor ajuste vertical */
         background-color: rgba(250,249,245,0.03);
         border: 1px solid rgba(250,249,245,0.1);
-        padding: 3rem 2rem;
+        padding: 2rem 1.5rem; /* Padding reducido para más espacio */
         border-radius: 12px;
         display: flex;
         flex-direction: column;
@@ -713,17 +697,69 @@ import imgBranding from '../assets/icon-branding.jpeg';
     .badge-star    { background: var(--color-black); color: var(--color-cream); border: 2px solid var(--color-cream); }
     .badge-diamond { background: linear-gradient(135deg, #E0F7FA, #90CAF9); color: var(--color-black); box-shadow: 0 0 15px rgba(185,242,255,0.4); }
 
-    .package-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-    .price-tag  { font-family: var(--font-sans); font-size: 1.8rem; font-weight: bold; margin-bottom: 0.2rem; color: var(--color-cream); }
+    .package-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .price-tag  { font-family: var(--font-sans); font-size: 1.5rem; font-weight: bold; margin-bottom: 0.2rem; color: var(--color-cream); }
     .price-tag span { font-size: 1rem; font-weight: normal; opacity: 0.7; }
-    .price-sub  { font-family: var(--font-sans); font-size: 0.9rem; opacity: 0.8; margin-bottom: 1.5rem; min-height: 20px; }
-    .package-desc { font-size: 0.88rem; line-height: 1.55; opacity: 0.8; margin-bottom: 0; flex-grow: 1; }
+    .price-sub  { font-family: var(--font-sans); font-size: 0.9rem; opacity: 0.8; margin-bottom: 1rem; min-height: 18px; }
+    .package-desc { font-size: 0.85rem; line-height: 1.45; opacity: 0.8; margin-bottom: 0; flex-grow: 1; }
 
-    .package-features { width: 100%; list-style: none; padding: 0; margin-top: 2rem; margin-bottom: 2rem; border-top: 1px solid rgba(250,249,245,0.1); padding-top: 1.5rem; }
-    .package-features li { padding: 8px 0; border-bottom: 1px solid rgba(250,249,245,0.05); font-family: var(--font-sans); font-size: 0.95rem; opacity: 0.9; }
+    .package-features { width: 100%; list-style: none; padding: 0; margin-top: 1.2rem; margin-bottom: 1.5rem; border-top: 1px solid rgba(250,249,245,0.1); padding-top: 1rem; }
+    .package-features li { padding: 5px 0; border-bottom: 1px solid rgba(250,249,245,0.05); font-family: var(--font-sans); font-size: 0.85rem; opacity: 0.9; }
 
-    .btn-primary { display: inline-block; padding: 12px 30px; background-color: transparent; border: 1px solid var(--color-cream); color: var(--color-cream); font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 50px; transition: all 0.3s ease; width: 100%; box-sizing: border-box; text-align: center; }
+    /* ── CTA Button base (dark sections) ── */
+    .btn-primary {
+        display: inline-block;
+        padding: 10px 24px;
+        background-color: transparent;
+        border: 1px solid var(--color-cream);
+        color: var(--color-cream);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        position: relative;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    /* Animated glow ring via ::after — compositor-only (opacity only) */
+    .btn-primary::after {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 52px;
+        pointer-events: none;
+        z-index: -1;
+        box-shadow:
+            0 0 0 1px rgba(120, 80, 255, 0.7),
+            0 0 18px 4px rgba(90, 50, 220, 0.45),
+            0 0 40px 8px rgba(60, 30, 180, 0.2);
+        opacity: 0;
+        will-change: opacity;
+        transition: opacity 0.22s ease;
+    }
+    .btn-primary:hover::after { opacity: 1; }
     .btn-primary:hover { background-color: var(--color-cream); color: var(--color-black); }
+
+    /* ── CTA Button on cream/light sections — switch to dark palette ── */
+    .cream-section .btn-primary {
+        border-color: var(--color-black);
+        color: var(--color-black);
+    }
+    .cream-section .btn-primary::after {
+        box-shadow:
+            0 0 0 1px rgba(60, 30, 180, 0.6),
+            0 0 18px 4px rgba(60, 30, 180, 0.3),
+            0 0 40px 8px rgba(60, 30, 180, 0.15);
+    }
+    .cream-section .btn-primary:hover {
+        background-color: var(--color-black);
+        color: var(--color-cream);
+    }
+
     .btn-diamond { border-color: #B9F2FF; color: #B9F2FF; }
     .btn-diamond:hover { background-color: #B9F2FF; color: var(--color-black); box-shadow: 0 0 15px rgba(185,242,255,0.3); }
 
@@ -732,17 +768,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
     .scroll-down-btn.dark-btn { color: var(--color-black); }
     @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
-    /* FOOTER */
-    .footer-section  { background-color: #0D0D12; color: var(--color-cream); padding: 4rem 2rem 1.5rem 2rem; border-top: 1px solid rgba(250,249,245,0.1); width: 100%; box-sizing: border-box; }
-    .footer-content  { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem; }
-    .footer-col      { flex: 1; min-width: 250px; }
-    .footer-tagline  { font-size: 1rem; font-style: italic; opacity: 0.8; }
-    .footer-col h4   { font-size: 1.2rem; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
-    .footer-col p, .footer-col ul { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.8; opacity: 0.85; margin-bottom: 0.5rem; }
-    .links-col ul    { list-style: none; padding: 0; }
-    .links-col a     { transition: color 0.3s ease; }
-    .links-col a:hover { color: #EFEFEF; opacity: 1; }
-    .footer-bottom   { text-align: center; border-top: 1px solid rgba(250,249,245,0.1); padding-top: 1.5rem; font-size: 0.85rem; opacity: 0.6; font-family: var(--font-sans); }
+    /* FOOTER — estilos en Footer.astro */
 
     .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.3s ease; }
     .whatsapp-float:hover { transform: scale(1.1); }
@@ -750,9 +776,17 @@ import imgBranding from '../assets/icon-branding.jpeg';
     /* ─────────────────────────────────────────────
        RESPONSIVE
        1024px  = iPad Pro / landscape tablet
-        900px  = Mobile / portrait tablet
-        480px  = Small phones
+       900px   = Mobile / portrait tablet
+       480px   = Small phones
        ───────────────────────────────────────────── */
+
+    /* ── SCROLL-MARGIN: prevent fixed header (80px) obscuring section anchors ── */
+    #inicio-servicios, #desarrollo, #ia, #marketing, #ads, #branding, #paquetes, #contacto {
+        scroll-margin-top: 80px;
+    }
+
+    /* ── NO HORIZONTAL OVERFLOW on any screen ── */
+    html, body { overflow-x: clip; max-width: 100%; }
 
     /* ── TABLET: iPad Pro / landscape (≤ 1024px) ── */
     @media (max-width: 1024px) {
@@ -760,46 +794,77 @@ import imgBranding from '../assets/icon-branding.jpeg';
         .text-block h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
         .content-wrapper { padding: 0 2.5rem; }
         .title-serif-huge { font-size: clamp(2.4rem, 4vw, 3.6rem); }
-        /* Package cards — slightly narrower to fit 2 on a tablet */
         .package-card { width: 300px; }
+    }
+
+    /* ── LAPTOP DE ALTURA MEDIA (≤ 820px de alto) ──
+       Reduce el padding vertical para que el botón CTA no quede
+       cortado en pantallas de 768–820px de altura                  */
+    @media (max-height: 820px) and (min-width: 901px) {
+        .fullscreen-section  { padding: 60px 0 40px; }
+        .text-block h2       { margin-bottom: 0.75rem; }
+        .text-block p        { margin-bottom: 1rem; }
+        .feature-list        { line-height: 1.75; }
+        .service-img         { width: 180px; height: 180px; }
     }
 
     /* ── MOBILE / PORTRAIT TABLET (≤ 900px) ── */
     @media (max-width: 900px) {
-        /* Sections */
-        .fullscreen-section { height: auto; min-height: auto; padding: 100px 0 80px; }
+        /* 1. Sections */
+        .fullscreen-section { height: auto; min-height: auto; padding: 100px 0 80px; scroll-margin-top: var(--header-h); }
         .content-wrapper { padding: 0 1.5rem; }
 
-        /* Hero */
-        .hero-section.split-layout { flex-direction: column; text-align: center; gap: 2rem; }
+        /* 2. Hero collapses to column, centered */
+        .hero-section { flex-direction: column; text-align: center; gap: 2rem; }
         .title-serif-huge { font-size: clamp(2rem, 7vw, 3rem); }
-        .hero-subtitle { font-size: 1rem; }
+        .hero-subtitle { font-size: 1rem; max-width: 90%; margin: 0 auto; }
 
-        /* Split sections stack vertically */
+        /* 3. Split-layout fully stacked (both normal + .reverse) */
         .split-layout,
-        .split-layout.reverse { flex-direction: column; text-align: center; gap: 2rem; }
-        .text-block { text-align: left; }
+        .split-layout.reverse {
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+        .text-block { text-align: left; width: 100%; }
 
-        /* Lateral animations degrade to vertical on mobile */
+        /* 4. Lateral animations degrade to vertical on mobile */
         .animate-left,
-        .animate-right { transform: translateY(40px) translateZ(0); }
+        .animate-right { transform: translateY(40px) translateZ(0); opacity: 0; }
         .animate-left.active,
-        .animate-right.active { transform: translateY(0) translateZ(0); }
+        .animate-right.active { transform: translateY(0) translateZ(0); opacity: 1; }
 
-        .feature-list { display: inline-block; text-align: left; }
-        .service-img  { width: 100px; height: 100px; }
-        .icon-block   { order: -1; }   /* image goes above text in column layout */
+        /* 5. Feature list — block so it never overflows horizontally */
+        .feature-list { display: block; width: 100%; box-sizing: border-box; }
+        .feature-list li { flex-wrap: wrap; gap: 0.25rem; }
+        .feat-price { white-space: normal; font-size: 0.9rem; }
 
-        /* Package section: allow vertical-ish scrolling on mobile */
+        /* 6. Service image — smaller, floats above text */
+        .service-img { width: 120px; height: 120px; }
+        .icon-block  { order: -1; }
+
+        /* 7. Buttons — 48px min touch target (Apple/Google HIG) */
+        .btn-primary {
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        /* 8. Package carousel — smooth swipe + snap */
         .packages-scroll-wrapper {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
             padding-bottom: 1.5rem;
+            max-width: 100vw;
         }
         .packages-grid { padding: 1rem 1.5rem; gap: 1.5rem; }
-        .package-card  { width: 280px; padding: 2.5rem 1.5rem; }
+        .package-card  { width: 280px; padding: 2.5rem 1.5rem; scroll-snap-align: center; }
 
-        /* Footer */
+        /* 9. Footer */
         .footer-content { flex-direction: column; gap: 2rem; }
         .footer-col     { min-width: unset; }
         .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
@@ -807,19 +872,32 @@ import imgBranding from '../assets/icon-branding.jpeg';
 
     /* ── SMALL PHONES (≤ 480px) ── */
     @media (max-width: 480px) {
+        /* Sections */
         .fullscreen-section { padding: 90px 0 60px; }
-        .content-wrapper    { padding: 0 1rem; }
-        .title-serif-huge   { font-size: clamp(1.7rem, 8vw, 2.4rem); }
-        .text-block h2      { font-size: 1.5rem; }
-        .text-block p       { font-size: 0.95rem; }
-        .feature-list       { font-size: 0.95rem; }
+        .content-wrapper    { padding: 0 1.2rem; }
 
-        /* Package cards fill the screen width on tiny phones */
-        .packages-grid { gap: 1rem; }
-        .package-card  { width: calc(100vw - 3rem); max-width: 320px; padding: 2rem 1.2rem; }
+        /* Typography — minimum 1rem / 16px for legibility */
+        .title-serif-huge { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+        .text-block h2    { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+        .text-block p     { font-size: 1rem; line-height: 1.65; }
+        .feature-list     { font-size: 1rem; }
+        .feat-name        { font-size: 0.95rem; }
+        .feat-price       { font-size: 0.85rem; }
+        .feat-note        { font-size: 0.8rem; }
+        .hero-subtitle    { font-size: 1rem; }
+
+        /* Package cards fill screen width on tiny phones */
+        .packages-grid { gap: 1rem; padding: 1rem 1rem; }
+        .package-card  { width: calc(100vw - 2rem); max-width: 340px; padding: 2rem 1.2rem; }
+        .package-card h3 { font-size: 1.5rem; }
+        .price-tag       { font-size: 1.5rem; }
+
+        /* Buttons */
+        .btn-primary { font-size: 0.85rem; padding: 14px 20px; letter-spacing: 0.5px; }
 
         /* Footer */
         .footer-col h4  { font-size: 1rem; }
-        .footer-col p, .footer-col ul { font-size: 0.85rem; }
+        .footer-col p, .footer-col ul { font-size: 0.88rem; }
+        .footer-section { padding: 2.5rem 1.2rem 1.5rem; }
     }
 </style>

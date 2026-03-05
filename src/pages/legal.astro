@@ -1,0 +1,485 @@
+---
+/**
+ * legal.astro — Unanimous Growth
+ * Página de documentos legales: Aviso de Privacidad y Términos y Condiciones.
+ * Tipografía enfocada a lectura larga, sidebar sticky, mobile-first.
+ */
+import Footer from '../components/Footer.astro';
+
+const sections = [
+  { id: 'privacidad', label: 'Aviso de Privacidad' },
+  { id: 'terminos',   label: 'Términos y Condiciones' },
+];
+---
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentos Legales — Unanimous Growth</title>
+  <meta name="description" content="Aviso de Privacidad y Términos y Condiciones de Unanimous Growth. Conoce cómo protegemos tus datos.">
+  <meta name="robots" content="noindex">
+
+  <style>html { background-color: #0D0D12; }</style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="legal-body">
+
+  <header class="legal-header">
+    <a href="/" class="legal-back-btn" aria-label="Volver a la página principal">
+      <svg class="legal-back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Volver al sitio
+    </a>
+
+    <a href="/" class="legal-brand" aria-label="Unanimous Growth">
+      <img src="/logg2.jpg" alt="Unanimous Growth" class="legal-brand-logo">
+    </a>
+  </header>
+
+  <div class="legal-layout">
+
+    <aside class="legal-sidebar" aria-label="Índice de documentos">
+      <p class="legal-sidebar-label">En esta página</p>
+      <nav>
+        <ul class="legal-sidebar-nav">
+          {sections.map(s => (
+            <li>
+              <a href={`#${s.id}`} class="legal-sidebar-link">{s.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="legal-main" id="legal-top">
+
+      <section id="privacidad" class="legal-section">
+
+        <h1 class="legal-h1">Aviso de Privacidad</h1>
+        <p class="legal-updated">Última actualización: marzo de 2026</p>
+
+        <h2 class="legal-h2">1. Identidad y Domicilio del Responsable</h2>
+        <p class="legal-p">De estricta conformidad con lo establecido en los Artículos 8, 15, 16, 17, 36 y demás relativos y aplicables de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), así como su Reglamento y los Lineamientos del Aviso de Privacidad emitidos por el Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI), la agencia digital y tecnológica denominada comercialmente como Unanimous Growth, con sede de operaciones principal en la ciudad de Saltillo, Coahuila de Zaragoza, México, se declara como el Responsable del tratamiento, uso, almacenamiento, protección y confidencialidad de los datos personales recabados del titular (en adelante, el "Cliente" o "Usuario").</p>
+
+        <h2 class="legal-h2">2. Datos Personales Sometidos a Tratamiento</h2>
+        <p class="legal-p">Para llevar a cabo las finalidades descritas en el presente Aviso de Privacidad, Unanimous Growth recabará y someterá a tratamiento las siguientes categorías de datos personales, ya sea de forma directa a través de nuestro sitio web, formularios de contacto, o de forma indirecta mediante nuestras plataformas de Inteligencia Artificial (Chatbots de WhatsApp y Asistentes de Voz):</p>
+        <ul class="legal-ul">
+          <li><strong class="legal-strong">Datos de identificación y contacto:</strong> Nombre completo, razón social, número de teléfono (fijo y/o móvil), correo electrónico y domicilio fiscal o comercial.</li>
+          <li><strong class="legal-strong">Datos patrimoniales o financieros:</strong> Información referente a métodos de pago, datos de facturación (RFC, régimen fiscal) e historial de transacciones comerciales con la agencia.</li>
+          <li><strong class="legal-strong">Datos biométricos y de comportamiento:</strong> Timbres de voz, transcripciones de audio y metadatos de comportamiento, recabados exclusivamente durante las interacciones del Usuario con nuestras interfaces de Inteligencia Artificial Conversacional (Asistentes Telefónicos IA).</li>
+          <li><strong class="legal-strong">Declaratoria de Datos Sensibles:</strong> Unanimous Growth hace de su conocimiento que NO recaba ni trata datos personales sensibles que requieran especial protección conforme al Artículo 3 de la LFPDPPP (tales como origen racial, estado de salud, creencias religiosas o afiliación política).</li>
+        </ul>
+
+        <h2 class="legal-h2">3. Finalidades del Tratamiento de los Datos</h2>
+        <p class="legal-p">Los datos personales recabados serán utilizados bajo los principios de licitud, consentimiento, información, calidad, finalidad, lealtad, proporcionalidad y responsabilidad.</p>
+        <ul class="legal-ul">
+          <li><strong class="legal-strong">Finalidades Primarias (Necesarias para la relación jurídica):</strong> 1) Proveer los servicios de desarrollo web, marketing, branding y automatización contratados. 2) Ejecutar la creación, entrenamiento y mantenimiento de bases de datos, plataformas CRM, embudos de venta y asistentes virtuales (Chatbots e IA de Voz). 3) Gestión administrativa, facturación, cobranza y procesamiento de pagos. 4) Cumplimiento de obligaciones contractuales y legales derivadas de la relación comercial.</li>
+          <li><strong class="legal-strong">Finalidades Secundarias (Comerciales y de prospección):</strong> 1) Envío de material publicitario, promociones, actualizaciones de software y boletines informativos (Email Marketing). 2) Creación de perfiles de consumo para segmentación de campañas (Retargeting/Meta Ads). 3) Análisis estadístico y de calidad del servicio para la mejora continua de nuestros modelos de Inteligencia Artificial.</li>
+        </ul>
+
+        <h2 class="legal-h2">4. Grabaciones de Voz, Inteligencia Artificial y Tecnologías de Rastreo</h2>
+        <p class="legal-p">En cumplimiento con la legislación vigente en materia de telecomunicaciones, se notifica al Usuario que las llamadas telefónicas gestionadas por nuestra Recepcionista Telefónica IA (y tecnologías subyacentes como Twilio o Vapi) son grabadas, transcritas y procesadas en tiempo real mediante algoritmos de procesamiento de lenguaje natural (LLMs) para garantizar la calidad del servicio, ejecutar reservas de citas y registrar información en nuestras bases de datos estructuradas. Asimismo, nuestro sitio web utiliza cookies, web beacons y otras tecnologías de rastreo mediante las cuales es posible monitorear su comportamiento como usuario de Internet, con el fin de brindarle un servicio personalizado.</p>
+
+        <h2 class="legal-h2">5. Transferencia de Datos a Terceros</h2>
+        <p class="legal-p">En estricto apego al Artículo 37 de la LFPDPPP, Unanimous Growth podrá transferir sus datos personales sin necesidad de su consentimiento expreso cuando la transferencia sea necesaria para el mantenimiento o cumplimiento de la relación jurídica entre el Responsable y el Titular. Esto incluye, de manera enunciativa, la transferencia a proveedores de infraestructura en la nube (ej. Hetzner, AWS), plataformas de comunicación (Meta/WhatsApp), pasarelas de pago (Mercado Pago) y motores de Inteligencia Artificial (ej. Google Gemini, OpenAI), los cuales asumen las mismas obligaciones de confidencialidad establecidas en este documento.</p>
+
+        <h2 class="legal-h2">6. Ejercicio de los Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</h2>
+        <p class="legal-p">El Titular tiene, en todo momento, el derecho inalienable de conocer qué datos personales tenemos, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición). Para el ejercicio de cualquiera de los derechos ARCO, el Titular deberá presentar una solicitud formal enviando un correo electrónico al departamento legal de Unanimous Growth a la dirección unanimousgrowth@gmail.com adjuntando copia de su identificación oficial vigente y la descripción clara del derecho que desea ejercer. El plazo de respuesta no excederá de veinte (20) días hábiles.</p>
+
+        <h2 class="legal-h2">7. Modificaciones al Aviso de Privacidad</h2>
+        <p class="legal-p">El presente aviso de privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales, de nuestras propias necesidades por los servicios que ofrecemos, de nuestras prácticas de privacidad o por cambios en nuestro modelo de negocio. Unanimous Growth se compromete a mantenerlo informado sobre los cambios que pueda sufrir el presente documento a través de su publicación directa en el pie de página (Footer) de nuestro sitio web oficial.</p>
+
+      </section>
+
+      <div class="legal-section-divider"></div>
+
+      <section id="terminos" class="legal-section">
+
+        <h1 class="legal-h1">Términos y Condiciones</h1>
+        <p class="legal-updated">Última actualización: marzo de 2026</p>
+
+        <h2 class="legal-h2">1. Aceptación y Naturaleza de los Términos</h2>
+        <p class="legal-p">Al contratar cualquier servicio o paquete (Presencia, Piloto Automático, The Growth, Unanimous Enterprise o Personalizado) de Unanimous Growth, el Cliente acepta incondicionalmente los presentes Términos y Condiciones. Este documento constituye un acuerdo legalmente vinculante que rige el alcance, las limitaciones y las responsabilidades de ambas partes en la prestación de servicios de agencia digital, desarrollo tecnológico y marketing estratégico.</p>
+
+        <h2 class="legal-h2">2. Tarifas, Esquemas de Cobro y Métodos de Pago</h2>
+        <p class="legal-p">Los servicios de la agencia se dividen estructuralmente en pagos de instalación (Setup/Pago Único) y pagos recurrentes (Mensualidades/Igualas).</p>
+        <ul class="legal-ul">
+          <li><strong class="legal-strong">Métodos aceptados:</strong> Los pagos podrán realizarse única y exclusivamente a través de Transferencia Bancaria, Efectivo o mediante la plataforma Mercado Pago.</li>
+          <li><strong class="legal-strong">Condiciones de inicio:</strong> Ningún proyecto de desarrollo, diseño o campaña iniciará operaciones o planificación sin la confirmación y acreditación en firme del pago previo (Setup o anticipo) acordado en la cotización formal.</li>
+          <li><strong class="legal-strong">Mensualidades:</strong> El ciclo de facturación mensual comienza el día natural en que el servicio (sitio web, bot, campaña o gestión de redes) es entregado y activado. El retraso en el pago mensual por un periodo superior a cinco (5) días naturales resultará en la suspensión inmediata y temporal de los servicios, integraciones y automatizaciones, sin responsabilidad para la agencia.</li>
+        </ul>
+
+        <h2 class="legal-h2">3. Delimitación de Servicios y Entregables (Alcance del Proyecto)</h2>
+        <p class="legal-p">Para garantizar la viabilidad operativa y evitar solicitudes fuera del alcance original cotizado, se establecen las siguientes limitantes estrictas por área de servicio:</p>
+        <ul class="legal-ul">
+          <li><strong class="legal-strong">A. Desarrollo Web y Landing Pages:</strong> El costo ampara el diseño y programación estipulados en la propuesta inicial. El Cliente tiene derecho a un máximo de dos (2) rondas de revisión sobre el diseño presentado. Cualquier modificación estructural, adición de nuevas vistas, funciones o cambios posteriores a la aprobación final, se cotizará y facturará como desarrollo independiente.</li>
+          <li><strong class="legal-strong">B. Gestión de Redes Sociales y Contenido:</strong> El servicio de manejo de cuentas no incluye la creación ilimitada de contenido. La cantidad exacta de artes gráficos, publicaciones, historias y videos (Reels/TikToks) estará estrictamente limitada a la cuota establecida en el paquete contratado. Las grabaciones presenciales, coberturas de eventos o ediciones de video que excedan la cuota pactada se facturarán por separado.</li>
+          <li><strong class="legal-strong">C. Inteligencia Artificial y Automatización:</strong> Las cuotas de instalación para Chatbots y Recepcionistas Telefónicas IA cubren la arquitectura del flujo y el entrenamiento base. Los límites de consumo (ej. minutos de voz incluidos) son mensuales y no acumulables. El consumo excedente se facturará a la tarifa estipulada en la cotización vigente.</li>
+          <li><strong class="legal-strong">D. Campañas de Ads (Meta/Google):</strong> La tarifa de la agencia corresponde única y exclusivamente al Setup y a la gestión estratégica de la pauta. El presupuesto publicitario para pagar a las plataformas (Facebook, Instagram, Google, etc.) corre en su totalidad por cuenta del Cliente y deberá ser fondeado directamente en sus respectivos métodos de pago vinculados a las plataformas.</li>
+          <li><strong class="legal-strong">E. Branding y Diseño:</strong> La creación de logotipos e identidad corporativa incluye la presentación de hasta tres (3) propuestas iniciales y dos (2) rondas de ajustes sobre la propuesta elegida. La creación de aplicaciones, manuales extendidos o papelería extra generará cargos adicionales.</li>
+        </ul>
+
+        <h2 class="legal-h2">4. Obligaciones y Tiempos de Respuesta del Cliente</h2>
+        <p class="legal-p">El Cliente se obliga a entregar en tiempo y forma los materiales necesarios para la ejecución del proyecto (logotipos en alta resolución, textos, accesos a correos, cuentas de Meta, hosting, dominios, etc.). Si Unanimous Growth se encuentra a la espera de retroalimentación o material por parte del Cliente por más de cinco (5) días hábiles, los cronogramas y tiempos de entrega pactados se pausarán automáticamente. Si la inactividad del Cliente supera los treinta (30) días naturales, el proyecto se considerará en abandono, facultando a la agencia a requerir un pago administrativo por reactivación.</p>
+
+        <h2 class="legal-h2">5. Propiedad Intelectual y Derechos de Autor</h2>
+        <p class="legal-p">De conformidad con la Ley Federal del Derecho de Autor (Artículos 11, 13, 83 y correlativos), Unanimous Growth se reconoce como el autor material e intelectual de los códigos fuente, diseños gráficos, metodologías de automatización y arquitecturas web desarrolladas. La transferencia de los derechos patrimoniales y la entrega de archivos finales o accesos al Cliente estarán estrictamente sujetas a la liquidación total (100%) de los honorarios pactados. Hasta que no se emita el comprobante de pago final, el uso no autorizado de los entregables constituirá una violación a la legislación aplicable, reservándose la agencia el derecho de ejercer las acciones civiles y penales correspondientes. Las bases de datos y cuentas publicitarias son propiedad del Cliente; la agencia opera exclusivamente como administrador durante la vigencia del servicio.</p>
+
+        <h2 class="legal-h2">6. Cumplimiento y Comercio Electrónico</h2>
+        <p class="legal-p">Las presentes disposiciones se rigen bajo el marco de la Ley Federal de Protección al Consumidor y la Norma Oficial Mexicana NOM-084-SCFI-2012. Unanimous Growth garantiza la transparencia en la descripción de sus paquetes; sin embargo, al tratarse de servicios de marketing digital (B2B), las partes reconocen que los resultados de ventas o posicionamiento están sujetos a las fluctuaciones del mercado, eximiendo a la agencia de responsabilidad por lucro cesante, conforme a lo establecido en el Código de Comercio.</p>
+
+        <h2 class="legal-h2">7. Caso Fortuito y Fuerza Mayor</h2>
+        <p class="legal-p">En apego a lo dispuesto por el Código Civil Federal de los Estados Unidos Mexicanos (Artículo 2111 y aplicables), Unanimous Growth no será responsable por retrasos, interrupciones o fallas en la entrega de los servicios derivadas de eventos fuera de su control razonable. Esto incluye, de manera enunciativa mas no limitativa: caídas de servidores de terceros (Hetzner, AWS, etc.), interrupciones en la API de Meta, WhatsApp, Google o Twilio, bloqueos de cuentas publicitarias por políticas de terceros, huelgas, desastres naturales, o interrupciones en el suministro eléctrico o de telecomunicaciones.</p>
+
+        <h2 class="legal-h2">8. Políticas de Cancelación y Reembolso</h2>
+        <p class="legal-p">Debido a la naturaleza del trabajo digital y las horas invertidas en planeación, estrategia y desarrollo, los pagos únicos (Setup, instalaciones, desarrollos web o branding) no son reembolsables bajo ninguna circunstancia una vez iniciado el proyecto. Para cancelar un servicio mensual recurrente, el Cliente deberá notificar por escrito con un mínimo de quince (15) días naturales de anticipación al siguiente ciclo de corte. No se realizarán reembolsos por fracciones de mes no utilizadas.</p>
+
+        <h2 class="legal-h2">9. Exclusión de Garantías (Limitación de Responsabilidad)</h2>
+        <p class="legal-p">Unanimous Growth aplica metodologías probadas y estrategias de vanguardia en SEO, marketing y automatización. No obstante, la agencia no garantiza un volumen específico de ventas, prospectos (leads), retorno de inversión (ROI), ni posiciones inamovibles en motores de búsqueda, debido a que dichos resultados dependen de variaciones del mercado, la calidad del producto/servicio del Cliente y las actualizaciones de algoritmos de terceros.</p>
+
+        <h2 class="legal-h2">10. Jurisdicción, Competencia y Ley Aplicable</h2>
+        <p class="legal-p">Para todo lo relativo a la interpretación, cumplimiento y ejecución del presente instrumento, así como para la resolución de cualquier controversia que pudiera suscitarse, las partes se someten expresamente a las leyes federales de los Estados Unidos Mexicanos y a la jurisdicción de los Tribunales Estatales y Federales competentes con sede en la ciudad de Saltillo, Coahuila de Zaragoza. En este acto, el Cliente renuncia expresa e irrevocablemente a cualquier otro fuero que, por razón de su domicilio presente o futuro, o por cualquier otra causa, pudiera corresponderle.</p>
+
+      </section>
+
+    </main>
+  </div><Footer />
+
+</body>
+</html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const links   = document.querySelectorAll('.legal-sidebar-link');
+    const targets = document.querySelectorAll('.legal-section');
+
+    if (!links.length || !targets.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            links.forEach(l => l.classList.remove('is-active'));
+            const active = document.querySelector(`.legal-sidebar-link[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('is-active');
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+
+    targets.forEach(t => observer.observe(t));
+  });
+</script>
+
+<style>
+  /* ── Reset / Base ────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --legal-bg:        #0D0D12;
+    --legal-surface:   #13131B;
+    --legal-text:      #E8E6F0;
+    --legal-muted:     rgba(232, 230, 240, 0.5);
+    --legal-border:    rgba(232, 230, 240, 0.08);
+    --legal-accent:    #A08CFF;
+    --legal-font-serif: 'Playfair Display', Georgia, serif;
+    --legal-font-sans:  'Inter', system-ui, sans-serif;
+    --legal-header-h:  64px;
+    --legal-sidebar-w: 240px;
+  }
+
+  .legal-body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--legal-bg);
+    color: var(--legal-text);
+    font-family: var(--legal-font-sans);
+    overflow-x: hidden;
+  }
+
+  /* ── Header ──────────────────────────────────────── */
+  .legal-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--legal-header-h);
+    background-color: rgba(13, 13, 18, 0.92);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border-bottom: 1px solid var(--legal-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+  }
+
+  .legal-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--legal-font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--legal-text);
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s ease, gap 0.2s ease;
+    padding: 0.5rem 0;
+  }
+  .legal-back-btn:hover {
+    opacity: 1;
+    gap: 0.75rem;
+  }
+
+  .legal-back-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .legal-brand {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+  }
+
+  .legal-brand-logo {
+    height: 38px;
+    width: auto;
+    mix-blend-mode: screen;
+    object-fit: contain;
+  }
+
+  /* ── Layout dos columnas ─────────────────────────── */
+  .legal-layout {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    gap: 4rem;
+  }
+
+  /* ── Sidebar ─────────────────────────────────────── */
+  .legal-sidebar {
+    flex-shrink: 0;
+    width: var(--legal-sidebar-w);
+    position: sticky;
+    top: calc(var(--legal-header-h) + 2rem);
+    align-self: flex-start;
+  }
+
+  .legal-sidebar-label {
+    font-family: var(--legal-font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--legal-muted);
+    margin: 0 0 1rem 0;
+  }
+
+  .legal-sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border-left: 1px solid var(--legal-border);
+  }
+
+  .legal-sidebar-link {
+    display: block;
+    font-family: var(--legal-font-sans);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--legal-muted);
+    text-decoration: none;
+    padding: 0.4rem 0 0.4rem 1rem;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    line-height: 1.4;
+  }
+
+  .legal-sidebar-link:hover,
+  .legal-sidebar-link.is-active {
+    color: var(--legal-text);
+    border-left-color: var(--legal-accent);
+  }
+
+  /* ── Main / Contenido ────────────────────────────── */
+  .legal-main {
+    flex: 1;
+    min-width: 0;
+    max-width: 720px;
+  }
+
+  /* ── Secciones ───────────────────────────────────── */
+  .legal-section {
+    scroll-margin-top: calc(var(--legal-header-h) + 2rem);
+    padding-bottom: 4rem;
+  }
+
+  .legal-section-divider {
+    border: none;
+    border-top: 1px solid var(--legal-border);
+    margin-bottom: 4rem;
+  }
+
+  /* ── Tipografía de lectura ───────────────────────── */
+  .legal-h1 {
+    font-family: var(--legal-font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--legal-text);
+    line-height: 1.2;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .legal-updated {
+    font-family: var(--legal-font-sans);
+    font-size: 0.8rem;
+    color: var(--legal-muted);
+    margin: 0 0 2.5rem 0;
+    font-style: italic;
+  }
+
+  .legal-h2 {
+    font-family: var(--legal-font-serif);
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    font-weight: 600;
+    color: var(--legal-text);
+    line-height: 1.3;
+    margin: 2.25rem 0 0.75rem 0;
+  }
+
+  .legal-p {
+    font-family: var(--legal-font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(232, 230, 240, 0.85);
+    line-height: 1.85;
+    margin: 0 0 1.1rem 0;
+  }
+
+  .legal-ul {
+    font-family: var(--legal-font-sans);
+    font-size: 1rem;
+    color: rgba(232, 230, 240, 0.85);
+    line-height: 1.85;
+    margin: 0 0 1.1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .legal-ul li {
+    margin-bottom: 0.4rem;
+  }
+
+  .legal-ul li::marker {
+    color: var(--legal-accent);
+  }
+
+  .legal-strong {
+    font-weight: 600;
+    color: var(--legal-text);
+  }
+
+  /* ─────────────────────────────────────────────────
+     RESPONSIVE
+     ───────────────────────────────────────────────── */
+
+  /* Tablet */
+  @media (max-width: 900px) {
+    .legal-layout {
+      flex-direction: column;
+      gap: 0;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* Sidebar se convierte en tab-bar horizontal */
+    .legal-sidebar {
+      position: sticky;
+      top: var(--legal-header-h);
+      width: 100%;
+      background-color: rgba(13, 13, 18, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--legal-border);
+      padding: 0.75rem 0 0.75rem;
+      z-index: 50;
+      margin: 0 -1.5rem;
+      width: calc(100% + 3rem);
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .legal-sidebar-label {
+      display: none;
+    }
+
+    .legal-sidebar-nav {
+      flex-direction: row;
+      border-left: none;
+      border-bottom: 1px solid var(--legal-border);
+      gap: 0;
+    }
+
+    .legal-sidebar-link {
+      border-left: none;
+      border-bottom: 2px solid transparent;
+      padding: 0.5rem 1rem;
+      margin-left: 0;
+      font-size: 0.85rem;
+    }
+
+    .legal-sidebar-link:hover,
+    .legal-sidebar-link.is-active {
+      border-left-color: transparent;
+      border-bottom-color: var(--legal-accent);
+    }
+
+    .legal-main {
+      max-width: 100%;
+      padding-top: 2rem;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .legal-header {
+      padding: 0 1rem;
+    }
+
+    .legal-back-btn {
+      font-size: 0.85rem;
+    }
+
+    .legal-brand-logo {
+      height: 30px;
+    }
+
+    .legal-layout {
+      padding: 0 1rem 3rem;
+    }
+
+    .legal-sidebar {
+      margin: 0 -1rem;
+      width: calc(100% + 2rem);
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .legal-section {
+      padding-bottom: 2.5rem;
+    }
+  }
+</style>

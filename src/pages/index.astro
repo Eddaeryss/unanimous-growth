@@ -1,6 +1,14 @@
 ---
 // src/pages/index.astro
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import imgDesarrollo from '../assets/icon-desarrollo.jpeg';
+import imgIa from '../assets/icon-ia.jpeg';
+import imgMarketing from '../assets/icon-marketing.jpeg';
+import imgAds from '../assets/icon-ads.jpeg';
+import imgBranding from '../assets/icon-branding.jpeg';
+import imgPaquetes from '../assets/icon-paquetes.jpeg';
 ---
 
 <html lang="es">
@@ -95,24 +103,7 @@ import Header from '../components/Header.astro';
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#desarrollo" class="service-link">
                         <div class="icon-container">
-                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <!-- Monitor frame -->
-                                <rect x="8" y="14" width="74" height="48" rx="5"/>
-                                <!-- Top bar -->
-                                <line x1="8" y1="25" x2="82" y2="25"/>
-                                <!-- Dots -->
-                                <circle cx="17" cy="19.5" r="2" fill="currentColor" stroke="none"/>
-                                <circle cx="24" cy="19.5" r="2" fill="currentColor" stroke="none"/>
-                                <circle cx="31" cy="19.5" r="2" fill="currentColor" stroke="none"/>
-                                <!-- Code brackets -->
-                                <polyline points="31,38 22,46 31,54"/>
-                                <polyline points="59,38 68,46 59,54"/>
-                                <!-- Slash -->
-                                <line x1="43" y1="35" x2="47" y2="57"/>
-                                <!-- Stand -->
-                                <line x1="45" y1="62" x2="45" y2="74"/>
-                                <line x1="30" y1="74" x2="60" y2="74"/>
-                            </svg>
+                            <Image src={imgDesarrollo} alt="Desarrollo Web" class="grid-icon-img" />
                         </div>
                         <h3>Desarrollo web profesional</h3>
                     </a>
@@ -122,32 +113,7 @@ import Header from '../components/Header.astro';
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#ia" class="service-link">
                         <div class="icon-container">
-                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <!-- Robot head -->
-                                <rect x="22" y="26" width="46" height="38" rx="8"/>
-                                <!-- Antenna -->
-                                <line x1="45" y1="26" x2="45" y2="15"/>
-                                <circle cx="45" cy="12" r="4"/>
-                                <!-- Eyes (screen) -->
-                                <rect x="29" y="36" width="12" height="9" rx="2"/>
-                                <rect x="49" y="36" width="12" height="9" rx="2"/>
-                                <!-- Eye glow dot -->
-                                <circle cx="35" cy="40.5" r="2" fill="currentColor" stroke="none"/>
-                                <circle cx="55" cy="40.5" r="2" fill="currentColor" stroke="none"/>
-                                <!-- Mouth / data line -->
-                                <line x1="31" y1="55" x2="59" y2="55"/>
-                                <line x1="37" y1="55" x2="37" y2="58"/>
-                                <line x1="45" y1="55" x2="45" y2="58"/>
-                                <line x1="53" y1="55" x2="53" y2="58"/>
-                                <!-- Side connectors -->
-                                <line x1="22" y1="42" x2="13" y2="42"/>
-                                <circle cx="10" cy="42" r="3"/>
-                                <line x1="68" y1="42" x2="77" y2="42"/>
-                                <circle cx="80" cy="42" r="3"/>
-                                <!-- Legs -->
-                                <line x1="33" y1="64" x2="28" y2="76"/>
-                                <line x1="57" y1="64" x2="62" y2="76"/>
-                            </svg>
+                            <Image src={imgIa} alt="Inteligencia Artificial" class="grid-icon-img" />
                         </div>
                         <h3>Automatización e<br>Inteligencia Artificial</h3>
                     </a>
@@ -157,26 +123,7 @@ import Header from '../components/Header.astro';
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#marketing" class="service-link">
                         <div class="icon-container">
-                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <!-- Y axis -->
-                                <line x1="16" y1="12" x2="16" y2="72"/>
-                                <!-- X axis -->
-                                <line x1="16" y1="72" x2="80" y2="72"/>
-                                <!-- Axis arrows -->
-                                <polyline points="12,18 16,12 20,18"/>
-                                <polyline points="74,68 80,72 74,76"/>
-                                <!-- Bars -->
-                                <rect x="24" y="52" width="12" height="20" rx="2" fill="currentColor" fill-opacity="0.15"/>
-                                <rect x="42" y="38" width="12" height="34" rx="2" fill="currentColor" fill-opacity="0.15"/>
-                                <rect x="60" y="22" width="12" height="50" rx="2" fill="currentColor" fill-opacity="0.15"/>
-                                <!-- Bar outlines -->
-                                <rect x="24" y="52" width="12" height="20" rx="2"/>
-                                <rect x="42" y="38" width="12" height="34" rx="2"/>
-                                <rect x="60" y="22" width="12" height="50" rx="2"/>
-                                <!-- Trend line -->
-                                <polyline points="30,52 48,38 66,22"/>
-                                <polyline points="60,18 66,22 62,28"/>
-                            </svg>
+                            <Image src={imgMarketing} alt="Marketing Digital" class="grid-icon-img" />
                         </div>
                         <h3>Marketing Digital Estratégico</h3>
                     </a>
@@ -186,20 +133,7 @@ import Header from '../components/Header.astro';
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#ads" class="service-link">
                         <div class="icon-container">
-                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <!-- Megaphone body -->
-                                <path d="M22,32 L22,58 L34,58 L62,70 L62,20 L34,32 Z"/>
-                                <!-- Mouth piece detail -->
-                                <line x1="22" y1="32" x2="22" y2="58"/>
-                                <!-- Sound waves -->
-                                <path d="M68,34 Q76,45 68,56" stroke-width="2"/>
-                                <path d="M72,28 Q84,45 72,62" stroke-width="1.5" stroke-opacity="0.6"/>
-                                <!-- Handle -->
-                                <line x1="28" y1="58" x2="28" y2="74"/>
-                                <line x1="22" y1="74" x2="34" y2="74"/>
-                                <!-- Target dot -->
-                                <circle cx="16" cy="45" r="4"/>
-                            </svg>
+                            <Image src={imgAds} alt="Publicidad Digital" class="grid-icon-img" />
                         </div>
                         <h3>Publicidad Digital (Ads)</h3>
                     </a>
@@ -209,21 +143,7 @@ import Header from '../components/Header.astro';
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#branding" class="service-link">
                         <div class="icon-container">
-                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <!-- Diamond gem -->
-                                <polygon points="45,14 70,34 45,76 20,34"/>
-                                <!-- Gem facets -->
-                                <polyline points="20,34 45,48 70,34"/>
-                                <line x1="30" y1="22" x2="45" y2="48"/>
-                                <line x1="60" y1="22" x2="45" y2="48"/>
-                                <line x1="20" y1="34" x2="30" y2="22"/>
-                                <line x1="70" y1="34" x2="60" y2="22"/>
-                                <line x1="30" y1="22" x2="60" y2="22"/>
-                                <!-- Shine -->
-                                <line x1="45" y1="8" x2="45" y2="12"/>
-                                <line x1="56" y1="10" x2="54" y2="13"/>
-                                <line x1="34" y1="10" x2="36" y2="13"/>
-                            </svg>
+                            <Image src={imgBranding} alt="Branding" class="grid-icon-img" />
                         </div>
                         <h3>Branding e Identidad de Marca</h3>
                     </a>
@@ -233,22 +153,7 @@ import Header from '../components/Header.astro';
                 <div class="service-card gsap-stagger">
                     <a href="/servicios#paquetes" class="service-link">
                         <div class="icon-container">
-                            <svg class="grid-icon" viewBox="0 0 90 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <!-- Bottom layer -->
-                                <rect x="12" y="56" width="66" height="22" rx="4"/>
-                                <!-- Middle layer -->
-                                <rect x="18" y="38" width="54" height="20" rx="4"/>
-                                <!-- Top layer -->
-                                <rect x="24" y="22" width="42" height="18" rx="4"/>
-                                <!-- Ribbon vertical -->
-                                <line x1="45" y1="22" x2="45" y2="78"/>
-                                <!-- Ribbon horizontal top -->
-                                <line x1="24" y1="31" x2="66" y2="31"/>
-                                <!-- Ribbon horizontal mid -->
-                                <line x1="18" y1="48" x2="72" y2="48"/>
-                                <!-- Ribbon horizontal bot -->
-                                <line x1="12" y1="67" x2="78" y2="67"/>
-                            </svg>
+                            <Image src={imgPaquetes} alt="Paquetes Integrales" class="grid-icon-img" />
                         </div>
                         <h3>Paquetes Integrales</h3>
                     </a>
@@ -262,34 +167,7 @@ import Header from '../components/Header.astro';
         </a>
     </section>
 
-    <footer id="contacto" class="footer-section">
-        <div class="content-wrapper footer-content">
-            <div class="footer-col brand-col">
-                <img src="/logo-crema.jpg" alt="Unanimous Growth" style="width: 200px; max-width: 100%; height: auto; mix-blend-mode: screen; margin-bottom: 1rem; display: block;">
-                <p class="footer-tagline">Crecemos juntos, con propósito y dirección.</p>
-            </div>
-            
-            <div class="footer-col info-col">
-                <h4>Contacto</h4>
-                <p>📍 Saltillo, Coahuila, México</p>
-                <p>📞 +52 844 910 2095</p>
-                <p>✉️ hola@unanimousgrowth.com</p>
-            </div>
-            
-            <div class="footer-col links-col">
-                <h4>Menú</h4>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="/servicios">Servicios</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Unanimous Growth. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <Footer />
 
     <a href="https://wa.me/528449102095?text=Hola,%20me%20interesa%20iniciar%20un%20proyecto." target="_blank" class="whatsapp-float">
         <svg viewBox="0 0 32 32" width="34" height="34" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.002 2.05A13.91 13.91 0 0 0 2.096 15.96c0 2.45.635 4.84 1.84 6.95L2 29.91l7.16-1.875a13.92 13.92 0 0 0 6.842 1.785h.005A13.912 13.912 0 0 0 29.912 15.96 13.913 13.913 0 0 0 16.002 2.05zm0 23.366a11.536 11.536 0 0 1-5.875-1.6l-.42-.25-4.364 1.144 1.164-4.25-.274-.436A11.532 11.532 0 0 1 4.453 15.96a11.554 11.554 0 0 1 11.55-11.554 11.554 11.554 0 0 1 11.553 11.555 11.554 11.554 0 0 1-11.554 11.455zm6.336-8.663c-.347-.174-2.05-1.013-2.368-1.13-.318-.115-.55-.173-.78.174-.23.346-.897 1.128-1.098 1.36-.2.23-.404.26-.75.086-.347-.173-1.464-.54-2.79-1.724-1.03-1.03-1.725-2.305-1.927-2.652-.202-.347-.022-.535.152-.708.156-.155.347-.404.52-.606.174-.203.232-.347.347-.578.116-.23.058-.433-.028-.606-.087-.173-.78-1.88-1.07-2.574-.28-.675-.568-.583-.78-.594-.2-.01-.432-.012-.663-.012a1.27 1.27 0 0 0-.925.433c-.318.347-1.214 1.186-1.214 2.89s1.243 3.352 1.416 3.583c.174.23 2.44 3.73 5.91 5.23 2.835 1.226 3.468 1.13 4.103 1.07.636-.057 2.05-.838 2.34-1.648.29-.81.29-1.503.203-1.648-.087-.145-.318-.23-.665-.405z"/></svg>
@@ -502,18 +380,16 @@ import Header from '../components/Header.astro';
     .grid-icon { width: 90px; height: 90px; display: block; color: inherit; flex-shrink: 0; }
     .service-link h3 { font-family: var(--font-serif); font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.4; transition: color 0.3s ease; }
     .service-link:hover h3 { color: #555; }
+    /* Imágenes de servicio en lugar de SVG */
+    .grid-icon-img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+    }
 
-    /* FOOTER */
-    .footer-section { background-color: var(--color-black); color: var(--color-cream); padding: 4rem 2rem 1.5rem 2rem; border-top: 1px solid rgba(250, 249, 245, 0.1); width: 100%; box-sizing: border-box;}
-    .footer-content { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem; }
-    .footer-col { flex: 1; min-width: 250px;}
-    .footer-tagline { font-size: 1rem; font-style: italic; opacity: 0.8; }
-    .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
-    .footer-col p, .footer-col ul { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.8; opacity: 0.85; margin-bottom: 0.5rem; }
-    .links-col ul { list-style: none; padding: 0; }
-    .links-col a { transition: color 0.3s ease; }
-    .links-col a:hover { color: #EFEFEF; opacity: 1; }
-    .footer-bottom { text-align: center; border-top: 1px solid rgba(250, 249, 245, 0.1); padding-top: 1.5rem; font-size: 0.85rem; opacity: 0.6; font-family: var(--font-sans); }
+    /* FOOTER — estilos movidos a Footer.astro */
 
     /* BOTONES */
     .scroll-down-btn { position: absolute; bottom: 3vh; left: 50%; transform: translateX(-50%); color: var(--color-cream); animation: bounce 2s infinite; z-index: 50; display: flex; justify-content: center; align-items: center; cursor: pointer; }
@@ -563,9 +439,6 @@ import Header from '../components/Header.astro';
         .title-serif-huge { font-size: clamp(2rem, 7vw, 2.8rem); }
         .heading-mixed    { font-size: clamp(1.6rem, 6vw, 2rem); }
 
-        /* Footer */
-        .footer-content { flex-direction: column; gap: 2rem; }
-        .footer-col     { min-width: unset; }
 
         /* Decorations */
         .desktop-only { display: none; }
@@ -583,8 +456,5 @@ import Header from '../components/Header.astro';
         .align-center     { padding-top: 60px; }
         .fullscreen-section { padding-bottom: 60px; }
 
-        /* Footer */
-        .footer-col h4  { font-size: 1rem; }
-        .footer-col p, .footer-col ul { font-size: 0.85rem; }
     }
 </style>

@@ -30,8 +30,11 @@ const themeAttr = initialTheme;
 <nav id="navbar" class="ug-navbar" data-initial-theme={themeAttr}>
     <div class="ug-logo-wrap">
         <a href={logoHref} class="ug-logo-link" aria-label="Unanimous Growth — Inicio">
-            <img src="/logg2.jpg" alt="Unanimous Growth" class="ug-logo ug-logo-dark-bg" width="180" height="50" draggable="false">
-            <img src="/logo-crema.jpg" alt="Unanimous Growth" class="ug-logo ug-logo-light-bg" width="180" height="50" draggable="false">
+            
+            <div class="ug-logo ug-logo-dark-bg" style="background-image: url('/logg2.jpg'); background-size: contain; background-repeat: no-repeat; background-position: left center;"></div>
+            
+            <div class="ug-logo ug-logo-light-bg" style="background-image: url('/logo-crema.jpg'); background-size: contain; background-repeat: no-repeat; background-position: left center;"></div>
+            
         </a>
     </div>
 
@@ -55,7 +58,6 @@ const themeAttr = initialTheme;
         const navbar   = document.getElementById('navbar') as HTMLElement;
         const toggle   = document.getElementById('ug-mobile-menu') as HTMLButtonElement;
         const navLinks = document.getElementById('ug-nav-links') as HTMLUListElement;
-        const items    = document.querySelectorAll('.ug-nav-item');
 
         if (!navbar || !toggle || !navLinks) return;
 
@@ -64,16 +66,33 @@ const themeAttr = initialTheme;
 
         const lightSections = document.querySelectorAll('.cream-section');
 
+        // ── Variables de control para la animación de ancla
+        let isAnchorScrolling  = false;
+        let anchorScrollTimer: ReturnType<typeof setTimeout> | null = null;
+        let pendingThemeIsLight: boolean | null = null;
+
         function updateNavbarState() {
+            if (isAnchorScrolling) return; // Si viaja por clic, no hacemos nada
+
             const scrolled = window.scrollY > 50;
             navbar.classList.toggle('ug-scrolled', scrolled);
 
             if (scrolled) {
                 let overLight = false;
+                
+                // LA MAGIA DE LA SOLUCIÓN:
+                // Leemos el píxel inmediatamente DEBAJO del header (y = 85).
+                // Esto ignora la sección anterior que se queda estancada en y = 80.
+                const detectionY = 85; 
+
                 lightSections.forEach(section => {
                     const rect = section.getBoundingClientRect();
-                    if (rect.top <= 80 && rect.bottom >= 0) overLight = true;
+                    // Solo es crema si su top está por encima de 85 y su bottom pasa de 85
+                    if (rect.top <= detectionY && rect.bottom > detectionY) {
+                        overLight = true;
+                    }
                 });
+                
                 navbar.classList.toggle('ug-over-light', overLight);
             } else {
                 navbar.classList.remove('ug-over-light');
@@ -81,7 +100,63 @@ const themeAttr = initialTheme;
         }
 
         window.addEventListener('scroll', updateNavbarState, { passive: true });
-        updateNavbarState(); 
+        updateNavbarState();
+
+        function applyThemeForTarget(targetEl: Element | null) {
+            if (!targetEl) return;
+            const isLight = targetEl.classList.contains('cream-section');
+            pendingThemeIsLight = isLight; 
+            navbar.classList.add('ug-scrolled');
+            navbar.classList.toggle('ug-over-light', isLight);
+        }
+
+        function unlockAndCorrect() {
+            if (anchorScrollTimer) { clearTimeout(anchorScrollTimer); anchorScrollTimer = null; }
+
+            if (pendingThemeIsLight !== null) {
+                navbar.classList.add('ug-scrolled');
+                navbar.classList.toggle('ug-over-light', pendingThemeIsLight);
+            }
+
+            isAnchorScrolling  = false;
+            pendingThemeIsLight = null;
+
+            // Esperamos unos milisegundos para que el DOM se asiente
+            setTimeout(updateNavbarState, 80);
+        }
+
+        // Detecta cuando termina la animación nativa de smooth scroll
+        window.addEventListener('scrollend', unlockAndCorrect, { passive: true });
+
+        document.addEventListener('click', (e) => {
+            const link = (e.target as Element).closest('a[href*="#"]') as HTMLAnchorElement | null;
+            if (!link) return;
+
+            const href = link.getAttribute('href') ?? '';
+            const hi   = href.indexOf('#');
+            if (hi === -1) return;
+
+            const hash = href.slice(hi);
+            if (hash === '#') return; // Evita error si el ancla está vacía
+            
+            const targetEl = document.querySelector(hash);
+            if (!targetEl) return;
+
+            // Activa el candado
+            isAnchorScrolling = true;
+            if (anchorScrollTimer) clearTimeout(anchorScrollTimer);
+
+            // Aplica el color del destino inmediatamente
+            applyThemeForTarget(targetEl);
+
+            // Fallback por si scrollend falla en navegadores antiguos
+            anchorScrollTimer = setTimeout(unlockAndCorrect, 850);
+
+            // Cerrar menú mobile si estaba abierto
+            navLinks.classList.remove('is-open');
+            toggle.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+        });
 
         toggle.addEventListener('click', () => {
             const isOpen = navLinks.classList.toggle('is-open');
@@ -89,12 +164,11 @@ const themeAttr = initialTheme;
             toggle.setAttribute('aria-expanded', String(isOpen));
         });
 
-        items.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('is-open');
-                toggle.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
+        window.addEventListener('hashchange', () => {
+            if (location.hash) {
+                const targetEl = document.querySelector(location.hash);
+                requestAnimationFrame(() => applyThemeForTarget(targetEl));
+            }
         });
     });
 </script>
@@ -134,14 +208,14 @@ const themeAttr = initialTheme;
     .ug-navbar.theme-dark { color: var(--ug-cream); }
     .ug-navbar.theme-dark .ug-logo-dark-bg  { opacity: 1; }
     .ug-navbar.theme-dark .ug-logo-light-bg { opacity: 0; }
-    .ug-navbar.theme-dark .ug-nav-item      { color: var(--ug-cream); }
-    .ug-navbar.theme-dark .ug-bar           { background-color: var(--ug-cream); }
+    .ug-navbar.theme-dark .ug-nav-item      { color: var(--ug-cream);                }
+    .ug-navbar.theme-dark .ug-bar           { background-color: var(--ug-cream);     }
 
     .ug-navbar.theme-light { color: var(--ug-black); }
     .ug-navbar.theme-light .ug-logo-dark-bg  { opacity: 0; }
     .ug-navbar.theme-light .ug-logo-light-bg { opacity: 1; }
-    .ug-navbar.theme-light .ug-nav-item      { color: var(--ug-black); }
-    .ug-navbar.theme-light .ug-bar           { background-color: var(--ug-black); }
+    .ug-navbar.theme-light .ug-nav-item      { color: var(--ug-black);                  }
+    .ug-navbar.theme-light .ug-bar           { background-color: var(--ug-black);       }
 
     .ug-navbar.ug-scrolled:not(.ug-over-light) {
         background-color: rgba(13, 13, 18, 0.85);
@@ -153,8 +227,8 @@ const themeAttr = initialTheme;
     }
     .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-logo-dark-bg  { opacity: 1; }
     .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-logo-light-bg { opacity: 0; }
-    .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-nav-item      { color: var(--ug-cream); }
-    .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-bar           { background-color: var(--ug-cream); }
+    .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-nav-item      { color: var(--ug-cream);             }
+    .ug-navbar.ug-scrolled:not(.ug-over-light) .ug-bar           { background-color: var(--ug-cream);  }
 
     .ug-navbar.ug-scrolled.ug-over-light {
         background-color: rgba(250, 249, 245, 0.90);
@@ -166,8 +240,8 @@ const themeAttr = initialTheme;
     }
     .ug-navbar.ug-scrolled.ug-over-light .ug-logo-dark-bg  { opacity: 0; }
     .ug-navbar.ug-scrolled.ug-over-light .ug-logo-light-bg { opacity: 1; }
-    .ug-navbar.ug-scrolled.ug-over-light .ug-nav-item      { color: var(--ug-black); }
-    .ug-navbar.ug-scrolled.ug-over-light .ug-bar           { background-color: var(--ug-black); }
+    .ug-navbar.ug-scrolled.ug-over-light .ug-nav-item      { color: var(--ug-black);                 }
+    .ug-navbar.ug-scrolled.ug-over-light .ug-bar           { background-color: var(--ug-black);       }
 
     .ug-logo-wrap {
         position: relative;
@@ -176,7 +250,6 @@ const themeAttr = initialTheme;
         z-index: 1002;
         flex-shrink: 0;
     }
-
     .ug-logo-link {
         display: block;
         width: 100%;
@@ -193,12 +266,10 @@ const themeAttr = initialTheme;
     .ug-logo {
         position: absolute;
         top: 0; left: 0;
-        width: 180px;
-        height: 50px;
-        object-fit: contain;
-        object-position: left center;
+        width: 100%;
+        height: 100%;
         transition: opacity var(--ug-transition);
-        pointer-events: none;
+        pointer-events: none; 
         user-select: none;
         -webkit-user-select: none;
     }
