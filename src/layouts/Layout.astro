@@ -1,23 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Unanimous Growth</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		overflow-x: hidden;
+	}
+
+	/* ─── ZOOM NATIVO PARA ESCRITORIO ────────────────────────────────────────────
+	   Aplicar zoom en <html> es equivalente al zoom del navegador:
+	   todo se re-renderiza al 80% sin problemas de ancho ni márgenes.
+	   Mobile (< 1024px) queda intacto al 100%.
+	────────────────────────────────────────────────────────────────────────────── */
+	@media (min-width: 1024px) {
+		html {
+			zoom: 0.8;
+		}
 	}
 </style>

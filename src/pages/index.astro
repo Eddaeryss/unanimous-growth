@@ -288,6 +288,10 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
         --font-sans: 'Inter', sans-serif;
     }
     html { scroll-behavior: smooth; }
+    /* ── Zoom nativo escritorio: iguala al 80% del navegador ── */
+    @media (min-width: 1024px) {
+        html { zoom: 0.8; }
+    }
     body { margin: 0; padding: 0; font-family: var(--font-serif); background-color: #0D0D12; color: var(--color-cream); overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; }
     p { font-family: var(--font-sans); }
@@ -455,6 +459,15 @@ import imgPaquetes from '../assets/icon-paquetes.jpeg';
         .grid-icon        { width: 70px; height: 70px; }
         .align-center     { padding-top: 60px; }
         .fullscreen-section { padding-bottom: 60px; }
+    }
 
+    /* ─── COMPENSACIÓN ZOOM 0.8 ESCRITORIO ────────────────────────────────────
+       zoom:0.8 en html hace que 1vh = 80% del alto físico real.
+       Para que cada sección cubra 100% de pantalla se necesita 125vh (=100/0.8).
+       !important para sobreescribir el style="" inline del #servicios.
+    ─────────────────────────────────────────────────────────────────────────── */
+    @media (min-width: 1024px) {
+        .fullscreen-section { height: 125vh !important; min-height: 125vh !important; }
+        #servicios          { min-height: 125vh !important; }
     }
 </style>

@@ -182,6 +182,11 @@ const sections = [
   /* ── Reset / Base ────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; }
 
+  /* ── Zoom nativo escritorio: iguala al 80% del navegador ── */
+  @media (min-width: 1024px) {
+    html { zoom: 0.8; }
+  }
+
   :root {
     --legal-bg:        #0D0D12;
     --legal-surface:   #13131B;

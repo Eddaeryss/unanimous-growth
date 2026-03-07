@@ -406,6 +406,10 @@ import imgBranding from '../assets/icon-branding.jpeg';
         --header-h: 80px;
     }
     html { scroll-behavior: smooth; }
+    /* ── Zoom nativo escritorio: iguala al 80% del navegador ── */
+    @media (min-width: 1024px) {
+        html { zoom: 0.8; }
+    }
     body { margin: 0; padding: 0; font-family: var(--font-serif); background-color: #0D0D12; color: var(--color-cream); overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; }
     p { font-family: var(--font-sans); }
@@ -909,5 +913,17 @@ import imgBranding from '../assets/icon-branding.jpeg';
         .footer-col h4  { font-size: 1rem; }
         .footer-col p, .footer-col ul { font-size: 0.88rem; }
         .footer-section { padding: 2.5rem 1.2rem 1.5rem; }
+    }
+
+    /* ─── COMPENSACIÓN ZOOM 0.8 ESCRITORIO ────────────────────────────────────
+       zoom:0.8 en html hace que 1vh = 80% del alto físico real.
+       Para que cada sección cubra 100% de pantalla: min-height: 125vh (=100/0.8).
+       calc(125vh - header) para secciones que descuentan el header sticky.
+       !important sobreescribe el style="" inline del #paquetes.
+    ─────────────────────────────────────────────────────────────────────────── */
+    @media (min-width: 1024px) {
+        .fullscreen-section { min-height: calc(125vh - var(--header-h)) !important; }
+        #inicio-servicios   { min-height: 125vh !important; }
+        #paquetes           { min-height: 125vh !important; height: auto !important; }
     }
 </style>
