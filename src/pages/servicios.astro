@@ -764,7 +764,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
     .btn-diamond:hover { background-color: #B9F2FF; color: var(--color-black); box-shadow: 0 0 15px rgba(185,242,255,0.3); }
 
     /* BOTONES SCROLL */
-    .scroll-down-btn { position: absolute; bottom: 4vh; left: 50%; transform: translateX(-50%); color: var(--color-cream); animation: bounce 2s infinite; z-index: 50; display: flex; justify-content: center; align-items: center; cursor: pointer; }
+    .scroll-down-btn { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: var(--color-cream); animation: bounce 2s infinite; z-index: 50; display: flex; justify-content: center; align-items: center; cursor: pointer; }
     .scroll-down-btn.dark-btn { color: var(--color-black); }
     @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
@@ -811,7 +811,7 @@ import imgBranding from '../assets/icon-branding.jpeg';
     /* ── MOBILE / PORTRAIT TABLET (≤ 900px) ── */
     @media (max-width: 900px) {
         /* 1. Sections */
-        .fullscreen-section { height: auto; min-height: auto; padding: 100px 0 80px; scroll-margin-top: var(--header-h); }
+        .fullscreen-section { height: auto; min-height: auto; padding: 100px 0 90px; scroll-margin-top: var(--header-h); }
         .content-wrapper { padding: 0 1.5rem; }
 
         /* 2. Hero collapses to column, centered */
@@ -834,14 +834,24 @@ import imgBranding from '../assets/icon-branding.jpeg';
         .animate-left.active,
         .animate-right.active { transform: translateY(0) translateZ(0); opacity: 1; }
 
-        /* 5. Feature list — block so it never overflows horizontally */
+        /* 5. Feature list — bloque limpio en mobile */
         .feature-list { display: block; width: 100%; box-sizing: border-box; }
-        .feature-list li { flex-wrap: wrap; gap: 0.25rem; }
-        .feat-price { white-space: normal; font-size: 0.9rem; }
+        /* En mobile pequeño: nombre en su línea, precio en la siguiente con indent */
+        .feature-list li {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .dark-section .feature-list li { border-bottom-color: rgba(255,255,255,0.06); }
+        .feat-name  { font-size: 1rem; line-height: 1.35; }
+        .feat-price { font-size: 0.88rem; opacity: 0.7; margin-top: 0.1rem; font-weight: 600; white-space: normal; }
+        .feat-note  { font-size: 0.8rem; }
 
         /* 6. Service image — smaller, floats above text */
-        .service-img { width: 120px; height: 120px; }
-        .icon-block  { order: -1; }
+        .service-img { width: 100px; height: 100px; }
+        .icon-block  { order: -1; padding-top: 0.5rem; }
 
         /* 7. Buttons — 48px min touch target (Apple/Google HIG) */
         .btn-primary {
